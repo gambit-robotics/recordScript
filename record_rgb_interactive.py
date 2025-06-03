@@ -18,7 +18,7 @@ load_dotenv()
 
 # ---------------------------------------------------------------------
 # Config – change only these four lines
-CAMERA_NAME = "overhead-rgb"   # the name in your Viam config
+CAMERA_NAME = os.environ.get("VIAM_CAMERA_NAME", "overhead-rgb")  # Camera name from Viam config
 FPS         = 10               # playback + capture rate
 OUT_FILE    = "cooking_actions_recording.mp4"
 LOG_FILE    = "cooking_actions_log.csv"
@@ -158,11 +158,16 @@ class CookingCoach:
     async def get_user_input(self, prompt):
         """Get user input asynchronously."""
         print(f"\n🎬 {prompt}")
-        print("Press ENTER to continue...")
+        print("\n" + "⏭️  Press ENTER to continue..." + " " * 20)
+        print("👆 WAITING FOR YOUR INPUT ^^")
         
         # Use asyncio to handle input without blocking
         loop = asyncio.get_event_loop()
-        await loop.run_in_executor(None, input)
+        try:
+            await loop.run_in_executor(None, input)
+            print("✅ Input received, continuing...")
+        except Exception as e:
+            print(f"⚠️  Input error: {e}")
         
     async def setup_phase(self):
         """Initial setup and preparation phase."""
@@ -170,33 +175,77 @@ class CookingCoach:
         print("🍳 COOKING ACTION RECORDING SETUP")
         print("="*60)
         
+        print("🔧 Step 1: Preparation")
         await self.get_user_input(
-            "Welcome! We'll record you performing cooking actions.\n"
-            "Please prepare the following items:\n"
+            "Welcome! We'll record you performing cooking actions.\n\n"
+            "🚨 IMPORTANT: Make sure your cooktop/workspace is COMPLETELY EMPTY!\n"
+            "   • No pan on the cooktop\n"
+            "   • No food items visible\n"
+            "   • Clean, clear workspace\n\n"
+            "Please prepare the following items OFF to the side:\n"
             "• A pan\n"
             "• A lid that fits the pan\n"
             "• Food of your choice (apple, toy food, or real ingredients)\n\n"
-            "IMPORTANT: Tell me now - does your recipe involve STIRRING or FLIPPING?"
+            "We'll guide you to add/remove items step by step.\n"
+            "Does your recipe involve STIRRING or FLIPPING?"
         )
         
         # Get cooking method
+        print("\n🔧 Step 2: Cooking method")
         print("\nType 'stir' for stirring actions or 'flip' for flipping actions:")
+        print("👆 WAITING FOR YOUR COOKING METHOD ^^")
         loop = asyncio.get_event_loop()
-        cooking_method = await loop.run_in_executor(None, input)
-        self.cooking_method = cooking_method.strip().lower()
+        try:
+            cooking_method = await loop.run_in_executor(None, input)
+            self.cooking_method = cooking_method.strip().lower()
+            print(f"✅ Got cooking method: '{self.cooking_method}'")
+        except Exception as e:
+            print(f"⚠️  Input error: {e}, defaulting to 'stir'")
+            self.cooking_method = 'stir'
         
         if self.cooking_method not in ['stir', 'flip']:
+            print(f"⚠️  Invalid method '{self.cooking_method}', defaulting to 'stir'")
             self.cooking_method = 'stir'  # Default to stirring
             
         action_word = "stirring" if self.cooking_method == 'stir' else "flipping"
         
+        print("\n🔧 Step 3: Final preparation")
         await self.get_user_input(
-            f"Perfect! I'll guide you through {action_word} actions.\n"
-            "Make sure your workspace is ready and all items are within reach.\n"
-            "The camera should have a clear view of your cooking area."
+            f"Perfect! I'll guide you through {action_word} actions.\n\n"
+            "✅ Confirm your workspace setup:\n"
+            "   • Cooktop/workspace is completely empty\n"
+            "   • Pan, lid, and food are ready off to the side\n"
+            "   • Camera has a clear view of the cooking area\n\n"
+            "Ready to start recording!"
         )
         
         self.setup_complete = True
+        print("🎉 Setup phase completed! Moving to recording...")
+        
+    async def execute_single_action(self, action_name, rep_info=""):
+        """Execute a single action with user confirmation."""
+        # Update status for live feed display
+        self.current_action_text = f"{action_name} {rep_info}"
+        
+        # Log action start
+        self.logger.start_action(
+            action_category="cooking_action",
+            action_description=action_name,
+            rep_number=self.current_rep
+        )
+        
+        await self.get_user_input(
+            f"{action_name}\n"
+            f"Get ready to perform this action..."
+        )
+        
+        # Log action end
+        self.logger.end_action(f"{action_name} completed")
+        
+        # Wait 5 seconds between all actions
+        self.current_action_text = f"Waiting 5 seconds..."
+        print(f"⏳ Waiting 5 seconds...")
+        await asyncio.sleep(5)
         
     async def execute_action_sequence(self, action_name, count=3, delay=5):
         """Execute a sequence of actions with delays."""
@@ -205,29 +254,31 @@ class CookingCoach:
         print(f"{'='*50}")
         
         for i in range(count):
-            # Update status for live feed display
-            self.current_action_text = f"{action_name} (Rep {i+1}/{count})"
             self.current_rep = i + 1
+            rep_info = f"(Rep {i+1}/{count})"
             
-            # Log action start
-            self.logger.start_action(
-                action_category="cooking_action",
-                action_description=action_name,
-                rep_number=i+1
-            )
+            if "pan" in action_name.lower():
+                # Separate add and remove pan actions
+                await self.execute_single_action(f"Add the pan to the cooking area", rep_info)
+                await self.execute_single_action(f"Remove the pan from the cooking area", rep_info)
+                
+            elif "lid" in action_name.lower():
+                # Separate add and remove lid actions
+                await self.execute_single_action(f"Place the lid on the pan area", rep_info)
+                await self.execute_single_action(f"Remove the lid from the pan area", rep_info)
+                
+            elif "food" in action_name.lower() and ("stir" in action_name.lower() or "flip" in action_name.lower()):
+                # Food cooking actions
+                await self.execute_single_action(f"Add the food to the cooking area", rep_info)
+                await self.execute_single_action(f"Perform a {self.cooking_method} motion", rep_info)
+                await self.execute_single_action(f"Remove the food from the cooking area", rep_info)
+                
+            elif "food" in action_name.lower():
+                # Simple food add/remove
+                await self.execute_single_action(f"Add the food to the pan area", rep_info)
+                await self.execute_single_action(f"Remove the food from the pan area", rep_info)
             
-            await self.get_user_input(
-                f"Step {i+1}/{count}: {action_name}\n"
-                f"Get ready to perform this action..."
-            )
-            
-            # Log action end
-            self.logger.end_action(f"Repetition {i+1} of {count}")
-            
-            if i < count - 1:  # Don't wait after the last action
-                self.current_action_text = f"Waiting... (Next: Rep {i+2}/{count})"
-                print(f"⏳ Waiting {delay} seconds before next action...")
-                await asyncio.sleep(delay)
+            # No additional wait needed - the 5-second wait after each action provides uniform timing
                 
         self.current_action_text = "Action sequence completed"
                 
@@ -241,16 +292,17 @@ class CookingCoach:
         
         print(f"\n🚀 STARTING RECORDING SESSION")
         print("The camera is now recording all your actions!")
+        print("Remember: Start with an empty cooktop!")
         
         # Sequence of cooking actions
         actions = [
-            ("Add the pan to the cooking area, then remove it", 3),
-            ("Place the lid on the pan area, then remove it", 3),
-            (f"Add the food, then perform a {self.cooking_method} motion", 3),
-            ("Add the food to the pan, then remove it completely", 3)
+            ("Pan manipulation", 3),
+            ("Lid manipulation", 3),  
+            (f"Food cooking with {self.cooking_method}", 3),
+            ("Food manipulation", 3)
         ]
         
-        self.total_steps = sum(count for _, count in actions)
+        self.total_steps = sum(count for _, count in actions) * 2  # Each action now has 2+ steps
         
         for action_desc, count in actions:
             await self.execute_action_sequence(action_desc, count)
@@ -261,6 +313,7 @@ class CookingCoach:
         print(f"\n🎉 EXCELLENT! All cooking actions completed!")
         print("Recording will continue until you press Ctrl-C")
         print("Feel free to practice more or try variations!")
+        print("Remember to keep the workspace clear between actions!")
         
         # Log free practice phase
         self.current_action_text = "Free practice - do anything!"
@@ -433,15 +486,31 @@ async def record_video(coach, logger):
 
 async def main():
     """Main function that runs coaching and recording concurrently."""
+    print("\n🎬 INTERACTIVE RECORDING SESSION")
+    print("=" * 50)
+    
     # Initialize logger
     logger = ActionLogger(LOG_FILE)
     coach = CookingCoach(logger)
     
-    # Run setup first, then start recording and coaching in parallel
-    await coach.setup_phase()
+    # Do setup phase with clear prompts
+    print("\n🔧 Starting setup phase...")
+    try:
+        await coach.setup_phase()
+        print("✅ Setup phase completed!")
+    except Exception as e:
+        print(f"❌ Setup failed: {e}")
+        return
+    
+    print("\n🚀 Setup complete! Starting recording and coaching...")
+    print("📝 Note: You'll see prompts in this terminal while the video records")
     
     # Start both recording and coaching concurrently
     recording_task = asyncio.create_task(record_video(coach, logger))
+    
+    # Give recording a moment to start
+    await asyncio.sleep(2)
+    
     coaching_task = asyncio.create_task(coach.run_coaching_sequence())
     
     try:
@@ -455,6 +524,10 @@ async def main():
             recording_task.cancel()
         if not coaching_task.done():
             coaching_task.cancel()
+        
+        print(f"\n✅ Session complete! Check your files:")
+        print(f"   📹 Video: {OUT_FILE}")
+        print(f"   📊 Log: {LOG_FILE}")
 
 if __name__ == "__main__":
     try:

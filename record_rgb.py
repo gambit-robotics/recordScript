@@ -15,8 +15,8 @@ from viam.media.video import CameraMimeType
 load_dotenv()
 
 # ---------------------------------------------------------------------
-# Config – change only these four lines
-CAMERA_NAME = "overhead-rgb"   # the name in your Viam config
+# Config – change only these three lines
+CAMERA_NAME = os.environ.get("VIAM_CAMERA_NAME", "overhead-rgb")  # Camera name from Viam config
 FPS         = 10               # playback + capture rate
 OUT_FILE    = "overhead_rgb_live.mp4"
 SHOW_LIVE_FEED = True          # Display live camera feed window

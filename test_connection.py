@@ -15,7 +15,7 @@ from viam.media.video import CameraMimeType
 load_dotenv()
 
 # Camera name to test
-CAMERA_NAME = "overhead-rgb"  # Change this to match your Viam config
+CAMERA_NAME = os.environ.get("VIAM_CAMERA_NAME", "overhead-rgb")  # Camera name from Viam config
 
 async def test_connection():
     """Test connection to robot and camera."""

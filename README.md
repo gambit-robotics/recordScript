@@ -24,10 +24,13 @@ Get your credentials from [app.viam.com](https://app.viam.com):
 -   Go to **API Keys** → **"Create key…"**
 -   Go to **Connect** → **Code Sample** for your machine's address
 
+**create a `.env` file:**
+
 ```bash
-export VIAM_API_KEY_ID="ck_************************"
-export VIAM_API_KEY="vs_************************"
-export VIAM_ADDRESS="your-machine.viam.cloud:8080"
+VIAM_API_KEY_ID=ck_************************
+VIAM_API_KEY=vs_************************
+VIAM_ADDRESS=your-machine.viam.cloud:8080
+VIAM_CAMERA_NAME=your-camera-name
 ```
 
 ### 4. Test Your Connection (Recommended)
@@ -46,15 +49,7 @@ This will:
 -   🖼️ Test frame capture
 -   📐 Show video resolution
 
-### 5. Configure Camera
-
-Edit camera name in all scripts to match your Viam config:
-
-```python
-CAMERA_NAME = "your-camera-name"   # Change this in all .py files
-```
-
-### 6. Start Recording
+### 5. Start Recording
 
 **Option A: Use the launcher (recommended)**
 
@@ -287,10 +282,19 @@ Both recording scripts now provide detailed logging:
 
 ## ⚙️ Configuration Options
 
-Edit these variables in the recording scripts:
+All configuration is now handled via environment variables and `.env` file:
+
+```bash
+# Environment Variables (.env file)
+VIAM_API_KEY_ID=your_api_key_id
+VIAM_API_KEY=your_api_key
+VIAM_ADDRESS=your_machine_address:8080
+VIAM_CAMERA_NAME=your_camera_name
+```
+
+**Optional settings** you can edit in the recording scripts:
 
 ```python
-CAMERA_NAME = "overhead-rgb"   # Your camera name from Viam config
 FPS         = 10               # Frames per second for recording
 OUT_FILE    = "video_name.mp4" # Output filename
 LOG_FILE    = "actions_log.csv" # Action log filename (interactive mode)
@@ -436,7 +440,7 @@ python3 test_connection.py
 
 ### "Camera not found"
 
--   Check your `CAMERA_NAME` matches exactly what's in your Viam config
+-   Check your `VIAM_CAMERA_NAME` environment variable matches exactly what's in your Viam config
 -   Verify your robot is online at app.viam.com
 -   Run `test_connection.py` to see available cameras
 
