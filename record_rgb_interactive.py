@@ -95,13 +95,20 @@ class ActionLogger:
         
         # Determine action category from description
         action_category = "unknown"
-        if "pan" in self.current_action.lower():
+        action_lower = self.current_action.lower()
+        
+        if "pan" in action_lower:
             action_category = "pan_manipulation"
-        elif "lid" in self.current_action.lower():
+        elif "lid" in action_lower:
             action_category = "lid_manipulation"
-        elif "food" in self.current_action.lower() and ("stir" in self.current_action.lower() or "flip" in self.current_action.lower()):
+        elif ("stir" in action_lower or "flip" in action_lower) and "motion" in action_lower:
+            # Cooking motions (stir/flip actions)
             action_category = "food_cooking"
-        elif "food" in self.current_action.lower():
+        elif "food" in action_lower and ("stir" in action_lower or "flip" in action_lower):
+            # Food cooking actions that also mention food
+            action_category = "food_cooking"
+        elif "food" in action_lower:
+            # General food manipulation
             action_category = "food_manipulation"
         
         # Write to CSV
