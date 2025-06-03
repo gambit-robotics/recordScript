@@ -1,3 +1,5 @@
 viam-sdk
 opencv-python
-numpy 
+numpy
+pandas
+matplotlib 
