@@ -171,16 +171,30 @@ The interactive mode automatically generates timestamped logs perfect for machin
 
 ```csv
 session_timestamp,action_category,action_description,repetition_number,start_time_seconds,end_time_seconds,duration_seconds,video_filename,notes
-2024-06-03 14:30:15,pan_manipulation,"Add the pan to the cooking area, then remove it",1,15.23,18.45,3.22,cooking_actions_recording.mp4,"Repetition 1 of 3"
-2024-06-03 14:30:23,pan_manipulation,"Add the pan to the cooking area, then remove it",2,23.67,26.89,3.22,cooking_actions_recording.mp4,"Repetition 2 of 3"
+2024-06-03 14:30:15,pan_manipulation,add-pan,1,15.23,18.45,3.22,cooking_actions_recording.mp4,"add-pan completed"
+2024-06-03 14:30:23,pan_manipulation,remove-pan,1,23.67,26.89,3.22,cooking_actions_recording.mp4,"remove-pan completed"
+2024-06-03 14:30:35,lid_manipulation,add-lid,1,35.45,38.67,3.22,cooking_actions_recording.mp4,"add-lid completed"
+2024-06-03 14:30:47,food_manipulation,add-food,1,47.89,51.11,3.22,cooking_actions_recording.mp4,"add-food completed"
+2024-06-03 14:30:59,food_cooking,stir,1,59.33,62.55,3.22,cooking_actions_recording.mp4,"stir completed"
 ```
+
+### **Action Descriptions:**
+
+**Simple, standardized labels perfect for ML:**
+
+-   🍳 **`add-pan`**, **`remove-pan`** - Pan manipulation
+-   🎯 **`add-lid`**, **`remove-lid`** - Lid manipulation
+-   🥄 **`stir`**, **`flip`** - Cooking motions
+-   🍎 **`add-food`**, **`remove-food`** - Food manipulation
+-   🧂 **`season`** - Seasoning actions
 
 ### **Action Categories:**
 
--   🍳 **`pan_manipulation`** - Adding/removing pan
--   🎯 **`lid_manipulation`** - Adding/removing lid
--   🥄 **`food_cooking`** - Stirring/flipping food
--   🍎 **`food_manipulation`** - Adding/removing food
+-   🍳 **`pan_manipulation`** - add-pan, remove-pan
+-   🎯 **`lid_manipulation`** - add-lid, remove-lid
+-   🥄 **`food_cooking`** - stir, flip
+-   🍎 **`food_manipulation`** - add-food, remove-food
+-   🧂 **`food_seasoning`** - season
 -   📊 **`phase_transition`** - Session phases (setup, coaching, free practice)
 
 ### **Analyze Your Data:**
@@ -345,16 +359,46 @@ Each interactive session creates:
 import pandas as pd
 import cv2
 
-# Load action annotations
-actions = pd.read_csv('cooking_actions_log.csv')
+# Load ML-ready dataset (exported by analyze_log.py)
+ml_data = pd.read_csv('ml_dataset.csv')
 video = cv2.VideoCapture('cooking_actions_recording.mp4')
 
+# The ML dataset includes both category and precise action labels
+print("Available columns:", ml_data.columns.tolist())
+# ['video_filename', 'category_label', 'action_label', 'start_time_seconds',
+#  'end_time_seconds', 'duration_seconds', 'video_start_frame', 'video_end_frame']
+
 # Extract action segments for training
-for _, action in actions.iterrows():
-    start_frame = int(action['start_time_seconds'] * 10)  # 10 FPS
-    end_frame = int(action['end_time_seconds'] * 10)
-    label = action['action_category']
-    # Process video segment...
+for _, segment in ml_data.iterrows():
+    start_frame = segment['video_start_frame']
+    end_frame = segment['video_end_frame']
+
+    category = segment['category_label']      # e.g., 'food_cooking'
+    action = segment['action_label']          # e.g., 'stir'
+
+    # Use either broad categories or precise actions for training
+    label = action  # Use precise action labels for fine-grained classification
+    # label = category  # Or use broader categories for coarse classification
+
+    # Extract video frames
+    video.set(cv2.CAP_PROP_POS_FRAMES, start_frame)
+    frames = []
+    for frame_num in range(start_frame, end_frame):
+        ret, frame = video.read()
+        if ret:
+            frames.append(frame)
+
+    # Process frames for your model...
+    print(f"Segment: {action} ({category}) - {len(frames)} frames")
+```
+
+**Generated ML Dataset Format:**
+
+```csv
+video_filename,category_label,action_label,start_time_seconds,end_time_seconds,duration_seconds,video_start_frame,video_end_frame
+cooking_actions_recording.mp4,pan_manipulation,add-pan,15.23,18.45,3.22,152,184
+cooking_actions_recording.mp4,pan_manipulation,remove-pan,23.67,26.89,3.22,236,268
+cooking_actions_recording.mp4,food_cooking,stir,59.33,62.55,3.22,593,625
 ```
 
 ## 🔧 Advanced Options

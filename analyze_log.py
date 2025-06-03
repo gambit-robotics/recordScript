@@ -42,15 +42,19 @@ def analyze_log(log_file="cooking_actions_log.csv"):
     
     # Category breakdown
     print(f"\n📊 Action Categories:")
-    category_stats = actions.groupby('action_category').agg({
-        'duration_seconds': ['count', 'mean', 'sum']
-    }).round(2)
-    
     for category in actions['action_category'].unique():
         count = len(actions[actions['action_category'] == category])
         avg_duration = actions[actions['action_category'] == category]['duration_seconds'].mean()
         total_duration = actions[actions['action_category'] == category]['duration_seconds'].sum()
         print(f"   {category}: {count} actions, avg {avg_duration:.1f}s, total {total_duration:.1f}s")
+    
+    # Action description breakdown
+    print(f"\n🎯 Precise Action Labels:")
+    for action_desc in sorted(actions['action_description'].unique()):
+        count = len(actions[actions['action_description'] == action_desc])
+        avg_duration = actions[actions['action_description'] == action_desc]['duration_seconds'].mean()
+        category = actions[actions['action_description'] == action_desc]['action_category'].iloc[0]
+        print(f"   {action_desc}: {count} times, avg {avg_duration:.1f}s ({category})")
     
     # Repetition analysis
     print(f"\n🔄 Repetition Analysis:")
@@ -69,12 +73,13 @@ def analyze_log(log_file="cooking_actions_log.csv"):
     # Generate summary for ML use
     print(f"\n🤖 Machine Learning Dataset Summary:")
     print(f"   Video segments: {len(actions)} labeled actions")
-    print(f"   Classes: {list(actions['action_category'].unique())}")
+    print(f"   Action categories: {list(actions['action_category'].unique())}")
+    print(f"   Precise actions: {list(sorted(actions['action_description'].unique()))}")
     print(f"   Balanced dataset: {'Yes' if actions['action_category'].value_counts().std() < 2 else 'No'}")
     
     # Show sample data
     print(f"\n📋 Sample Action Entries:")
-    sample_actions = actions[['action_category', 'repetition_number', 'start_time_seconds', 'end_time_seconds', 'duration_seconds']].head()
+    sample_actions = actions[['action_category', 'action_description', 'repetition_number', 'start_time_seconds', 'end_time_seconds', 'duration_seconds']].head()
     print(sample_actions.to_string(index=False))
     
     return df, actions
@@ -124,14 +129,25 @@ def export_for_ml(actions, output_file="ml_dataset.csv"):
         return
     
     # Create ML-ready dataset
-    ml_data = actions[['action_category', 'start_time_seconds', 'end_time_seconds', 'duration_seconds', 'video_filename']].copy()
-    ml_data['label'] = ml_data['action_category']
+    ml_data = actions[['action_category', 'action_description', 'start_time_seconds', 'end_time_seconds', 'duration_seconds', 'video_filename']].copy()
+    
+    # Add both category and precise action labels
+    ml_data['category_label'] = ml_data['action_category']  # Broad category (pan_manipulation, food_cooking, etc.)
+    ml_data['action_label'] = ml_data['action_description']  # Precise action (add-pan, stir, remove-food, etc.)
+    
+    # Add frame numbers for video processing (assuming FPS from video filename or default to 10)
     ml_data['video_start_frame'] = (ml_data['start_time_seconds'] * 10).round().astype(int)  # Assuming 10 FPS
     ml_data['video_end_frame'] = (ml_data['end_time_seconds'] * 10).round().astype(int)
+    
+    # Reorder columns for clarity
+    ml_data = ml_data[['video_filename', 'category_label', 'action_label', 'start_time_seconds', 'end_time_seconds', 
+                       'duration_seconds', 'video_start_frame', 'video_end_frame']]
     
     ml_data.to_csv(output_file, index=False)
     print(f"🤖 ML dataset exported to: {output_file}")
     print(f"   Ready for training with {len(ml_data)} labeled segments")
+    print(f"   Categories: {sorted(ml_data['category_label'].unique())}")
+    print(f"   Actions: {sorted(ml_data['action_label'].unique())}")
 
 def main():
     """Main analysis function."""

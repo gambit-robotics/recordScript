@@ -101,15 +101,12 @@ class ActionLogger:
             action_category = "pan_manipulation"
         elif "lid" in action_lower:
             action_category = "lid_manipulation"
-        elif ("stir" in action_lower or "flip" in action_lower) and "motion" in action_lower:
-            # Cooking motions (stir/flip actions)
-            action_category = "food_cooking"
-        elif "food" in action_lower and ("stir" in action_lower or "flip" in action_lower):
-            # Food cooking actions that also mention food
+        elif action_lower in ["stir", "flip"]:
             action_category = "food_cooking"
         elif "food" in action_lower:
-            # General food manipulation
             action_category = "food_manipulation"
+        elif action_lower == "season":
+            action_category = "food_seasoning"
         
         # Write to CSV
         with open(self.log_file, 'a', newline='') as file:
@@ -229,15 +226,15 @@ class CookingCoach:
         self.setup_complete = True
         print("🎉 Setup phase completed! Moving to recording...")
         
-    async def execute_single_action(self, action_name, rep_info=""):
+    async def execute_single_action(self, action_name, action_description, rep_info=""):
         """Execute a single action with user confirmation."""
-        # Update status for live feed display
+        # Update status for live feed display (use full description for user)
         self.current_action_text = f"{action_name} {rep_info}"
         
-        # Log action start
+        # Log action start (use simple description for data)
         self.logger.start_action(
             action_category="cooking_action",
-            action_description=action_name,
+            action_description=action_description,
             rep_number=self.current_rep
         )
         
@@ -247,7 +244,7 @@ class CookingCoach:
         )
         
         # Log action end
-        self.logger.end_action(f"{action_name} completed")
+        self.logger.end_action(f"{action_description} completed")
         
         # Wait 5 seconds between all actions
         self.current_action_text = f"Waiting 5 seconds..."
@@ -266,24 +263,34 @@ class CookingCoach:
             
             if "pan" in action_name.lower():
                 # Separate add and remove pan actions
-                await self.execute_single_action(f"Add the pan to the cooking area", rep_info)
-                await self.execute_single_action(f"Remove the pan from the cooking area", rep_info)
+                await self.execute_single_action(
+                    "Add the pan to the cooking area", "add-pan", rep_info)
+                await self.execute_single_action(
+                    "Remove the pan from the cooking area", "remove-pan", rep_info)
                 
             elif "lid" in action_name.lower():
                 # Separate add and remove lid actions
-                await self.execute_single_action(f"Place the lid on the pan area", rep_info)
-                await self.execute_single_action(f"Remove the lid from the pan area", rep_info)
+                await self.execute_single_action(
+                    "Place the lid on the pan area", "add-lid", rep_info)
+                await self.execute_single_action(
+                    "Remove the lid from the pan area", "remove-lid", rep_info)
                 
             elif "food" in action_name.lower() and ("stir" in action_name.lower() or "flip" in action_name.lower()):
                 # Food cooking actions
-                await self.execute_single_action(f"Add the food to the cooking area", rep_info)
-                await self.execute_single_action(f"Perform a {self.cooking_method} motion", rep_info)
-                await self.execute_single_action(f"Remove the food from the cooking area", rep_info)
+                await self.execute_single_action(
+                    "Add the food to the cooking area", "add-food", rep_info)
+                action_type = "stir" if self.cooking_method == "stir" else "flip"
+                await self.execute_single_action(
+                    f"Perform a {self.cooking_method} motion", action_type, rep_info)
+                await self.execute_single_action(
+                    "Remove the food from the cooking area", "remove-food", rep_info)
                 
             elif "food" in action_name.lower():
                 # Simple food add/remove
-                await self.execute_single_action(f"Add the food to the pan area", rep_info)
-                await self.execute_single_action(f"Remove the food from the pan area", rep_info)
+                await self.execute_single_action(
+                    "Add the food to the pan area", "add-food", rep_info)
+                await self.execute_single_action(
+                    "Remove the food from the pan area", "remove-food", rep_info)
             
             # No additional wait needed - the 5-second wait after each action provides uniform timing
                 
