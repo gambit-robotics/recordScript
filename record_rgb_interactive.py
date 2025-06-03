@@ -7,10 +7,14 @@ Stop with Ctrl‑C.
 
 import asyncio, os, signal, cv2, numpy as np, sys, csv, time
 from datetime import datetime
+from dotenv import load_dotenv
 from viam.robot.client import RobotClient
 from viam.rpc.dial import DialOptions
 from viam.components.camera import Camera
 from viam.media.video import CameraMimeType
+
+# Load environment variables from .env file
+load_dotenv()
 
 # ---------------------------------------------------------------------
 # Config – change only these four lines
@@ -18,6 +22,7 @@ CAMERA_NAME = "overhead-rgb"   # the name in your Viam config
 FPS         = 10               # playback + capture rate
 OUT_FILE    = "cooking_actions_recording.mp4"
 LOG_FILE    = "cooking_actions_log.csv"
+SHOW_LIVE_FEED = True          # Display live camera feed window
 # ---------------------------------------------------------------------
 
 class ActionLogger:
@@ -147,6 +152,8 @@ class CookingCoach:
         self.setup_complete = False
         self.recording_active = False
         self.logger = logger
+        self.current_action_text = "Waiting for next action..."
+        self.current_rep = 0
         
     async def get_user_input(self, prompt):
         """Get user input asynchronously."""
@@ -198,6 +205,10 @@ class CookingCoach:
         print(f"{'='*50}")
         
         for i in range(count):
+            # Update status for live feed display
+            self.current_action_text = f"{action_name} (Rep {i+1}/{count})"
+            self.current_rep = i + 1
+            
             # Log action start
             self.logger.start_action(
                 action_category="cooking_action",
@@ -214,8 +225,11 @@ class CookingCoach:
             self.logger.end_action(f"Repetition {i+1} of {count}")
             
             if i < count - 1:  # Don't wait after the last action
+                self.current_action_text = f"Waiting... (Next: Rep {i+2}/{count})"
                 print(f"⏳ Waiting {delay} seconds before next action...")
                 await asyncio.sleep(delay)
+                
+        self.current_action_text = "Action sequence completed"
                 
     async def run_coaching_sequence(self):
         """Run the complete coaching sequence."""
@@ -249,6 +263,7 @@ class CookingCoach:
         print("Feel free to practice more or try variations!")
         
         # Log free practice phase
+        self.current_action_text = "Free practice - do anything!"
         self.logger.log_phase_change("Free practice started", "User can practice freely")
 
 async def connect() -> RobotClient:
@@ -262,8 +277,7 @@ async def connect() -> RobotClient:
             dial_options=DialOptions.with_api_key(
                 api_key_id=os.environ["VIAM_API_KEY_ID"],
                 api_key=os.environ["VIAM_API_KEY"]
-            ),
-            disable_webrtc=True        # headless client – no SDP exchange
+            )
         )
         
         robot = await RobotClient.at_address(os.environ["VIAM_ADDRESS"], opts)
@@ -273,7 +287,7 @@ async def connect() -> RobotClient:
         
         # Get basic robot info
         try:
-            resource_names = await robot.get_status()
+            resource_names = await robot.resource_names()
             print(f"📋 Robot status retrieved - {len(resource_names)} resources found")
         except Exception as e:
             print(f"⚠️  Warning: Could not get robot status: {e}")
@@ -283,6 +297,7 @@ async def connect() -> RobotClient:
     except KeyError as e:
         print(f"❌ Missing environment variable: {e}")
         print("Make sure to set VIAM_API_KEY_ID, VIAM_API_KEY, and VIAM_ADDRESS")
+        print("Either in your shell environment or in a .env file")
         raise
     except Exception as e:
         print(f"❌ Failed to connect to robot: {e}")
@@ -307,7 +322,7 @@ async def record_video(coach, logger):
     print("🖼️  Getting first frame to determine video resolution...")
     try:
         viam_img = await cam.get_image(CameraMimeType.JPEG)
-        frame = cv2.imdecode(np.frombuffer(viam_img, np.uint8), cv2.IMREAD_COLOR)
+        frame = cv2.imdecode(np.frombuffer(viam_img.data, np.uint8), cv2.IMREAD_COLOR)
         h, w = frame.shape[:2]
         print(f"📐 Video resolution detected: {w}x{h}")
     except Exception as e:
@@ -329,6 +344,11 @@ async def record_video(coach, logger):
     print(f"   Log: {LOG_FILE}")
     print(f"   Resolution: {w}x{h}")
     print(f"   FPS: {FPS}")
+    print(f"   Live feed: {'Enabled' if SHOW_LIVE_FEED else 'Disabled'}")
+    
+    if SHOW_LIVE_FEED:
+        print(f"📺 Live feed window opened. Press 'q' in the video window or Ctrl-C to stop.")
+        cv2.namedWindow(f"Viam Camera: {CAMERA_NAME} (Interactive)", cv2.WINDOW_AUTOSIZE)
     
     # Start session logging
     logger.start_session()
@@ -345,9 +365,42 @@ async def record_video(coach, logger):
         while not stop.is_set():
             try:
                 viam_img = await cam.get_image(CameraMimeType.JPEG)
-                frame = cv2.imdecode(np.frombuffer(viam_img, np.uint8), cv2.IMREAD_COLOR)
+                frame = cv2.imdecode(np.frombuffer(viam_img.data, np.uint8), cv2.IMREAD_COLOR)
                 writer.write(frame)
                 frame_count += 1
+                
+                # Display live feed if enabled
+                if SHOW_LIVE_FEED:
+                    # Add coaching overlay
+                    overlay_frame = frame.copy()
+                    
+                    # Recording indicator
+                    cv2.circle(overlay_frame, (30, 30), 15, (0, 0, 255), -1)  # Red circle
+                    cv2.putText(overlay_frame, "REC", (50, 40), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2)
+                    
+                    # Current action status (top center)
+                    action_text = coach.current_action_text
+                    text_size = cv2.getTextSize(action_text, cv2.FONT_HERSHEY_SIMPLEX, 0.7, 2)[0]
+                    text_x = (w - text_size[0]) // 2
+                    cv2.rectangle(overlay_frame, (text_x - 10, 5), (text_x + text_size[0] + 10, 40), (0, 0, 0), -1)
+                    cv2.putText(overlay_frame, action_text, (text_x, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 255), 2)
+                    
+                    # Frame counter and time (bottom)
+                    duration = frame_count / FPS
+                    time_text = f"Frame: {frame_count} | Time: {duration:.1f}s"
+                    cv2.putText(overlay_frame, time_text, (10, h-40), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 1)
+                    
+                    # Instructions (bottom right)
+                    instruction_text = "Press 'q' to stop"
+                    cv2.putText(overlay_frame, instruction_text, (w-150, h-10), cv2.FONT_HERSHEY_SIMPLEX, 0.4, (255, 255, 255), 1)
+                    
+                    cv2.imshow(f"Viam Camera: {CAMERA_NAME} (Interactive)", overlay_frame)
+                    
+                    # Check for 'q' key press to quit
+                    key = cv2.waitKey(1) & 0xFF
+                    if key == ord('q'):
+                        print(f"\n🛑 Live feed window closed by user")
+                        stop.set()
                 
                 # Progress indicator every 200 frames (less frequent during interactive mode)
                 if frame_count % 200 == 0:
@@ -363,6 +416,10 @@ async def record_video(coach, logger):
         writer.release()
         await robot.close()
         coach.recording_active = False
+        
+        if SHOW_LIVE_FEED:
+            cv2.destroyAllWindows()
+            
         duration = frame_count / FPS
         
         # Log session end

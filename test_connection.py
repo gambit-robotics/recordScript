@@ -5,10 +5,14 @@ Quick verification script to check your setup without recording.
 """
 
 import asyncio, os
+from dotenv import load_dotenv
 from viam.robot.client import RobotClient
 from viam.rpc.dial import DialOptions
 from viam.components.camera import Camera
 from viam.media.video import CameraMimeType
+
+# Load environment variables from .env file
+load_dotenv()
 
 # Camera name to test
 CAMERA_NAME = "overhead-rgb"  # Change this to match your Viam config
@@ -38,8 +42,13 @@ async def test_connection():
     if missing_vars:
         print(f"\n❌ Missing required environment variables: {', '.join(missing_vars)}")
         print("\nSet them with:")
+        print("Option 1 - Shell environment:")
         for var in missing_vars:
             print(f'export {var}="your_value_here"')
+        print("\nOption 2 - .env file:")
+        print("Create a .env file with:")
+        for var in missing_vars:
+            print(f'{var}="your_value_here"')
         return False
     
     print("\n🔌 Testing robot connection...")
@@ -50,8 +59,7 @@ async def test_connection():
             dial_options=DialOptions.with_api_key(
                 api_key_id=os.environ["VIAM_API_KEY_ID"],
                 api_key=os.environ["VIAM_API_KEY"]
-            ),
-            disable_webrtc=True
+            )
         )
         
         robot = await RobotClient.at_address(os.environ["VIAM_ADDRESS"], opts)
@@ -59,11 +67,10 @@ async def test_connection():
         
         # Get robot status and resources
         try:
-            status = await robot.get_status()
-            print(f"📋 Robot status: {len(status)} resources found")
-            
             # List available resources
             resource_names = await robot.resource_names()
+            print(f"📋 Robot resources: {len(resource_names)} found")
+            
             cameras = [name for name in resource_names if name.namespace == "rdk" and name.type == "camera"]
             
             if cameras:
@@ -85,11 +92,14 @@ async def test_connection():
             # Test getting a frame
             print("🖼️  Testing frame capture...")
             viam_img = await cam.get_image(CameraMimeType.JPEG)
-            print(f"✅ Successfully captured frame ({len(viam_img)} bytes)")
+            
+            # Convert ViamImage to bytes
+            img_bytes = viam_img.data
+            print(f"✅ Successfully captured frame ({len(img_bytes)} bytes)")
             
             # Decode frame to get resolution
             import cv2, numpy as np
-            frame = cv2.imdecode(np.frombuffer(viam_img, np.uint8), cv2.IMREAD_COLOR)
+            frame = cv2.imdecode(np.frombuffer(img_bytes, np.uint8), cv2.IMREAD_COLOR)
             h, w = frame.shape[:2]
             print(f"📐 Frame resolution: {w}x{h}")
             

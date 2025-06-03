@@ -2,4 +2,5 @@ viam-sdk
 opencv-python
 numpy
 pandas
-matplotlib 
+matplotlib
+python-dotenv 

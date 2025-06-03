@@ -1,6 +1,6 @@
 # Viam Camera Recording Script
 
-Record real-time video from a Viam camera and save it as MP4. Choose between basic recording or interactive coaching mode for structured cooking action datasets with automatic timestamped action logging.
+Record real-time video from a Viam camera and save it as MP4. Choose between basic recording or interactive coaching mode for structured cooking action datasets with automatic timestamped action logging and live video preview.
 
 ## 🚀 Quick Start
 
@@ -72,7 +72,7 @@ python3 record_rgb.py
 python3 record_rgb_interactive.py
 ```
 
-Press **Ctrl-C** to stop recording.
+Press **Ctrl-C** to stop recording or **'q'** in the live feed window.
 
 ## 🎯 Recording Modes
 
@@ -80,6 +80,7 @@ Press **Ctrl-C** to stop recording.
 
 -   Simple continuous video capture
 -   Manual start/stop with Ctrl-C
+-   **📺 Live video preview window** ← NEW!
 -   Output: `overhead_rgb_live.mp4`
 
 ### 2. Interactive Coaching (`record_rgb_interactive.py`)
@@ -88,6 +89,7 @@ Press **Ctrl-C** to stop recording.
 -   **Step-by-step prompts with confirmations**
 -   **Automatic timing between actions**
 -   **📋 Timestamped action logging**
+-   **📺 Live feed with coaching overlays** ← NEW!
 -   Perfect for creating structured datasets
 -   Output: `cooking_actions_recording.mp4` + `cooking_actions_log.csv`
 
@@ -100,6 +102,66 @@ Press **Ctrl-C** to stop recording.
     - Add food + perform stirring/flipping motions
     - Add/remove food from pan
 3. **Free Practice**: Continue recording after guided sequence
+
+## 📺 Live Video Feed
+
+Both recording modes now display real-time video with helpful overlays:
+
+### **Basic Recording Features:**
+
+-   🔴 **Recording indicator** - Red circle and "REC" text
+-   📊 **Frame counter** - Shows current frame and recording time
+-   ⌨️ **Keyboard control** - Press 'q' to stop recording
+-   🖼️ **Auto-sizing window** - Adapts to camera resolution
+
+### **Interactive Mode Features:**
+
+-   🎯 **Current action display** - Shows what action you should be doing
+-   📝 **Action progress** - "Add pan (Rep 2/3)" format
+-   ⏱️ **Wait indicators** - "Waiting... (Next: Rep 3/3)"
+-   🎉 **Phase updates** - "Free practice - do anything!"
+-   📊 **Recording stats** - Frame count and duration
+
+### **Live Feed Controls:**
+
+```python
+SHOW_LIVE_FEED = True   # Set to False for headless recording
+```
+
+**Control Options:**
+
+-   **'q' key** - Stop recording and close window
+-   **Ctrl-C** - Stop recording (terminal)
+-   **Window close button** - Stop recording
+
+### **Display Examples:**
+
+**Basic Recording:**
+
+```
+┌─────────────────────────────┐
+│ 🔴 REC                      │
+│                             │
+│     [Live Camera Feed]      │
+│                             │
+│ Frame: 1234 | Time: 123.4s  │
+│                Press 'q'     │
+└─────────────────────────────┘
+```
+
+**Interactive Coaching:**
+
+```
+┌─────────────────────────────┐
+│    Add pan (Rep 2/3)        │
+│ 🔴 REC                      │
+│                             │
+│     [Live Camera Feed]      │
+│                             │
+│ Frame: 1234 | Time: 123.4s  │
+│                Press 'q'     │
+└─────────────────────────────┘
+```
 
 ## 📋 Action Logging & Dataset Creation
 
@@ -192,6 +254,8 @@ Both recording scripts now provide detailed logging:
    Output: overhead_rgb_live.mp4
    Resolution: 1280x720
    FPS: 10
+   Live feed: Enabled
+📺 Live feed window opened. Press 'q' in the video window or Ctrl-C to stop.
 📹 Recording... (Press Ctrl-C to stop)
 📊 Recorded 1000 frames (100.0 seconds)
 ```
@@ -213,8 +277,8 @@ Both recording scripts now provide detailed logging:
 ## 📁 Files
 
 -   `record.py` - **Main launcher script**
--   `record_rgb.py` - Basic recording script
--   `record_rgb_interactive.py` - **Interactive coaching script with action logging**
+-   `record_rgb.py` - Basic recording script with live feed
+-   `record_rgb_interactive.py` - **Interactive coaching script with action logging and live feed**
 -   `analyze_log.py` - **Action log analysis and visualization tool**
 -   `test_connection.py` - **Connection verification tool**
 -   `requirements.txt` - Python dependencies
@@ -230,6 +294,7 @@ CAMERA_NAME = "overhead-rgb"   # Your camera name from Viam config
 FPS         = 10               # Frames per second for recording
 OUT_FILE    = "video_name.mp4" # Output filename
 LOG_FILE    = "actions_log.csv" # Action log filename (interactive mode)
+SHOW_LIVE_FEED = True          # Display live video window
 ```
 
 ## 🍳 Interactive Coaching Features
@@ -243,6 +308,7 @@ The interactive mode provides:
 -   **🥄 Cooking method detection** - Adapts to stirring vs. flipping
 -   **✅ Progress feedback** - Clear completion indicators
 -   **📊 Action logging** - Automatic timestamped labels
+-   **📺 Live video coaching** - Real-time visual feedback ← NEW!
 
 Perfect for creating consistent training datasets for:
 
@@ -289,6 +355,14 @@ for _, action in actions.iterrows():
 
 ## 🔧 Advanced Options
 
+### Disable Live Feed (Headless Mode)
+
+For servers or automated recording:
+
+```python
+SHOW_LIVE_FEED = False
+```
+
 ### Smaller File Size
 
 Convert to smaller file with better compression:
@@ -328,8 +402,9 @@ Create multiple `Camera.from_robot()` instances and separate files for each came
 1. **Connect**: Uses Viam SDK with API key authentication
 2. **Capture**: Streams JPEG frames via `Camera.get_image()`
 3. **Process**: Decodes JPEG to NumPy arrays with OpenCV
-4. **Record**: Writes frames to MP4 using `cv2.VideoWriter`
-5. **Cleanup**: Graceful shutdown on Ctrl-C
+4. **Display**: Shows live feed with recording overlays
+5. **Record**: Writes frames to MP4 using `cv2.VideoWriter`
+6. **Cleanup**: Graceful shutdown on Ctrl-C or 'q' key
 
 ### Interactive Coaching
 
@@ -338,7 +413,8 @@ Create multiple `Camera.from_robot()` instances and separate files for each came
 3. **Coaching**: Runs action sequences with confirmations
 4. **Timestamping**: Logs start/end times for each action
 5. **Recording**: Captures video concurrently with coaching
-6. **Analysis**: Processes logs for ML-ready datasets
+6. **Live Display**: Shows current action status in video overlay
+7. **Analysis**: Processes logs for ML-ready datasets
 
 ## 📋 Prerequisites
 
@@ -346,6 +422,7 @@ Create multiple `Camera.from_robot()` instances and separate files for each came
 -   pip ≥ 23
 -   Active Viam robot with camera configured
 -   Internet connection for cloud access
+-   **Display/GUI environment** (for live feed - use `SHOW_LIVE_FEED = False` for headless)
 
 ## 🆘 Troubleshooting
 
@@ -392,6 +469,12 @@ python3 test_connection.py
 -   Check that CSV file exists: `ls -la cooking_actions_log.csv`
 -   Run with custom file: `python3 analyze_log.py your_log.csv`
 
+### Live feed issues
+
+-   **No display environment**: Set `SHOW_LIVE_FEED = False` for headless operation
+-   **Window doesn't appear**: Check your system supports OpenCV GUI (install `opencv-python` not `opencv-python-headless`)
+-   **Performance issues**: Lower FPS or disable live feed for better recording performance
+
 ## 📊 Use Cases
 
 ### Research Applications
@@ -406,6 +489,7 @@ python3 test_connection.py
 -   **Temporal Structure**: Built-in timing for action boundaries
 -   **Multi-Modal**: Combine with other sensors for rich datasets
 -   **Automatic Labeling**: No manual annotation required
+-   **Visual Verification**: Live feed ensures quality data collection
 
 ### Machine Learning
 
