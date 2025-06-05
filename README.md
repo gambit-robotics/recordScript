@@ -29,7 +29,7 @@ Get your credentials from [app.viam.com](https://app.viam.com):
 ```bash
 VIAM_API_KEY_ID=ck_************************
 VIAM_API_KEY=vs_************************
-VIAM_ADDRESS=your-machine.viam.cloud:8080
+VIAM_ADDRESS=your-machine.viam.cloud
 VIAM_CAMERA_NAME=your-camera-name
 ```
 
@@ -240,7 +240,7 @@ Both recording scripts now provide detailed logging:
 
 ```
 🔌 Attempting to connect to Viam robot...
-   Address: my-machine.viam.cloud:8080
+   Address: my-machine.viam.cloud
    API Key ID: ck_1234567890abcdef...
 ✅ Successfully connected to Viam robot!
 📋 Robot status retrieved - 5 resources found
@@ -302,7 +302,7 @@ All configuration is now handled via environment variables and `.env` file:
 # Environment Variables (.env file)
 VIAM_API_KEY_ID=your_api_key_id
 VIAM_API_KEY=your_api_key
-VIAM_ADDRESS=your_machine_address:8080
+VIAM_ADDRESS=your_machine_address
 VIAM_CAMERA_NAME=your_camera_name
 ```
 
