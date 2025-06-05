@@ -27,8 +27,8 @@ Get your credentials from [app.viam.com](https://app.viam.com):
 **create a `.env` file:**
 
 ```bash
-VIAM_API_KEY_ID=ck_************************
-VIAM_API_KEY=vs_************************
+VIAM_API_KEY_ID=************************
+VIAM_API_KEY=************************
 VIAM_ADDRESS=your-machine.viam.cloud
 VIAM_CAMERA_NAME=your-camera-name
 ```
