@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Interactive Viam camera recording with cooking action coaching.
-Guides users through a series of cooking actions while recording video.
+Guides users through a series of cooking actions while recording separate videos for each action type.
 Stop with Ctrl‑C.
 """
 
@@ -20,7 +20,7 @@ load_dotenv()
 # Config – change only these four lines
 CAMERA_NAME = os.environ.get("VIAM_CAMERA_NAME", "overhead-rgb")  # Camera name from Viam config
 FPS         = 10               # playback + capture rate
-OUT_FILE    = "cooking_actions_recording.mp4"
+OUT_FILE_PREFIX = "cooking_actions"  # Prefix for video files
 LOG_FILE    = "cooking_actions_log.csv"
 SHOW_LIVE_FEED = True          # Display live camera feed window
 # ---------------------------------------------------------------------
@@ -33,12 +33,15 @@ class ActionLogger:
         self.action_start_time = None
         self.rep_number = 0
         self.session_start = None
+        self.current_sequence = None
+        self.sequence_start_time = None
         
         # Initialize CSV file with headers
         with open(self.log_file, 'w', newline='') as file:
             writer = csv.writer(file)
             writer.writerow([
                 'session_timestamp',
+                'action_sequence',
                 'action_category', 
                 'action_description',
                 'repetition_number',
@@ -63,14 +66,73 @@ class ActionLogger:
             writer.writerow([
                 session_time,
                 'session',
+                'session',
                 'Recording session started',
                 0,
                 0.0,
                 0.0,
                 0.0,
-                OUT_FILE,
+                'multiple_files',
                 'Session initialization'
             ])
+    
+    def start_sequence(self, sequence_name, video_filename):
+        """Mark the start of a new action sequence."""
+        self.current_sequence = sequence_name
+        self.sequence_start_time = time.time()
+        elapsed = self.sequence_start_time - self.start_time
+        session_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        
+        print(f"🎬 Starting sequence: {sequence_name} -> {video_filename}")
+        
+        # Log sequence start
+        with open(self.log_file, 'a', newline='') as file:
+            writer = csv.writer(file)
+            writer.writerow([
+                session_time,
+                sequence_name,
+                'sequence_start',
+                f'Starting {sequence_name}',
+                0,
+                f"{elapsed:.2f}",
+                f"{elapsed:.2f}",
+                0.0,
+                video_filename,
+                f'Sequence started at {elapsed:.1f}s'
+            ])
+    
+    def end_sequence(self, notes=""):
+        """Mark the end of the current action sequence."""
+        if self.sequence_start_time is None:
+            return
+            
+        end_time = time.time()
+        start_elapsed = self.sequence_start_time - self.start_time
+        end_elapsed = end_time - self.start_time
+        duration = end_time - self.sequence_start_time
+        session_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        
+        print(f"🏁 Ending sequence: {self.current_sequence} (Duration: {duration:.1f}s)")
+        
+        # Log sequence end
+        with open(self.log_file, 'a', newline='') as file:
+            writer = csv.writer(file)
+            writer.writerow([
+                session_time,
+                self.current_sequence,
+                'sequence_end',
+                f'Completed {self.current_sequence}',
+                0,
+                f"{start_elapsed:.2f}",
+                f"{end_elapsed:.2f}",
+                f"{duration:.2f}",
+                'sequence_completed',
+                f'Sequence duration: {duration:.1f}s'
+            ])
+        
+        # Reset sequence tracking
+        self.current_sequence = None
+        self.sequence_start_time = None
     
     def start_action(self, action_category, action_description, rep_number):
         """Log the start of an action."""
@@ -108,18 +170,22 @@ class ActionLogger:
         elif action_lower == "season":
             action_category = "food_seasoning"
         
+        # Get current video filename
+        current_video = f"{OUT_FILE_PREFIX}_{self.current_sequence.lower().replace(' ', '_')}.mp4" if self.current_sequence else "unknown.mp4"
+        
         # Write to CSV
         with open(self.log_file, 'a', newline='') as file:
             writer = csv.writer(file)
             writer.writerow([
                 session_time,
+                self.current_sequence or 'unknown',
                 action_category,
                 self.current_action,
                 self.rep_number,
                 f"{start_elapsed:.2f}",
                 f"{end_elapsed:.2f}",
                 f"{duration:.2f}",
-                OUT_FILE,
+                current_video,
                 notes
             ])
         
@@ -140,12 +206,13 @@ class ActionLogger:
             writer.writerow([
                 session_time,
                 'phase_transition',
+                'phase_transition',
                 phase_name,
                 0,
                 f"{elapsed:.2f}",
                 f"{elapsed:.2f}",
                 0.0,
-                OUT_FILE,
+                'phase_change',
                 notes
             ])
 
@@ -158,6 +225,9 @@ class CookingCoach:
         self.logger = logger
         self.current_action_text = "Waiting for next action..."
         self.current_rep = 0
+        self.sequence_change_event = asyncio.Event()
+        self.current_sequence_name = None
+        self.sequence_active = False
         
     async def get_user_input(self, prompt):
         """Get user input asynchronously."""
@@ -172,6 +242,22 @@ class CookingCoach:
             print("✅ Input received, continuing...")
         except Exception as e:
             print(f"⚠️  Input error: {e}")
+    
+    async def signal_sequence_start(self, sequence_name):
+        """Signal the start of a new action sequence."""
+        self.current_sequence_name = sequence_name
+        self.sequence_active = True
+        self.sequence_change_event.set()
+        # Wait a moment for video recorder to process
+        await asyncio.sleep(1)
+        
+    async def signal_sequence_end(self):
+        """Signal the end of the current action sequence."""
+        self.sequence_active = False
+        self.current_sequence_name = None
+        self.sequence_change_event.set()
+        # Wait a moment for video recorder to process
+        await asyncio.sleep(1)
         
     async def setup_phase(self):
         """Initial setup and preparation phase."""
@@ -220,6 +306,11 @@ class CookingCoach:
             "   • Cooktop/workspace is completely empty\n"
             "   • Pan, lid, and food are ready off to the side\n"
             "   • Camera has a clear view of the cooking area\n\n"
+            "🎥 Note: Each action type will be recorded as a separate video file:\n"
+            "   • Pan manipulation exercises\n"
+            "   • Lid manipulation exercises\n"
+            f"   • Food {action_word} exercises\n"
+            "   • Food manipulation exercises\n\n"
             "Ready to start recording!"
         )
         
@@ -257,6 +348,9 @@ class CookingCoach:
         print(f"🎯 STARTING: {action_name.upper()}")
         print(f"{'='*50}")
         
+        # Signal sequence start
+        await self.signal_sequence_start(action_name)
+        
         for i in range(count):
             self.current_rep = i + 1
             rep_info = f"(Rep {i+1}/{count})"
@@ -291,10 +385,11 @@ class CookingCoach:
                     "Add the food to the pan area", "add-food", rep_info)
                 await self.execute_single_action(
                     "Remove the food from the pan area", "remove-food", rep_info)
-            
-            # No additional wait needed - the 5-second wait after each action provides uniform timing
                 
         self.current_action_text = "Action sequence completed"
+        
+        # Signal sequence end
+        await self.signal_sequence_end()
                 
     async def run_coaching_sequence(self):
         """Run the complete coaching sequence."""
@@ -305,7 +400,7 @@ class CookingCoach:
         self.logger.log_phase_change("Coaching sequence started", "Beginning guided actions")
         
         print(f"\n🚀 STARTING RECORDING SESSION")
-        print("The camera is now recording all your actions!")
+        print("The camera will record separate videos for each action type!")
         print("Remember: Start with an empty cooktop!")
         
         # Sequence of cooking actions
@@ -325,13 +420,11 @@ class CookingCoach:
         self.logger.log_phase_change("Coaching sequence completed", "All guided actions finished")
         
         print(f"\n🎉 EXCELLENT! All cooking actions completed!")
-        print("Recording will continue until you press Ctrl-C")
-        print("Feel free to practice more or try variations!")
-        print("Remember to keep the workspace clear between actions!")
+        print("You can now review your separate video files!")
+        print("Press Ctrl-C to end the session.")
         
-        # Log free practice phase
-        self.current_action_text = "Free practice - do anything!"
-        self.logger.log_phase_change("Free practice started", "User can practice freely")
+        # Don't start free practice mode for separate videos
+        self.current_action_text = "All sequences completed - Press Ctrl-C to finish"
 
 async def connect() -> RobotClient:
     """Connect to the robot via the Viam Cloud."""
@@ -372,7 +465,7 @@ async def connect() -> RobotClient:
         raise
 
 async def record_video(coach, logger):
-    """Handle video recording while coaching runs."""
+    """Handle video recording with separate files for each action sequence."""
     robot = await connect()
     
     print(f"📷 Attempting to connect to camera: '{CAMERA_NAME}'")
@@ -398,16 +491,15 @@ async def record_video(coach, logger):
         raise
     
     fourcc = cv2.VideoWriter_fourcc(*"mp4v")
-    writer = cv2.VideoWriter(OUT_FILE, fourcc, FPS, (w, h))
     
-    if not writer.isOpened():
-        print(f"❌ Failed to create video writer for {OUT_FILE}")
-        await robot.close()
-        raise RuntimeError("Could not create video file")
-
-    print(f"🎥 Interactive recording started!")
+    # Video recording state
+    current_writer = None
+    current_video_file = None
+    video_files_created = []
+    
+    print(f"🎥 Multi-file recording ready!")
     print(f"   Camera: {CAMERA_NAME}")
-    print(f"   Output: {OUT_FILE}")
+    print(f"   Output prefix: {OUT_FILE_PREFIX}")
     print(f"   Log: {LOG_FILE}")
     print(f"   Resolution: {w}x{h}")
     print(f"   FPS: {FPS}")
@@ -415,7 +507,7 @@ async def record_video(coach, logger):
     
     if SHOW_LIVE_FEED:
         print(f"📺 Live feed window opened. Press 'q' in the video window or Ctrl-C to stop.")
-        cv2.namedWindow(f"Viam Camera: {CAMERA_NAME} (Interactive)", cv2.WINDOW_AUTOSIZE)
+        cv2.namedWindow(f"Viam Camera: {CAMERA_NAME} (Multi-file)", cv2.WINDOW_AUTOSIZE)
     
     # Start session logging
     logger.start_session()
@@ -428,12 +520,51 @@ async def record_video(coach, logger):
         loop.add_signal_handler(sig, stop.set)
 
     frame_count = 0
+    sequence_frame_count = 0
+    
     try:
         while not stop.is_set():
+            # Check for sequence changes
+            if coach.sequence_change_event.is_set():
+                coach.sequence_change_event.clear()
+                
+                # Close current writer if exists
+                if current_writer is not None:
+                    current_writer.release()
+                    if current_video_file:
+                        duration = sequence_frame_count / FPS
+                        print(f"✅ Completed video: {current_video_file} ({sequence_frame_count} frames, {duration:.1f}s)")
+                        logger.end_sequence(f"Video saved: {current_video_file}")
+                    current_writer = None
+                    current_video_file = None
+                    sequence_frame_count = 0
+                
+                # Start new writer if sequence is active
+                if coach.sequence_active and coach.current_sequence_name:
+                    # Create filename from sequence name
+                    safe_name = coach.current_sequence_name.lower().replace(' ', '_').replace('/', '_')
+                    current_video_file = f"{OUT_FILE_PREFIX}_{safe_name}.mp4"
+                    
+                    current_writer = cv2.VideoWriter(current_video_file, fourcc, FPS, (w, h))
+                    
+                    if not current_writer.isOpened():
+                        print(f"❌ Failed to create video writer for {current_video_file}")
+                        current_writer = None
+                        current_video_file = None
+                    else:
+                        video_files_created.append(current_video_file)
+                        logger.start_sequence(coach.current_sequence_name, current_video_file)
+                        print(f"🎬 Started recording: {current_video_file}")
+            
             try:
                 viam_img = await cam.get_image(CameraMimeType.JPEG)
                 frame = cv2.imdecode(np.frombuffer(viam_img.data, np.uint8), cv2.IMREAD_COLOR)
-                writer.write(frame)
+                
+                # Write to current video file if active
+                if current_writer is not None:
+                    current_writer.write(frame)
+                    sequence_frame_count += 1
+                
                 frame_count += 1
                 
                 # Display live feed if enabled
@@ -441,9 +572,13 @@ async def record_video(coach, logger):
                     # Add coaching overlay
                     overlay_frame = frame.copy()
                     
-                    # Recording indicator
-                    cv2.circle(overlay_frame, (30, 30), 15, (0, 0, 255), -1)  # Red circle
-                    cv2.putText(overlay_frame, "REC", (50, 40), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2)
+                    # Recording indicator (different color for active/inactive)
+                    if current_writer is not None:
+                        cv2.circle(overlay_frame, (30, 30), 15, (0, 0, 255), -1)  # Red circle
+                        cv2.putText(overlay_frame, "REC", (50, 40), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2)
+                    else:
+                        cv2.circle(overlay_frame, (30, 30), 15, (0, 255, 255), -1)  # Yellow circle
+                        cv2.putText(overlay_frame, "WAIT", (50, 40), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0, 255, 255), 2)
                     
                     # Current action status (top center)
                     action_text = coach.current_action_text
@@ -452,16 +587,23 @@ async def record_video(coach, logger):
                     cv2.rectangle(overlay_frame, (text_x - 10, 5), (text_x + text_size[0] + 10, 40), (0, 0, 0), -1)
                     cv2.putText(overlay_frame, action_text, (text_x, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 255), 2)
                     
+                    # Current video file name (top left, below REC indicator)
+                    if current_video_file:
+                        cv2.putText(overlay_frame, f"File: {current_video_file}", (10, 70), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 1)
+                        cv2.putText(overlay_frame, f"Frames: {sequence_frame_count}", (10, 90), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 1)
+                    else:
+                        cv2.putText(overlay_frame, "No active recording", (10, 70), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 0), 1)
+                    
                     # Frame counter and time (bottom)
                     duration = frame_count / FPS
-                    time_text = f"Frame: {frame_count} | Time: {duration:.1f}s"
+                    time_text = f"Total frames: {frame_count} | Time: {duration:.1f}s | Videos: {len(video_files_created)}"
                     cv2.putText(overlay_frame, time_text, (10, h-40), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 1)
                     
                     # Instructions (bottom right)
                     instruction_text = "Press 'q' to stop"
                     cv2.putText(overlay_frame, instruction_text, (w-150, h-10), cv2.FONT_HERSHEY_SIMPLEX, 0.4, (255, 255, 255), 1)
                     
-                    cv2.imshow(f"Viam Camera: {CAMERA_NAME} (Interactive)", overlay_frame)
+                    cv2.imshow(f"Viam Camera: {CAMERA_NAME} (Multi-file)", overlay_frame)
                     
                     # Check for 'q' key press to quit
                     key = cv2.waitKey(1) & 0xFF
@@ -469,10 +611,10 @@ async def record_video(coach, logger):
                         print(f"\n🛑 Live feed window closed by user")
                         stop.set()
                 
-                # Progress indicator every 200 frames (less frequent during interactive mode)
+                # Progress indicator every 200 frames
                 if frame_count % 200 == 0:
                     duration = frame_count / FPS
-                    print(f"📊 Recording progress: {frame_count} frames ({duration:.1f} seconds)")
+                    print(f"📊 Recording progress: {frame_count} frames ({duration:.1f} seconds) | Videos created: {len(video_files_created)}")
                     
             except Exception as e:
                 print(f"⚠️  Warning: Frame capture error: {e}")
@@ -480,7 +622,14 @@ async def record_video(coach, logger):
                 
             await asyncio.sleep(1 / FPS)
     finally:
-        writer.release()
+        # Close any active writer
+        if current_writer is not None:
+            current_writer.release()
+            if current_video_file:
+                duration = sequence_frame_count / FPS
+                print(f"✅ Final video completed: {current_video_file} ({sequence_frame_count} frames, {duration:.1f}s)")
+                logger.end_sequence(f"Final video saved: {current_video_file}")
+        
         await robot.close()
         coach.recording_active = False
         
@@ -490,12 +639,16 @@ async def record_video(coach, logger):
         duration = frame_count / FPS
         
         # Log session end
-        logger.log_phase_change("Recording session ended", f"Total duration: {duration:.1f}s, Frames: {frame_count}")
+        logger.log_phase_change("Recording session ended", f"Total duration: {duration:.1f}s, Total frames: {frame_count}, Videos created: {len(video_files_created)}")
         
-        print(f"\n✅ Interactive recording completed!")
-        print(f"   Total frames: {frame_count}")
-        print(f"   Duration: {duration:.1f} seconds")
-        print(f"   Video saved to: {OUT_FILE}")
+        print(f"\n✅ Multi-file recording completed!")
+        print(f"   Total frames processed: {frame_count}")
+        print(f"   Total session duration: {duration:.1f} seconds")
+        print(f"   Video files created: {len(video_files_created)}")
+        
+        for i, video_file in enumerate(video_files_created, 1):
+            print(f"     {i}. {video_file}")
+            
         print(f"   Action log saved to: {LOG_FILE}")
 
 async def main():
@@ -540,7 +693,7 @@ async def main():
             coaching_task.cancel()
         
         print(f"\n✅ Session complete! Check your files:")
-        print(f"   📹 Video: {OUT_FILE}")
+        print(f"   📹 Videos: {OUT_FILE_PREFIX}_*.mp4")
         print(f"   📊 Log: {LOG_FILE}")
 
 if __name__ == "__main__":
@@ -548,6 +701,6 @@ if __name__ == "__main__":
         asyncio.run(main())
     except KeyboardInterrupt:
         print(f"\n👋 Session ended. Check your files:")
-        print(f"   Video: {OUT_FILE}")
+        print(f"   Videos: {OUT_FILE_PREFIX}_*.mp4")
         print(f"   Action log: {LOG_FILE}")
         sys.exit(0) 
