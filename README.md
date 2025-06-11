@@ -25,12 +25,13 @@ recordScript/
 cd evaluation/
 python3 setup_automation.py
 
-# 2. Run automated evaluation on your videos
-python3 automate_evaluation.py \
-    --video-dir /path/to/your/videos \
-    --output-dir ../data/results/evaluation_$(date +%Y%m%d_%H%M%S)
+# 2. Configure your video in Viam dashboard
+# (Set the video path in replayCamera-1 component)
 
-# 3. Review comprehensive results! ☕
+# 3. Run automated evaluation
+python3 automate_evaluation.py
+
+# 4. Review results in evaluation_results/ directory! ☕
 ```
 
 ### **Option 2: Want to Record New Videos?**
@@ -49,13 +50,13 @@ VIAM_CAMERA_NAME="overhead-rgb" python3 record_rgb_interactive.py
 
 ## 🎯 Main Features
 
-### 🤖 **Fully Automated Evaluation**
+### 🤖 **Simplified Automated Evaluation**
 
--   **Zero manual intervention** - processes multiple videos automatically
+-   **Manual video setup** - configure video path in Viam dashboard
 -   **Smart video detection** - knows when videos finish playing
--   **Cloud config management** - updates Viam machine configs via API
+-   **Automatic log capture** - captures and monitors server logs
 -   **Comprehensive analysis** - detailed performance metrics and insights
--   **Cross-video reporting** - aggregate statistics and recommendations
+-   **Single session focus** - process one video at a time for better control
 
 ### 📹 **Interactive Recording**
 
@@ -99,9 +100,10 @@ graph LR
 
 ### **For Quick Evaluation:**
 
-1. **Prepare** your video files
+1. **Configure** your video in Viam dashboard (replayCamera-1 component)
 2. **Run** automated evaluation pipeline
-3. **Review** comprehensive performance reports
+3. **Review** detailed performance report
+4. **Switch video** in dashboard and repeat for next video
 
 ## 🛠️ Technical Requirements
 
@@ -136,9 +138,9 @@ cd recording && ./setup_environment.sh
 
 ### **Automated Evaluation Results:**
 
--   ✅ **Per-video analysis** with detailed metrics
--   ✅ **Cross-video summaries** and trends
--   ✅ **Performance recommendations** for optimization
+-   ✅ **Session analysis** with detailed metrics
+-   ✅ **Action detection timeline** with confidence scores
+-   ✅ **Performance insights** for optimization
 -   ✅ **Timeline exports** for debugging and review
 -   ✅ **JSON reports** for integration with other tools
 
@@ -203,12 +205,15 @@ cd recording && ./setup_environment.sh
 # 5. Repeat...
 ```
 
-**After (Automated):**
+**After (Streamlined):**
 
 ```bash
-# 🚀 One command processes everything:
+# 🚀 Simple workflow:
+# 1. Configure video in Viam dashboard once
+# 2. Run automation script
 cd evaluation/
-python3 automate_evaluation.py --video-dir /path/to/videos
+python3 automate_evaluation.py
+# 3. Review results - done!
 ```
 
 ## 🤝 Contributing
