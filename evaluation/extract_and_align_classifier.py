@@ -146,7 +146,7 @@ def extract_food_detections(log_text):
     
     return food_detections
 
-def load_ground_truth(csv_file="ml_dataset.csv"):
+def load_ground_truth(csv_file="../data/datasets/ml_dataset.csv"):
     """Load ground truth data from CSV file."""
     try:
         df = pd.read_csv(csv_file)
