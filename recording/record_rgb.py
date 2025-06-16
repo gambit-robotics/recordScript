@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Grab frames from a Viam camera in real time and save them to MP4.
-Stop with Ctrl‑C.
+Stop with Ctrl-C.
 """
 
 import asyncio, os, signal, cv2, numpy as np
@@ -12,7 +12,7 @@ from viam.components.camera import Camera
 from viam.media.video import CameraMimeType
 
 # Load environment variables from .env file
-load_dotenv()
+load_dotenv(dotenv_path="../.env")
 
 # ---------------------------------------------------------------------
 # Config – change only these three lines

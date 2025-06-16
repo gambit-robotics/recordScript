@@ -12,7 +12,7 @@ from viam.components.camera import Camera
 from viam.media.video import CameraMimeType
 
 # Load environment variables from .env file
-load_dotenv()
+load_dotenv(dotenv_path="../.env")
 
 # Camera name to test
 CAMERA_NAME = os.environ.get("VIAM_CAMERA_NAME", "overhead-rgb")  # Camera name from Viam config

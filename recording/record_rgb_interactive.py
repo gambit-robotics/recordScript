@@ -2,7 +2,7 @@
 """
 Interactive Viam camera recording with cooking action coaching.
 Guides users through a series of cooking actions while recording separate videos for each action type.
-Stop with Ctrl‑C.
+Stop with Ctrl-C.
 """
 
 import asyncio, os, signal, cv2, numpy as np, sys, csv, time
@@ -14,7 +14,7 @@ from viam.components.camera import Camera
 from viam.media.video import CameraMimeType
 
 # Load environment variables from .env file
-load_dotenv()
+load_dotenv(dotenv_path="../.env")
 
 # ---------------------------------------------------------------------
 # Config – change only these four lines
