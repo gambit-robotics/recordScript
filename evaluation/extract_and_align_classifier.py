@@ -26,8 +26,107 @@ def extract_classifier_detections(log_text):
     while i < len(lines):
         line = lines[i]
         
-        # Look for start of motion detection block
-        if "🎬 ===== MOTION DETECTED ===== 🎬" in line:
+        # Look for acceptance messages in the new format (they come before action detection)
+        if re.search(r'✅ action accepted:', line, re.IGNORECASE) or re.search(r'✅ ACTION ACCEPTED:', line):
+            # Extract action from acceptance message
+            accept_match = re.search(r'✅ (?:action accepted|ACTION ACCEPTED): ([^\n]+)', line, re.IGNORECASE)
+            if accept_match:
+                action = accept_match.group(1).strip()
+                
+                # Initialize detection data
+                detection = {
+                    'timestamp': "00:00:00",  # Will be updated from Time: line
+                    'burner_id': None,  # Not used in new format
+                    'action': action,
+                    'confidence': None,  # Will be filled from confidence line
+                    'duration': None,
+                    'analysis_duration': None,
+                    'similarity': None,
+                    'accepted': True,
+                    'raw_lines': [line]
+                }
+                
+                # Look for the confidence and time lines in the next few lines
+                for j in range(i + 1, min(i + 10, len(lines))):
+                    next_line = lines[j]
+                    detection['raw_lines'].append(next_line)
+                    
+                    # Look for confidence line - handle both acceptance and rejection formats
+                    confidence_match = re.search(r'Confidence: ([\d.]+)% \(≥ ([\d.]+)% required\)', next_line)
+                    if not confidence_match:
+                        confidence_match = re.search(r'Confidence: ([\d.]+)% \(< ([\d.]+)%\)', next_line)
+                    if confidence_match:
+                        detected_confidence = float(confidence_match.group(1))
+                        min_confidence = float(confidence_match.group(2))
+                        detection['confidence'] = detected_confidence
+                    
+                    # Look for time line
+                    time_match = re.search(r'Time: (\d{2}:\d{2}:\d{2})', next_line)
+                    if time_match:
+                        detection['timestamp'] = time_match.group(1)
+                    
+                    # Stop if we hit the separator line (end of this log entry)
+                    if "==========================================" in next_line:
+                        break
+                
+                # Only add detection if we found the essential components and it's not "(none)"
+                if (detection['action'] and 
+                    detection['confidence'] is not None and 
+                    detection['timestamp'] and
+                    detection['action'].lower().strip() != "(none)"):
+                    detection['raw_line'] = f"{detection['timestamp']} | {detection['action']} | {detection['confidence']}%"
+                    detections.append(detection)
+        
+        # Also look for rejection messages
+        elif re.search(r'❌ action rejected:', line, re.IGNORECASE) or re.search(r'❌ Action rejected:', line):
+            # Extract action from rejection message
+            reject_match = re.search(r'❌ (?:action rejected|Action rejected): ([^\n]+)', line, re.IGNORECASE)
+            if reject_match:
+                action = reject_match.group(1).strip()
+                
+                # Initialize detection data
+                detection = {
+                    'timestamp': "00:00:00",  # Will be updated from Time: line
+                    'burner_id': None,  # Not used in new format
+                    'action': action,
+                    'confidence': None,  # Will be filled from confidence line
+                    'duration': None,
+                    'analysis_duration': None,
+                    'similarity': None,
+                    'accepted': False,
+                    'raw_lines': [line]
+                }
+                
+                # Look for the confidence and time lines in the next few lines
+                for j in range(i + 1, min(i + 10, len(lines))):
+                    next_line = lines[j]
+                    detection['raw_lines'].append(next_line)
+                    
+                    # Look for confidence line (rejection format might be different)
+                    confidence_match = re.search(r'Confidence: ([\d.]+)% \(< ([\d.]+)%\)', next_line)
+                    if confidence_match:
+                        detected_confidence = float(confidence_match.group(1))
+                        detection['confidence'] = detected_confidence
+                    
+                    # Look for time line
+                    time_match = re.search(r'Time: (\d{2}:\d{2}:\d{2})', next_line)
+                    if time_match:
+                        detection['timestamp'] = time_match.group(1)
+                    
+                    # Stop if we hit the separator line (end of this log entry)
+                    if "==========================================" in next_line:
+                        break
+                
+                # Only add detection if we found the essential components and it's not "(none)"
+                if (detection['action'] and 
+                    detection['confidence'] is not None and 
+                    detection['timestamp'] and
+                    detection['action'].lower().strip() != "(none)"):
+                    detection['raw_line'] = f"{detection['timestamp']} | {detection['action']} | {detection['confidence']}%"
+                    detections.append(detection)
+        
+        # Also look for the old format as fallback
+        elif "🎬 ===== MOTION DETECTED ===== 🎬" in line:
             # Initialize detection data
             detection = {
                 'timestamp': None,

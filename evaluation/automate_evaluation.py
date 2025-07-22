@@ -19,6 +19,7 @@ import time
 import signal
 import subprocess
 import argparse
+import re
 from datetime import datetime
 from pathlib import Path
 import shutil
@@ -138,6 +139,12 @@ class EvaluationPipeline:
     def _monitor_logs(self, stdout, log_file):
         """Monitor stdout and write to log file while watching for end-of-file signal."""
         try:
+            # State tracking for multi-line acceptance/rejection messages
+            current_action = None
+            current_confidence = None
+            current_time = None
+            is_accepted = None
+            
             with open(log_file, 'w') as f:
                 for line in stdout:
                     f.write(line)
@@ -147,16 +154,64 @@ class EvaluationPipeline:
                     if "End of file" in line and "stopping playback" in line:
                         self.log_queue.put(line)
                     
-                    # Also capture other important signals
-                    if any(signal in line for signal in [
-                        "Motion detected", 
-                        "Action ACCEPTED", 
-                        "Action REJECTED",
-                        "Analysis Duration"
-                    ]):
-                        # Print important events to console
-                        if "Action ACCEPTED" in line or "Action REJECTED" in line:
-                            print(f"📊 {line.strip()}")
+                    # Handle new structured acceptance/rejection format
+                    if re.search(r'✅ action accepted:', line, re.IGNORECASE) or re.search(r'✅ ACTION ACCEPTED:', line):
+                        # Extract action name from acceptance message
+                        accept_match = re.search(r'✅ (?:action accepted|ACTION ACCEPTED): ([^\n]+)', line, re.IGNORECASE)
+                        if accept_match:
+                            current_action = accept_match.group(1).strip()
+                            is_accepted = True
+                    elif re.search(r'❌ action rejected:', line, re.IGNORECASE) or re.search(r'❌ Action rejected:', line):
+                        # Extract action name from rejection message
+                        reject_match = re.search(r'❌ (?:action rejected|Action rejected): ([^\n]+)', line, re.IGNORECASE)
+                        if reject_match:
+                            current_action = reject_match.group(1).strip()
+                            is_accepted = False
+                    elif current_action and re.search(r'Confidence: ([\d.]+)%', line):
+                        # Extract confidence value - handle both formats
+                        confidence_match = re.search(r'Confidence: ([\d.]+)% \(≥ ([\d.]+)% required\)', line)
+                        if not confidence_match:
+                            confidence_match = re.search(r'Confidence: ([\d.]+)% \(< ([\d.]+)%\)', line)
+                        if confidence_match:
+                            current_confidence = confidence_match.group(1)
+                    elif current_action and re.search(r'Time: (\d{2}:\d{2}:\d{2})', line):
+                        # Extract time value
+                        time_match = re.search(r'Time: (\d{2}:\d{2}:\d{2})', line)
+                        if time_match:
+                            current_time = time_match.group(1)
+                    elif current_action and "==========================================" in line:
+                        # End of structured message - print complete info
+                        if is_accepted:
+                            status = "ACCEPTED"
+                            emoji = "✅"
+                        else:
+                            status = "REJECTED"
+                            emoji = "❌"
+                        
+                        # Print with all available information
+                        info_parts = [current_action]
+                        if current_confidence:
+                            info_parts.append(f"{current_confidence}% confidence")
+                        if current_time:
+                            info_parts.append(f"at {current_time}")
+                        
+                        print(f"{emoji} Action {status}: {' | '.join(info_parts)}")
+                        
+                        # Reset state
+                        current_action = None
+                        current_confidence = None
+                        current_time = None
+                        is_accepted = None
+                    
+                    # Also handle other important signals
+                    elif "🎭 Claude response:" in line:
+                        # Extract and print Claude response in a readable format
+                        claude_match = re.search(r'🎭 Claude response: ([^(]+) \(([\d.]+)% confidence, ([\d.]+)s\)', line)
+                        if claude_match:
+                            action = claude_match.group(1).strip()
+                            confidence = claude_match.group(2)
+                            duration = claude_match.group(3)
+                            print(f"🎭 Claude: {action} ({confidence}% confidence, {duration}s)")
         except Exception as e:
             print(f"❌ Log monitoring error: {e}")
     
