@@ -5,7 +5,7 @@ Guides users through a series of cooking actions while recording separate videos
 Stop with Ctrl-C.
 """
 
-import asyncio, os, signal, cv2, numpy as np, sys, csv, time
+import asyncio, os, signal, cv2, numpy as np, sys, csv, time, argparse
 from datetime import datetime
 from dotenv import load_dotenv
 from viam.robot.client import RobotClient
@@ -14,20 +14,54 @@ from viam.components.camera import Camera
 from viam.media.video import CameraMimeType
 
 # Load environment variables from .env file
-load_dotenv(dotenv_path="../.env")
+# Try multiple locations for .env file
+env_paths = [
+    ".env",  # Current directory
+    "../.env",  # Parent directory
+    "../../.env",  # Two levels up
+    os.path.join(os.path.dirname(__file__), ".env"),  # Same directory as script
+    os.path.join(os.path.dirname(__file__), "..", ".env"),  # Parent of script directory
+]
+
+env_loaded = False
+for env_path in env_paths:
+    if os.path.exists(env_path):
+        load_dotenv(dotenv_path=env_path)
+        print(f"✅ Loaded environment from: {env_path}")
+        env_loaded = True
+        break
+
+if not env_loaded:
+    print("⚠️  No .env file found. Using default environment variables.")
+    print("💡 Create a .env file in the project root with your Viam credentials:")
+    print("   VIAM_API_KEY_ID=your_api_key_id")
+    print("   VIAM_API_KEY=your_api_key")
+    print("   VIAM_ADDRESS=your_robot_address")
+    print("   VIAM_CAMERA_NAME=your_camera_name")
+
+# Parse command line arguments
+parser = argparse.ArgumentParser(description='Interactive Viam camera recording with cooking action coaching')
+parser.add_argument('--output-dir', '-o', default='output', 
+                   help='Directory to save ground truth CSV file (default: output directory)')
+args = parser.parse_args()
+
+# Ensure output directory exists
+os.makedirs(args.output_dir, exist_ok=True)
 
 # ---------------------------------------------------------------------
 # Config – change only these four lines
 CAMERA_NAME = os.environ.get("VIAM_CAMERA_NAME", "overhead-rgb")  # Camera name from Viam config
 FPS         = 10               # playback + capture rate
 OUT_FILE_PREFIX = "cooking_actions"  # Prefix for video files
-LOG_FILE    = "cooking_actions_log.csv"
+LOG_FILE    = os.path.join(args.output_dir, "cooking_actions_log.csv")
+GT_FILE     = os.path.join(args.output_dir, "cooking_actions_ground_truth.csv")
 SHOW_LIVE_FEED = True          # Display live camera feed window
 # ---------------------------------------------------------------------
 
 class ActionLogger:
-    def __init__(self, log_file):
+    def __init__(self, log_file, gt_file):
         self.log_file = log_file
+        self.gt_file = gt_file
         self.start_time = None
         self.current_action = None
         self.action_start_time = None
@@ -36,7 +70,7 @@ class ActionLogger:
         self.current_sequence = None
         self.sequence_start_time = None
         
-        # Initialize CSV file with headers
+        # Initialize detailed log CSV file with headers
         with open(self.log_file, 'w', newline='') as file:
             writer = csv.writer(file)
             writer.writerow([
@@ -52,7 +86,22 @@ class ActionLogger:
                 'notes'
             ])
         
-        print(f"📋 Action log will be saved to: {self.log_file}")
+        # Initialize ground truth CSV file with headers
+        with open(self.gt_file, 'w', newline='') as file:
+            writer = csv.writer(file)
+            writer.writerow([
+                'video_filename',
+                'category_label',
+                'action_label',
+                'start_time_seconds',
+                'end_time_seconds',
+                'duration_seconds',
+                'video_start_frame',
+                'video_end_frame'
+            ])
+        
+        print(f"📋 Detailed action log will be saved to: {self.log_file}")
+        print(f"📋 Ground truth file will be saved to: {self.gt_file}")
     
     def start_session(self):
         """Mark the start of the recording session."""
@@ -171,9 +220,9 @@ class ActionLogger:
             action_category = "food_seasoning"
         
         # Get current video filename
-        current_video = f"{OUT_FILE_PREFIX}_{self.current_sequence.lower().replace(' ', '_')}.mp4" if self.current_sequence else "unknown.mp4"
+        current_video = os.path.join(args.output_dir, f"{OUT_FILE_PREFIX}_{self.current_sequence.lower().replace(' ', '_')}.mp4") if self.current_sequence else "unknown.mp4"
         
-        # Write to CSV
+        # Write to detailed log CSV
         with open(self.log_file, 'a', newline='') as file:
             writer = csv.writer(file)
             writer.writerow([
@@ -188,6 +237,25 @@ class ActionLogger:
                 current_video,
                 notes
             ])
+        
+        # Write to ground truth CSV (only for actual actions, not setup/phase changes)
+        if self.current_action and self.current_action not in ['session', 'phase_transition']:
+            # Calculate frame numbers based on FPS
+            start_frame = int(start_elapsed * FPS)
+            end_frame = int(end_elapsed * FPS)
+            
+            with open(self.gt_file, 'a', newline='') as file:
+                writer = csv.writer(file)
+                writer.writerow([
+                    current_video,
+                    action_category,
+                    self.current_action,
+                    f"{start_elapsed:.2f}",
+                    f"{end_elapsed:.2f}",
+                    f"{duration:.2f}",
+                    start_frame,
+                    end_frame
+                ])
         
         print(f"✅ Action logged: {duration:.1f}s duration")
         
@@ -543,7 +611,7 @@ async def record_video(coach, logger):
                 if coach.sequence_active and coach.current_sequence_name:
                     # Create filename from sequence name
                     safe_name = coach.current_sequence_name.lower().replace(' ', '_').replace('/', '_')
-                    current_video_file = f"{OUT_FILE_PREFIX}_{safe_name}.mp4"
+                    current_video_file = os.path.join(args.output_dir, f"{OUT_FILE_PREFIX}_{safe_name}.mp4")
                     
                     current_writer = cv2.VideoWriter(current_video_file, fourcc, FPS, (w, h))
                     
@@ -649,15 +717,20 @@ async def record_video(coach, logger):
         for i, video_file in enumerate(video_files_created, 1):
             print(f"     {i}. {video_file}")
             
-        print(f"   Action log saved to: {LOG_FILE}")
+        print(f"   Detailed action log saved to: {LOG_FILE}")
+        print(f"   Ground truth file saved to: {GT_FILE}")
 
 async def main():
     """Main function that runs coaching and recording concurrently."""
     print("\n🎬 INTERACTIVE RECORDING SESSION")
     print("=" * 50)
+    print(f"📁 Output directory: {args.output_dir}")
+    print(f"📊 Ground truth file: {GT_FILE}")
+    print(f"📋 Detailed log file: {LOG_FILE}")
+    print("=" * 50)
     
     # Initialize logger
-    logger = ActionLogger(LOG_FILE)
+    logger = ActionLogger(LOG_FILE, GT_FILE)
     coach = CookingCoach(logger)
     
     # Do setup phase with clear prompts
@@ -693,14 +766,16 @@ async def main():
             coaching_task.cancel()
         
         print(f"\n✅ Session complete! Check your files:")
-        print(f"   📹 Videos: {OUT_FILE_PREFIX}_*.mp4")
-        print(f"   📊 Log: {LOG_FILE}")
+        print(f"   📹 Videos: {args.output_dir}/{OUT_FILE_PREFIX}_*.mp4")
+        print(f"   📊 Detailed log: {LOG_FILE}")
+        print(f"   📊 Ground truth: {GT_FILE}")
 
 if __name__ == "__main__":
     try:
         asyncio.run(main())
     except KeyboardInterrupt:
         print(f"\n👋 Session ended. Check your files:")
-        print(f"   Videos: {OUT_FILE_PREFIX}_*.mp4")
-        print(f"   Action log: {LOG_FILE}")
+        print(f"   Videos: {args.output_dir}/{OUT_FILE_PREFIX}_*.mp4")
+        print(f"   Detailed log: {LOG_FILE}")
+        print(f"   Ground truth: {GT_FILE}")
         sys.exit(0) 

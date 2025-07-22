@@ -12,7 +12,30 @@ from viam.components.camera import Camera
 from viam.media.video import CameraMimeType
 
 # Load environment variables from .env file
-load_dotenv(dotenv_path="../.env")
+# Try multiple locations for .env file
+env_paths = [
+    ".env",  # Current directory
+    "../.env",  # Parent directory
+    "../../.env",  # Two levels up
+    os.path.join(os.path.dirname(__file__), ".env"),  # Same directory as script
+    os.path.join(os.path.dirname(__file__), "..", ".env"),  # Parent of script directory
+]
+
+env_loaded = False
+for env_path in env_paths:
+    if os.path.exists(env_path):
+        load_dotenv(dotenv_path=env_path)
+        print(f"✅ Loaded environment from: {env_path}")
+        env_loaded = True
+        break
+
+if not env_loaded:
+    print("⚠️  No .env file found. Using default environment variables.")
+    print("💡 Create a .env file in the project root with your Viam credentials:")
+    print("   VIAM_API_KEY_ID=your_api_key_id")
+    print("   VIAM_API_KEY=your_api_key")
+    print("   VIAM_ADDRESS=your_robot_address")
+    print("   VIAM_CAMERA_NAME=your_camera_name")
 
 # Camera name to test
 CAMERA_NAME = os.environ.get("VIAM_CAMERA_NAME", "overhead-rgb")  # Camera name from Viam config

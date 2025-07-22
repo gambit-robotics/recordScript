@@ -9,6 +9,7 @@ This repository provides a complete pipeline for recording cooking videos and ev
 ```
 recordScript/
 ├── 📹 recording/          # Video recording tools
+│   └── output/           # Video and CSV output files
 ├── 🔍 evaluation/         # Automated evaluation pipeline
 ├── 📊 data/              # Datasets, samples, and results
 ├── 📚 docs/              # Detailed documentation

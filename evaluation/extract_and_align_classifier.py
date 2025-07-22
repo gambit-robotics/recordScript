@@ -33,47 +33,77 @@ def extract_classifier_detections(log_text):
             if accept_match:
                 action = accept_match.group(1).strip()
                 
-                # Initialize detection data
-                detection = {
-                    'timestamp': "00:00:00",  # Will be updated from Time: line
-                    'burner_id': None,  # Not used in new format
-                    'action': action,
-                    'confidence': None,  # Will be filled from confidence line
-                    'duration': None,
-                    'analysis_duration': None,
-                    'similarity': None,
-                    'accepted': True,
-                    'raw_lines': [line]
-                }
+                # Check if confidence is embedded in the same line (e.g., "Stir (85.0% ≥ 75.0%)")
+                inline_confidence_match = re.search(r'([^(]+)\s*\(([\d.]+)%\s*≥\s*([\d.]+)%\)', action)
+                if inline_confidence_match:
+                    # Extract action name and confidence from the inline format
+                    action_name = inline_confidence_match.group(1).strip()
+                    detected_confidence = float(inline_confidence_match.group(2))
+                    threshold = float(inline_confidence_match.group(3))
+                    
+                    # Initialize detection data with inline confidence
+                    detection = {
+                        'timestamp': "00:00:00",  # Will be updated from Time: line
+                        'burner_id': None,  # Not used in new format
+                        'action': action_name,
+                        'confidence': detected_confidence,
+                        'threshold': threshold,
+                        'duration': None,
+                        'analysis_duration': None,
+                        'similarity': None,
+                        'accepted': True,
+                        'raw_lines': [line]
+                    }
+                else:
+                    # Initialize detection data without inline confidence
+                    detection = {
+                        'timestamp': "00:00:00",  # Will be updated from Time: line
+                        'burner_id': None,  # Not used in new format
+                        'action': action,
+                        'confidence': None,  # Will be filled from confidence line
+                        'duration': None,
+                        'analysis_duration': None,
+                        'similarity': None,
+                        'accepted': True,
+                        'raw_lines': [line]
+                    }
                 
-                # Look for the confidence and time lines in the next few lines
-                for j in range(i + 1, min(i + 10, len(lines))):
-                    next_line = lines[j]
-                    detection['raw_lines'].append(next_line)
-                    
-                    # Look for confidence line - handle both acceptance and rejection formats
-                    confidence_match = re.search(r'Confidence: ([\d.]+)% \(≥ ([\d.]+)% required\)', next_line)
-                    if not confidence_match:
-                        confidence_match = re.search(r'Confidence: ([\d.]+)% \(< ([\d.]+)%\)', next_line)
-                    if confidence_match:
-                        detected_confidence = float(confidence_match.group(1))
-                        min_confidence = float(confidence_match.group(2))
-                        detection['confidence'] = detected_confidence
-                    
-                    # Look for time line
-                    time_match = re.search(r'Time: (\d{2}:\d{2}:\d{2})', next_line)
-                    if time_match:
-                        detection['timestamp'] = time_match.group(1)
-                    
-                    # Stop if we hit the separator line (end of this log entry)
-                    if "==========================================" in next_line:
-                        break
+                # Look for the confidence and time lines in the next few lines (only if not found inline)
+                if detection['confidence'] is None:
+                    for j in range(i + 1, min(i + 10, len(lines))):
+                        next_line = lines[j]
+                        detection['raw_lines'].append(next_line)
+                        
+                        # Look for confidence line - handle both acceptance and rejection formats
+                        confidence_match = re.search(r'Confidence: ([\d.]+)% \(≥ ([\d.]+)% required\)', next_line)
+                        if not confidence_match:
+                            confidence_match = re.search(r'Confidence: ([\d.]+)% \(< ([\d.]+)%\)', next_line)
+                        if confidence_match:
+                            detected_confidence = float(confidence_match.group(1))
+                            threshold = float(confidence_match.group(2))
+                            detection['confidence'] = detected_confidence
+                            detection['threshold'] = threshold
+                        
+                        # Look for time line
+                        time_match = re.search(r'Time: (\d{2}:\d{2}:\d{2})', next_line)
+                        if time_match:
+                            detection['timestamp'] = time_match.group(1)
+                        
+                        # Stop if we hit the separator line (end of this log entry)
+                        if "==========================================" in next_line:
+                            break
                 
                 # Only add detection if we found the essential components and it's not "(none)"
                 if (detection['action'] and 
                     detection['confidence'] is not None and 
-                    detection['timestamp'] and
                     detection['action'].lower().strip() != "(none)"):
+                    # If no timestamp found, use a default or try to extract from the line
+                    if detection['timestamp'] == "00:00:00":
+                        # Try to extract timestamp from the log line itself
+                        timestamp_match = re.search(r'(\d{2}:\d{2}:\d{2})', line)
+                        if timestamp_match:
+                            detection['timestamp'] = timestamp_match.group(1)
+                    
                     detection['raw_line'] = f"{detection['timestamp']} | {detection['action']} | {detection['confidence']}%"
                     detections.append(detection)
         
@@ -84,44 +114,85 @@ def extract_classifier_detections(log_text):
             if reject_match:
                 action = reject_match.group(1).strip()
                 
-                # Initialize detection data
-                detection = {
-                    'timestamp': "00:00:00",  # Will be updated from Time: line
-                    'burner_id': None,  # Not used in new format
-                    'action': action,
-                    'confidence': None,  # Will be filled from confidence line
-                    'duration': None,
-                    'analysis_duration': None,
-                    'similarity': None,
-                    'accepted': False,
-                    'raw_lines': [line]
-                }
+                # Check if confidence is embedded in the same line (e.g., "Stir (68.0% < 75.0%)" or "Season (75.0% < 85.0%, 17:29:18)")
+                inline_confidence_match = re.search(r'([^(]+)\s*\(([\d.]+)%\s*<\s*([\d.]+)%(?:,\s*(\d{2}:\d{2}:\d{2}))?\)', action)
+                if inline_confidence_match:
+                    # Extract action name and confidence from the inline format
+                    action_name = inline_confidence_match.group(1).strip()
+                    detected_confidence = float(inline_confidence_match.group(2))
+                    threshold = float(inline_confidence_match.group(3))
+                    embedded_timestamp = inline_confidence_match.group(4) if len(inline_confidence_match.groups()) > 3 else None
+                    
+                    # Initialize detection data with inline confidence
+                    detection = {
+                        'timestamp': embedded_timestamp if embedded_timestamp else "00:00:00",  # Use embedded timestamp if available
+                        'burner_id': None,  # Not used in new format
+                        'action': action_name,
+                        'confidence': detected_confidence,
+                        'threshold': threshold,
+                        'duration': None,
+                        'analysis_duration': None,
+                        'similarity': None,
+                        'accepted': False,
+                        'raw_lines': [line]
+                    }
+                else:
+                    # Initialize detection data without inline confidence
+                    detection = {
+                        'timestamp': "00:00:00",  # Will be updated from Time: line
+                        'burner_id': None,  # Not used in new format
+                        'action': action,
+                        'confidence': None,  # Will be filled from confidence line
+                        'duration': None,
+                        'analysis_duration': None,
+                        'similarity': None,
+                        'accepted': False,
+                        'raw_lines': [line]
+                    }
                 
-                # Look for the confidence and time lines in the next few lines
-                for j in range(i + 1, min(i + 10, len(lines))):
-                    next_line = lines[j]
-                    detection['raw_lines'].append(next_line)
-                    
-                    # Look for confidence line (rejection format might be different)
-                    confidence_match = re.search(r'Confidence: ([\d.]+)% \(< ([\d.]+)%\)', next_line)
-                    if confidence_match:
-                        detected_confidence = float(confidence_match.group(1))
-                        detection['confidence'] = detected_confidence
-                    
-                    # Look for time line
-                    time_match = re.search(r'Time: (\d{2}:\d{2}:\d{2})', next_line)
-                    if time_match:
-                        detection['timestamp'] = time_match.group(1)
-                    
-                    # Stop if we hit the separator line (end of this log entry)
-                    if "==========================================" in next_line:
-                        break
+                # Look for the confidence and time lines in the next few lines (only if not found inline)
+                if detection['confidence'] is None:
+                    for j in range(i + 1, min(i + 10, len(lines))):
+                        next_line = lines[j]
+                        detection['raw_lines'].append(next_line)
+                        
+                        # Look for confidence line (rejection format might be different)
+                        confidence_match = re.search(r'Confidence: ([\d.]+)% \(< ([\d.]+)%\)', next_line)
+                        if confidence_match:
+                            detected_confidence = float(confidence_match.group(1))
+                            threshold = float(confidence_match.group(2))
+                            detection['confidence'] = detected_confidence
+                            detection['threshold'] = threshold
+                        
+                        # Look for time line
+                        time_match = re.search(r'Time: (\d{2}:\d{2}:\d{2})', next_line)
+                        if time_match:
+                            detection['timestamp'] = time_match.group(1)
+                        
+                        # Stop if we hit the separator line (end of this log entry)
+                        if "==========================================" in next_line:
+                            break
                 
                 # Only add detection if we found the essential components and it's not "(none)"
                 if (detection['action'] and 
                     detection['confidence'] is not None and 
-                    detection['timestamp'] and
                     detection['action'].lower().strip() != "(none)"):
+                    # If no timestamp found, try to extract from the log line itself
+                    if detection['timestamp'] == "00:00:00":
+                        # Try to extract timestamp from the log line itself
+                        timestamp_match = re.search(r'(\d{2}:\d{2}:\d{2})', line)
+                        if timestamp_match:
+                            detection['timestamp'] = timestamp_match.group(1)
+                    
+                    # For rejected actions, also check if timestamp is embedded in the action string
+                    if detection['timestamp'] == "00:00:00" and not detection.get('accepted', True):
+                        # Look for timestamp at the end of the action string (e.g., "Season (75.0% < 85.0%, 17:29:18)")
+                        embedded_timestamp_match = re.search(r'([^(]+)\s*\(([\d.]+)%\s*<\s*([\d.]+)%,\s*(\d{2}:\d{2}:\d{2})\)', detection['action'])
+                        if embedded_timestamp_match:
+                            action_name = embedded_timestamp_match.group(1).strip()
+                            detection['action'] = action_name
+                            detection['timestamp'] = embedded_timestamp_match.group(4)
+                    
                     detection['raw_line'] = f"{detection['timestamp']} | {detection['action']} | {detection['confidence']}%"
                     detections.append(detection)
         
@@ -370,6 +441,31 @@ def analyze_performance(detections, ground_truth_df):
             print(f"   High confidence (≥80%): {high_conf}/{len(confidences)}")
             print(f"   Medium confidence (60-79%): {med_conf}/{len(confidences)}")
             print(f"   Low confidence (<60%): {low_conf}/{len(confidences)}")
+            
+            # Separate accepted vs rejected confidence analysis
+            accepted_confidences = [d['confidence'] for d in detections if d.get('accepted', True) and d['confidence'] is not None]
+            rejected_confidences = [d['confidence'] for d in detections if not d.get('accepted', True) and d['confidence'] is not None]
+            
+            if accepted_confidences and rejected_confidences:
+                avg_accepted = sum(accepted_confidences) / len(accepted_confidences)
+                avg_rejected = sum(rejected_confidences) / len(rejected_confidences)
+                min_rejected = min(rejected_confidences) if rejected_confidences else 0
+                max_rejected = max(rejected_confidences) if rejected_confidences else 0
+                
+                print(f"\n📊 Acceptance vs Rejection Analysis:")
+                print(f"   Accepted avg confidence: {avg_accepted:.1f}%")
+                print(f"   Rejected avg confidence: {avg_rejected:.1f}%")
+                print(f"   Rejected confidence range: {min_rejected:.1f}% - {max_rejected:.1f}%")
+                
+                # Threshold analysis
+                thresholds = [d.get('threshold') for d in detections if d.get('threshold') is not None]
+                if thresholds:
+                    unique_thresholds = list(set(thresholds))
+                    print(f"   Thresholds used: {unique_thresholds}")
+                    
+                    # Analyze rejection reasons
+                    below_threshold = len([d for d in detections if not d.get('accepted', True) and d.get('threshold') and d['confidence'] < d['threshold']])
+                    print(f"   Rejections below threshold: {below_threshold}/{len(rejected_confidences)}")
     
     # Similarity analysis (new field)
     similarities = [d['similarity'] for d in detections if d.get('similarity') is not None]
@@ -447,6 +543,15 @@ def provide_insights(detections, detection_counts, gt_counts):
             avg_accepted = sum(accepted_confidences) / len(accepted_confidences)
             avg_rejected = sum(rejected_confidences) / len(rejected_confidences)
             print(f"   • Accepted avg: {avg_accepted:.1f}%, Rejected avg: {avg_rejected:.1f}%")
+            
+            # Analyze confidence gap
+            if avg_accepted > avg_rejected:
+                confidence_gap = avg_accepted - avg_rejected
+                print(f"   • Confidence gap (accepted - rejected): {confidence_gap:.1f}%")
+                if confidence_gap < 10:
+                    print(f"   • Small confidence gap suggests threshold may be too close to average")
+                elif confidence_gap > 25:
+                    print(f"   • Large confidence gap suggests good threshold separation")
         
         if avg_confidence >= 85:
             print(f"   • High average confidence indicates good model certainty")
@@ -458,6 +563,22 @@ def provide_insights(detections, detection_counts, gt_counts):
         low_conf_count = len([c for c in confidences if c < 70])
         if low_conf_count > 0:
             print(f"   • {low_conf_count} low-confidence detections may be false positives")
+        
+        # Rejection pattern analysis
+        if rejected_confidences:
+            max_rejected = max(rejected_confidences)
+            min_rejected = min(rejected_confidences)
+            print(f"   • Rejection range: {min_rejected:.1f}% - {max_rejected:.1f}%")
+            
+            # Check if rejections are close to threshold
+            thresholds = [d.get('threshold') for d in detections if d.get('threshold') is not None]
+            if thresholds:
+                avg_threshold = sum(thresholds) / len(thresholds)
+                close_to_threshold = len([c for c in rejected_confidences if abs(c - avg_threshold) < 5])
+                print(f"   • {close_to_threshold} rejections close to threshold (±5%)")
+                
+                if close_to_threshold > len(rejected_confidences) * 0.5:
+                    print(f"   • Many rejections near threshold - consider fine-tuning")
     
     # Similarity insights
     similarities = [d['similarity'] for d in detections if d.get('similarity') is not None]
@@ -517,7 +638,30 @@ def provide_insights(detections, detection_counts, gt_counts):
             rejected_confidences = [d['confidence'] for d in detections if not d.get('accepted', True) and d['confidence'] is not None]
             if rejected_confidences:
                 max_rejected_conf = max(rejected_confidences)
-                print(f"   • Current threshold appears effective (highest rejected: {max_rejected_conf:.1f}%)")
+                min_rejected_conf = min(rejected_confidences)
+                avg_rejected_conf = sum(rejected_confidences) / len(rejected_confidences)
+                
+                print(f"   • Current threshold analysis:")
+                print(f"     - Highest rejected: {max_rejected_conf:.1f}%")
+                print(f"     - Average rejected: {avg_rejected_conf:.1f}%")
+                print(f"     - Lowest rejected: {min_rejected_conf:.1f}%")
+                
+                # Analyze threshold effectiveness
+                accepted_confidences = [d['confidence'] for d in detections if d.get('accepted', True) and d['confidence'] is not None]
+                if accepted_confidences:
+                    avg_accepted_conf = sum(accepted_confidences) / len(accepted_confidences)
+                    threshold_gap = avg_accepted_conf - max_rejected_conf
+                    
+                    if threshold_gap > 15:
+                        print(f"     - Good threshold separation ({threshold_gap:.1f}% gap)")
+                    elif threshold_gap > 5:
+                        print(f"     - Adequate threshold separation ({threshold_gap:.1f}% gap)")
+                    else:
+                        print(f"     - Threshold may be too high (only {threshold_gap:.1f}% gap)")
+                        
+                        # Suggest optimal threshold
+                        suggested_threshold = max_rejected_conf + 5
+                        print(f"     - Suggested threshold: {suggested_threshold:.1f}%")
             else:
                 avg_conf = sum(confidences) / len(confidences)
                 if avg_conf >= 80:

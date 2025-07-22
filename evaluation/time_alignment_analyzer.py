@@ -40,19 +40,35 @@ class TimeAlignmentAnalyzer:
             content = f.read()
         
         # Extract detections using regex pattern for the timeline format
+        # Only include ACCEPTED detections - skip REJECTED ones
         pattern = r'# Detection \d+ - (\d{2}:\d{2}:\d{2}) - ([^#\n]+)'
         matches = re.findall(pattern, content)
         
         detections = []
-        for time_str, action in matches:
-            detections.append({
-                'time_hms': time_str,
-                'action': action.strip(),
-                'time_seconds': None  # Will be calculated after setting video start time
-            })
+        lines = content.split('\n')
+        
+        # Find the status line for each detection to filter out rejected ones
+        for i, line in enumerate(lines):
+            if line.startswith('# Detection '):
+                # Extract detection info
+                match = re.search(r'# Detection \d+ - (\d{2}:\d{2}:\d{2}) - ([^#\n]+)', line)
+                if match:
+                    time_str = match.group(1)
+                    action = match.group(2).strip()
+                    
+                    # Check the next line for status
+                    if i + 1 < len(lines):
+                        status_line = lines[i + 1]
+                        if 'Status: ACCEPTED' in status_line:
+                            detections.append({
+                                'time_hms': time_str,
+                                'action': action,
+                                'time_seconds': None  # Will be calculated after setting video start time
+                            })
+                        # Skip REJECTED detections
         
         self.detections = detections
-        print(f"📊 Loaded {len(detections)} detections from log")
+        print(f"📊 Loaded {len(detections)} ACCEPTED detections from log (rejected detections filtered out)")
         return detections
     
     def load_ground_truth_from_csv(self, csv_file):

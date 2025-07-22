@@ -161,12 +161,32 @@ class EvaluationPipeline:
                         if accept_match:
                             current_action = accept_match.group(1).strip()
                             is_accepted = True
+                            
+                            # Check for inline confidence format (e.g., "Stir (85.0% ≥ 75.0%)")
+                            inline_confidence_match = re.search(r'([^(]+)\s*\(([\d.]+)%\s*≥\s*([\d.]+)%\)', current_action)
+                            if inline_confidence_match:
+                                action_name = inline_confidence_match.group(1).strip()
+                                confidence = float(inline_confidence_match.group(2))
+                                threshold = float(inline_confidence_match.group(3))
+                                current_action = action_name
+                                current_confidence = f"{confidence:.1f}"
+                                current_time = "00:00:00"  # Will be updated if found in subsequent lines
                     elif re.search(r'❌ action rejected:', line, re.IGNORECASE) or re.search(r'❌ Action rejected:', line):
                         # Extract action name from rejection message
                         reject_match = re.search(r'❌ (?:action rejected|Action rejected): ([^\n]+)', line, re.IGNORECASE)
                         if reject_match:
                             current_action = reject_match.group(1).strip()
                             is_accepted = False
+                            
+                            # Check for inline confidence format (e.g., "Stir (68.0% < 75.0%)")
+                            inline_confidence_match = re.search(r'([^(]+)\s*\(([\d.]+)%\s*<\s*([\d.]+)%\)', current_action)
+                            if inline_confidence_match:
+                                action_name = inline_confidence_match.group(1).strip()
+                                confidence = float(inline_confidence_match.group(2))
+                                threshold = float(inline_confidence_match.group(3))
+                                current_action = action_name
+                                current_confidence = f"{confidence:.1f}"
+                                current_time = "00:00:00"  # Will be updated if found in subsequent lines
                     elif current_action and re.search(r'Confidence: ([\d.]+)%', line):
                         # Extract confidence value - handle both formats
                         confidence_match = re.search(r'Confidence: ([\d.]+)% \(≥ ([\d.]+)% required\)', line)
