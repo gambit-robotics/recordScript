@@ -9,8 +9,18 @@ This repository provides a complete pipeline for recording cooking videos and ev
 ```
 recordScript/
 ├── 📹 recording/          # Video recording tools
-│   └── output/           # Video and CSV output files
+│   ├── record_rgb_interactive.py  # Interactive cooking coaching
+│   ├── record_rgb.py              # Basic video recording
+│   ├── record.py                   # Recording launcher
+│   ├── test_connection.py          # Connection testing
+│   ├── setup_environment.sh        # Environment setup
+│   └── output/                    # Video and CSV output files
 ├── 🔍 evaluation/         # Automated evaluation pipeline
+│   ├── automate_evaluation.py     # Main evaluation automation
+│   ├── setup_automation.py        # Evaluation environment setup
+│   ├── extract_and_align_classifier.py  # Core analysis engine
+│   ├── time_alignment_analyzer.py # Temporal analysis tools
+│   └── evaluation_results/        # Evaluation outputs
 ├── 📊 data/              # Datasets, samples, and results
 ├── 📚 docs/              # Detailed documentation
 ├── README.md             # This file
@@ -75,11 +85,11 @@ VIAM_CAMERA_NAME="overhead-rgb" python3 record_rgb_interactive.py
 
 ## 📚 Detailed Documentation
 
-| Section           | Purpose                       | Link                                                 |
-| ----------------- | ----------------------------- | ---------------------------------------------------- |
-| **🔍 Evaluation** | Automated evaluation pipeline | [📖 evaluation/README.md](docs/README_evaluation.md) |
-| **📹 Recording**  | Video recording tools         | [📖 recording/README.md](docs/README_recording.md)   |
-| **📊 Data**       | Datasets and sample files     | [📖 data/README.md](data/)                           |
+| Section           | Purpose                       | Link                                                    |
+| ----------------- | ----------------------------- | ------------------------------------------------------- |
+| **🔍 Evaluation** | Automated evaluation pipeline | [📖 evaluation/README.md](docs/README_evaluation.md.md) |
+| **📹 Recording**  | Video recording tools         | [📖 recording/README.md](docs/README_recording.md)      |
+| **📊 Data**       | Datasets and sample files     | [📖 data/README.md](data/)                              |
 
 ## 🔄 Typical Workflow
 
