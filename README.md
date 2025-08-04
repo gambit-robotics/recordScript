@@ -135,14 +135,26 @@ graph LR
 ### **Quick Setup**
 
 ```bash
-# Install Python dependencies
+# 1. Create and activate virtual environment
+python3 -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+
+# 2. Upgrade pip and install dependencies
+pip install --upgrade pip
 pip install -r requirements.txt
 
-# Validate setup (evaluation)
+# 3. Validate setup (evaluation)
 cd evaluation && python3 setup_automation.py
 
 # Or validate setup (recording)
 cd recording && ./setup_environment.sh
+```
+
+**Alternative: Use the automated setup script**
+
+```bash
+# Run the setup script (includes all steps above)
+./setup_environment.sh
 ```
 
 ## 📈 What You Get

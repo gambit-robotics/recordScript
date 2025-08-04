@@ -3,4 +3,5 @@ opencv-python
 numpy
 pandas
 matplotlib
-python-dotenv 
+python-dotenv
+seaborn 
