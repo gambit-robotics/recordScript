@@ -1,0 +1,14 @@
+Evaluation Run Summary: 20250709_170800
+==================================================
+
+Timestamp: 2025-07-09T17:08:00.266945
+Run ID: 20250709_170800
+
+Performance Metrics:
+- Total detections: 16
+- Accepted: 15
+- Rejected: 1
+- Acceptance rate: 93.8%
+- Average confidence: 76.0%
+- Average similarity: 85.6%
+- Average analysis time: 4.4s

@@ -1,0 +1,556 @@
+# Classifier Detection Timeline
+# Extracted classification results in chronological order
+# New Format: Motion Detection + Claude Analysis + Acceptance
+================================================================================
+
+Total detections found: 20
+Accepted: 20, Rejected: 0
+
+# Detection 1 - 00:05:39 - Stir
+# Status: ACCEPTED
+🎬 ===== MOTION DETECTED ===== 🎬	{"log_ts":"2025-06-12T04:05:40.141Z"}
+2025-06-12T04:05:40.142Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:444	📊 Similarity: 86.2% (threshold: 87.5%)	{"log_ts":"2025-06-12T04:05:40.142Z"}
+2025-06-12T04:05:40.142Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:445	⏰ Time: 00:05:39 | Duration: 1.0s	{"log_ts":"2025-06-12T04:05:40.142Z"}
+2025-06-12T04:05:40.143Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:446	🎬 ============================= 🎬
+
+	{"log_ts":"2025-06-12T04:05:40.142Z"}
+2025-06-12T04:05:40.143Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1485	
+🧠 Using BASE prompt only (object=false, temp=false, motion=false, recipe=false)
+	{"log_ts":"2025-06-12T04:05:40.143Z"}
+2025-06-12T04:05:44.332Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1503	
+📋 ===== CLAUDE RESPONSE ===== 📋	{"log_ts":"2025-06-12T04:05:44.331Z"}
+2025-06-12T04:05:44.333Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1505	🎭 Detected Action: Stir	{"log_ts":"2025-06-12T04:05:44.332Z"}
+2025-06-12T04:05:44.333Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1506	🎯 Confidence: 78.0%	{"log_ts":"2025-06-12T04:05:44.333Z"}
+2025-06-12T04:05:44.334Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1511	⏱️  Analysis Duration: 4.2s	{"log_ts":"2025-06-12T04:05:44.333Z"}
+2025-06-12T04:05:44.334Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1512	📋 =========================== 📋
+2025-06-12T04:05:44.335Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1551	✅ Action ACCEPTED: Stir (78.0% ≥ 65.0% required)	{"log_ts":"2025-06-12T04:05:44.335Z"}
+
+------------------------------------------------------------
+
+# Detection 2 - 00:06:08 - Flip
+# Status: ACCEPTED
+🎬 ===== MOTION DETECTED ===== 🎬	{"log_ts":"2025-06-12T04:06:08.650Z"}
+2025-06-12T04:06:08.650Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:444	📊 Similarity: 84.0% (threshold: 87.5%)	{"log_ts":"2025-06-12T04:06:08.650Z"}
+2025-06-12T04:06:08.651Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:445	⏰ Time: 00:06:08 | Duration: 1.0s	{"log_ts":"2025-06-12T04:06:08.650Z"}
+2025-06-12T04:06:08.651Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:446	🎬 ============================= 🎬
+
+	{"log_ts":"2025-06-12T04:06:08.651Z"}
+2025-06-12T04:06:08.651Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1485	
+🧠 Using BASE prompt only (object=false, temp=false, motion=false, recipe=false)
+	{"log_ts":"2025-06-12T04:06:08.651Z"}
+2025-06-12T04:06:14.951Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1503	
+📋 ===== CLAUDE RESPONSE ===== 📋	{"log_ts":"2025-06-12T04:06:14.951Z"}
+2025-06-12T04:06:14.952Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1505	🎭 Detected Action: Flip	{"log_ts":"2025-06-12T04:06:14.952Z"}
+2025-06-12T04:06:14.953Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1506	🎯 Confidence: 85.0%	{"log_ts":"2025-06-12T04:06:14.952Z"}
+2025-06-12T04:06:14.953Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1511	⏱️  Analysis Duration: 6.3s	{"log_ts":"2025-06-12T04:06:14.953Z"}
+2025-06-12T04:06:14.954Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1512	📋 =========================== 📋
+2025-06-12T04:06:14.955Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1551	✅ Action ACCEPTED: Flip (85.0% ≥ 65.0% required)	{"log_ts":"2025-06-12T04:06:14.954Z"}
+
+------------------------------------------------------------
+
+# Detection 3 - 00:06:57 - Stir
+# Status: ACCEPTED
+🎬 ===== MOTION DETECTED ===== 🎬	{"log_ts":"2025-06-12T04:06:57.379Z"}
+2025-06-12T04:06:57.379Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:444	📊 Similarity: 84.0% (threshold: 87.5%)	{"log_ts":"2025-06-12T04:06:57.379Z"}
+2025-06-12T04:06:57.379Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:445	⏰ Time: 00:06:57 | Duration: 1.0s	{"log_ts":"2025-06-12T04:06:57.379Z"}
+2025-06-12T04:06:57.379Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:446	🎬 ============================= 🎬
+
+	{"log_ts":"2025-06-12T04:06:57.379Z"}
+2025-06-12T04:06:57.379Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1485	
+🧠 Using BASE prompt only (object=false, temp=false, motion=false, recipe=false)
+	{"log_ts":"2025-06-12T04:06:57.379Z"}
+2025-06-12T04:06:57.389Z	INFO	rdk.resource_manager	impl/resource_manager.go:718	Now configuring resource	{"resource":"rdk:service:generic/chef-temp-target-dev"}
+2025-06-12T04:06:57.402Z	INFO	rdk.resource_manager	impl/resource_manager.go:718	Now configuring resource	{"resource":"rdk:service:generic/chef-timer-dev"}
+2025-06-12T04:06:57.415Z	INFO	rdk.resource_manager	impl/resource_manager.go:718	Now configuring resource	{"resource":"rdk:service:generic/chef-analysis-dev"}
+2025-06-12T04:06:57.402Z	WARN	rdk.resource_manager.rdk:service:generic/chef-analysis-dev	resource/graph_node.go:551	Message logged 13 times in past 1m0s: unexpected resource state transition	{"from":"Unhealthy","to":"Configuring"}
+2025-06-12T04:06:52.455Z	ERROR	rdk.resource_manager.rdk:service:generic/chef-analysis-dev	resource/graph_node.go:297	Message logged 12 times in past 1m0s: resource build error: resource has unresolved dependencies: [burner-1-dev]	{"resource":"rdk:service:generic/chef-analysis-dev","model":"gambit-robotics:chef:analysis-dev"}
+2025-06-12T04:06:57.427Z	ERROR	rdk.resource_manager.rdk:service:generic/chef-analysis-dev	resource/graph_node.go:297	resource build error: resource has unresolved dependencies: [burner-1-dev]	{"resource":"rdk:service:generic/chef-analysis-dev","model":"gambit-robotics:chef:analysis-dev"}
+2025-06-12T04:06:58.595Z	INFO	bill_video-replay.rdk:component:camera/replayCamera-1	models/module.go:376	[Image] Called for camera "rdk:component:camera/replayCamera-1", mimeType="image/jpeg+lazy"	{"log_ts":"2025-06-12T04:06:58.594Z"}
+2025-06-12T04:07:02.423Z	WARN	rdk.resource_manager.rdk:service:generic/chef-analysis-dev	resource/graph_node.go:551	unexpected resource state transition	{"from":"Unhealthy","to":"Configuring"}
+2025-06-12T04:06:57.415Z	ERROR	rdk.resource_manager.rdk:service:generic/chef-timer-dev	resource/graph_node.go:297	Message logged 13 times in past 1m0s: resource build error: resource has unresolved dependencies: [burner-1-dev]	{"resource":"rdk:service:generic/chef-timer-dev","model":"gambit-robotics:chef:timer-dev"}
+2025-06-12T04:06:57.402Z	WARN	rdk.resource_manager.rdk:service:generic/chef-timer-dev	resource/graph_node.go:551	Message logged 13 times in past 1m0s: unexpected resource state transition	{"from":"Unhealthy","to":"Configuring"}
+2025-06-12T04:07:02.423Z	WARN	rdk.resource_manager.rdk:service:generic/chef-timer-dev	resource/graph_node.go:551	unexpected resource state transition	{"from":"Unhealthy","to":"Configuring"}
+2025-06-12T04:06:57.402Z	ERROR	rdk.resource_manager.rdk:service:generic/chef-temp-target-dev	resource/graph_node.go:297	Message logged 13 times in past 1m0s: resource build error: resource has unresolved dependencies: [burner-1-dev]	{"resource":"rdk:service:generic/chef-temp-target-dev","model":"gambit-robotics:chef:temp-target-dev"}
+2025-06-12T04:07:02.423Z	ERROR	rdk.resource_manager.rdk:service:generic/chef-temp-target-dev	resource/graph_node.go:297	resource build error: resource has unresolved dependencies: [burner-1-dev]	{"resource":"rdk:service:generic/chef-temp-target-dev","model":"gambit-robotics:chef:temp-target-dev"}
+2025-06-12T04:07:02.439Z	ERROR	rdk.resource_manager.rdk:service:generic/chef-timer-dev	resource/graph_node.go:297	resource build error: resource has unresolved dependencies: [burner-1-dev]	{"resource":"rdk:service:generic/chef-timer-dev","model":"gambit-robotics:chef:timer-dev"}
+2025-06-12T04:07:02.454Z	ERROR	rdk.resource_manager.rdk:service:generic/chef-analysis-dev	resource/graph_node.go:297	resource build error: resource has unresolved dependencies: [burner-1-dev]	{"resource":"rdk:service:generic/chef-analysis-dev","model":"gambit-robotics:chef:analysis-dev"}
+2025-06-12T04:07:04.500Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1503	
+📋 ===== CLAUDE RESPONSE ===== 📋	{"log_ts":"2025-06-12T04:07:04.499Z"}
+2025-06-12T04:07:04.500Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1505	🎭 Detected Action: Stir	{"log_ts":"2025-06-12T04:07:04.500Z"}
+2025-06-12T04:07:04.500Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1506	🎯 Confidence: 78.0%	{"log_ts":"2025-06-12T04:07:04.500Z"}
+2025-06-12T04:07:04.500Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1511	⏱️  Analysis Duration: 7.1s	{"log_ts":"2025-06-12T04:07:04.500Z"}
+2025-06-12T04:07:04.500Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1512	📋 =========================== 📋
+2025-06-12T04:07:04.502Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1551	✅ Action ACCEPTED: Stir (78.0% ≥ 65.0% required)	{"log_ts":"2025-06-12T04:07:04.501Z"}
+
+------------------------------------------------------------
+
+# Detection 4 - 00:07:53 - Stir
+# Status: ACCEPTED
+🎬 ===== MOTION DETECTED ===== 🎬	{"log_ts":"2025-06-12T04:07:53.700Z"}
+2025-06-12T04:07:53.701Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:444	📊 Similarity: 86.0% (threshold: 87.5%)	{"log_ts":"2025-06-12T04:07:53.701Z"}
+2025-06-12T04:07:53.701Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:445	⏰ Time: 00:07:53 | Duration: 1.0s	{"log_ts":"2025-06-12T04:07:53.701Z"}
+2025-06-12T04:07:53.702Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:446	🎬 ============================= 🎬
+
+	{"log_ts":"2025-06-12T04:07:53.702Z"}
+2025-06-12T04:07:53.702Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1485	
+🧠 Using BASE prompt only (object=false, temp=false, motion=false, recipe=false)
+	{"log_ts":"2025-06-12T04:07:53.702Z"}
+2025-06-12T04:07:57.402Z	INFO	rdk.resource_manager	impl/resource_manager.go:718	Now configuring resource	{"resource":"rdk:service:generic/chef-temp-target-dev"}
+2025-06-12T04:07:57.424Z	INFO	rdk.resource_manager	impl/resource_manager.go:718	Now configuring resource	{"resource":"rdk:service:generic/chef-timer-dev"}
+2025-06-12T04:07:57.440Z	INFO	rdk.resource_manager	impl/resource_manager.go:718	Now configuring resource	{"resource":"rdk:service:generic/chef-analysis-dev"}
+2025-06-12T04:07:52.449Z	ERROR	rdk.resource_manager.rdk:service:generic/chef-analysis-dev	resource/graph_node.go:297	Message logged 12 times in past 1m0s: resource build error: resource has unresolved dependencies: [burner-1-dev]	{"resource":"rdk:service:generic/chef-analysis-dev","model":"gambit-robotics:chef:analysis-dev"}
+2025-06-12T04:07:57.424Z	WARN	rdk.resource_manager.rdk:service:generic/chef-analysis-dev	resource/graph_node.go:551	Message logged 12 times in past 1m0s: unexpected resource state transition	{"from":"Unhealthy","to":"Configuring"}
+2025-06-12T04:07:57.455Z	ERROR	rdk.resource_manager.rdk:service:generic/chef-analysis-dev	resource/graph_node.go:297	resource build error: resource has unresolved dependencies: [burner-1-dev]	{"resource":"rdk:service:generic/chef-analysis-dev","model":"gambit-robotics:chef:analysis-dev"}
+2025-06-12T04:07:58.081Z	INFO	bill_video-replay.rdk:component:camera/replayCamera-1	models/module.go:376	[Image] Called for camera "rdk:component:camera/replayCamera-1", mimeType="image/jpeg+lazy"	{"log_ts":"2025-06-12T04:07:58.081Z"}
+2025-06-12T04:08:01.079Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1503	
+📋 ===== CLAUDE RESPONSE ===== 📋	{"log_ts":"2025-06-12T04:08:01.078Z"}
+2025-06-12T04:08:01.080Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1505	🎭 Detected Action: Stir	{"log_ts":"2025-06-12T04:08:01.079Z"}
+2025-06-12T04:08:01.080Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1506	🎯 Confidence: 78.0%	{"log_ts":"2025-06-12T04:08:01.080Z"}
+2025-06-12T04:08:01.081Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1511	⏱️  Analysis Duration: 7.4s	{"log_ts":"2025-06-12T04:08:01.080Z"}
+2025-06-12T04:08:01.081Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1512	📋 =========================== 📋
+2025-06-12T04:08:01.082Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1551	✅ Action ACCEPTED: Stir (78.0% ≥ 65.0% required)	{"log_ts":"2025-06-12T04:08:01.082Z"}
+
+------------------------------------------------------------
+
+# Detection 5 - 00:08:27 - Stir
+# Status: ACCEPTED
+🎬 ===== MOTION DETECTED ===== 🎬	{"log_ts":"2025-06-12T04:08:27.390Z"}
+2025-06-12T04:08:27.391Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:444	📊 Similarity: 84.6% (threshold: 87.5%)	{"log_ts":"2025-06-12T04:08:27.391Z"}
+2025-06-12T04:08:27.391Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:445	⏰ Time: 00:08:27 | Duration: 1.0s	{"log_ts":"2025-06-12T04:08:27.391Z"}
+2025-06-12T04:08:27.394Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:446	🎬 ============================= 🎬
+
+	{"log_ts":"2025-06-12T04:08:27.392Z"}
+2025-06-12T04:08:27.395Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1485	
+🧠 Using BASE prompt only (object=false, temp=false, motion=false, recipe=false)
+	{"log_ts":"2025-06-12T04:08:27.395Z"}
+2025-06-12T04:08:34.755Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1503	
+📋 ===== CLAUDE RESPONSE ===== 📋	{"log_ts":"2025-06-12T04:08:34.754Z"}
+2025-06-12T04:08:34.756Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1505	🎭 Detected Action: Stir	{"log_ts":"2025-06-12T04:08:34.755Z"}
+2025-06-12T04:08:34.756Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1506	🎯 Confidence: 78.0%	{"log_ts":"2025-06-12T04:08:34.756Z"}
+2025-06-12T04:08:34.757Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1511	⏱️  Analysis Duration: 7.4s	{"log_ts":"2025-06-12T04:08:34.756Z"}
+2025-06-12T04:08:34.757Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1512	📋 =========================== 📋
+2025-06-12T04:08:34.759Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1551	✅ Action ACCEPTED: Stir (78.0% ≥ 65.0% required)	{"log_ts":"2025-06-12T04:08:34.758Z"}
+
+------------------------------------------------------------
+
+# Detection 6 - 00:09:21 - Stir
+# Status: ACCEPTED
+🎬 ===== MOTION DETECTED ===== 🎬	{"log_ts":"2025-06-12T04:09:22.069Z"}
+2025-06-12T04:09:22.070Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:444	📊 Similarity: 85.4% (threshold: 87.5%)	{"log_ts":"2025-06-12T04:09:22.070Z"}
+2025-06-12T04:09:22.070Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:445	⏰ Time: 00:09:21 | Duration: 1.0s	{"log_ts":"2025-06-12T04:09:22.070Z"}
+2025-06-12T04:09:22.071Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:446	🎬 ============================= 🎬
+
+	{"log_ts":"2025-06-12T04:09:22.070Z"}
+2025-06-12T04:09:22.071Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1485	
+🧠 Using BASE prompt only (object=false, temp=false, motion=false, recipe=false)
+	{"log_ts":"2025-06-12T04:09:22.071Z"}
+2025-06-12T04:09:29.194Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1503	
+📋 ===== CLAUDE RESPONSE ===== 📋	{"log_ts":"2025-06-12T04:09:29.194Z"}
+2025-06-12T04:09:29.195Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1505	🎭 Detected Action: Stir	{"log_ts":"2025-06-12T04:09:29.195Z"}
+2025-06-12T04:09:29.196Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1506	🎯 Confidence: 75.0%	{"log_ts":"2025-06-12T04:09:29.195Z"}
+2025-06-12T04:09:29.196Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1511	⏱️  Analysis Duration: 7.1s	{"log_ts":"2025-06-12T04:09:29.196Z"}
+2025-06-12T04:09:29.196Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1512	📋 =========================== 📋
+2025-06-12T04:09:29.198Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1551	✅ Action ACCEPTED: Stir (75.0% ≥ 65.0% required)	{"log_ts":"2025-06-12T04:09:29.198Z"}
+
+------------------------------------------------------------
+
+# Detection 7 - 00:09:37 - Flip
+# Status: ACCEPTED
+🎬 ===== MOTION DETECTED ===== 🎬	{"log_ts":"2025-06-12T04:09:37.914Z"}
+2025-06-12T04:09:37.915Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:444	📊 Similarity: 84.8% (threshold: 87.5%)	{"log_ts":"2025-06-12T04:09:37.915Z"}
+2025-06-12T04:09:37.915Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:445	⏰ Time: 00:09:37 | Duration: 1.0s	{"log_ts":"2025-06-12T04:09:37.915Z"}
+2025-06-12T04:09:37.916Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:446	🎬 ============================= 🎬
+
+	{"log_ts":"2025-06-12T04:09:37.915Z"}
+2025-06-12T04:09:37.916Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1485	
+🧠 Using BASE prompt only (object=false, temp=false, motion=false, recipe=false)
+	{"log_ts":"2025-06-12T04:09:37.916Z"}
+2025-06-12T04:09:44.496Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1503	
+📋 ===== CLAUDE RESPONSE ===== 📋	{"log_ts":"2025-06-12T04:09:44.495Z"}
+2025-06-12T04:09:44.496Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1505	🎭 Detected Action: Flip	{"log_ts":"2025-06-12T04:09:44.496Z"}
+2025-06-12T04:09:44.497Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1506	🎯 Confidence: 78.0%	{"log_ts":"2025-06-12T04:09:44.497Z"}
+2025-06-12T04:09:44.497Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1511	⏱️  Analysis Duration: 6.6s	{"log_ts":"2025-06-12T04:09:44.497Z"}
+2025-06-12T04:09:44.497Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1512	📋 =========================== 📋
+2025-06-12T04:09:44.498Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1551	✅ Action ACCEPTED: Flip (78.0% ≥ 65.0% required)	{"log_ts":"2025-06-12T04:09:44.498Z"}
+
+------------------------------------------------------------
+
+# Detection 8 - 00:13:33 - Stir
+# Status: ACCEPTED
+🎬 ===== MOTION DETECTED ===== 🎬	{"log_ts":"2025-06-12T04:13:34.269Z"}
+2025-06-12T04:13:34.270Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:444	📊 Similarity: 85.1% (threshold: 87.5%)	{"log_ts":"2025-06-12T04:13:34.270Z"}
+2025-06-12T04:13:34.271Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:445	⏰ Time: 00:13:33 | Duration: 1.0s	{"log_ts":"2025-06-12T04:13:34.271Z"}
+2025-06-12T04:13:34.271Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:446	🎬 ============================= 🎬
+
+	{"log_ts":"2025-06-12T04:13:34.271Z"}
+2025-06-12T04:13:34.271Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1485	
+🧠 Using BASE prompt only (object=false, temp=false, motion=false, recipe=false)
+	{"log_ts":"2025-06-12T04:13:34.271Z"}
+2025-06-12T04:13:41.382Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1503	
+📋 ===== CLAUDE RESPONSE ===== 📋	{"log_ts":"2025-06-12T04:13:41.382Z"}
+2025-06-12T04:13:41.383Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1505	🎭 Detected Action: Stir	{"log_ts":"2025-06-12T04:13:41.383Z"}
+2025-06-12T04:13:41.384Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1506	🎯 Confidence: 75.0%	{"log_ts":"2025-06-12T04:13:41.383Z"}
+2025-06-12T04:13:41.384Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1511	⏱️  Analysis Duration: 7.1s	{"log_ts":"2025-06-12T04:13:41.384Z"}
+2025-06-12T04:13:41.384Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1512	📋 =========================== 📋
+2025-06-12T04:13:41.387Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1551	✅ Action ACCEPTED: Stir (75.0% ≥ 65.0% required)	{"log_ts":"2025-06-12T04:13:41.385Z"}
+
+------------------------------------------------------------
+
+# Detection 9 - 00:13:59 - Flip
+# Status: ACCEPTED
+🎬 ===== MOTION DETECTED ===== 🎬	{"log_ts":"2025-06-12T04:13:59.764Z"}
+2025-06-12T04:13:59.765Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:444	📊 Similarity: 85.3% (threshold: 87.5%)	{"log_ts":"2025-06-12T04:13:59.765Z"}
+2025-06-12T04:13:59.766Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:445	⏰ Time: 00:13:59 | Duration: 1.0s	{"log_ts":"2025-06-12T04:13:59.766Z"}
+2025-06-12T04:13:59.766Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:446	🎬 ============================= 🎬
+
+	{"log_ts":"2025-06-12T04:13:59.766Z"}
+2025-06-12T04:13:59.766Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1485	
+🧠 Using BASE prompt only (object=false, temp=false, motion=false, recipe=false)
+	{"log_ts":"2025-06-12T04:13:59.766Z"}
+2025-06-12T04:14:02.408Z	INFO	rdk.resource_manager	impl/resource_manager.go:718	Now configuring resource	{"resource":"rdk:service:generic/chef-temp-target-dev"}
+2025-06-12T04:14:02.430Z	INFO	rdk.resource_manager	impl/resource_manager.go:718	Now configuring resource	{"resource":"rdk:service:generic/chef-timer-dev"}
+2025-06-12T04:14:02.446Z	INFO	rdk.resource_manager	impl/resource_manager.go:718	Now configuring resource	{"resource":"rdk:service:generic/chef-analysis-dev"}
+2025-06-12T04:14:03.139Z	INFO	bill_video-replay.rdk:component:camera/replayCamera-1	models/module.go:376	[Image] Called for camera "rdk:component:camera/replayCamera-1", mimeType="image/jpeg+lazy"	{"log_ts":"2025-06-12T04:14:03.139Z"}
+2025-06-12T04:14:07.408Z	INFO	rdk.resource_manager	impl/resource_manager.go:718	Now configuring resource	{"resource":"rdk:service:generic/chef-temp-target-dev"}
+2025-06-12T04:14:02.446Z	ERROR	rdk.resource_manager.rdk:service:generic/chef-timer-dev	resource/graph_node.go:297	Message logged 12 times in past 1m0s: resource build error: resource has unresolved dependencies: [burner-1-dev]	{"resource":"rdk:service:generic/chef-timer-dev","model":"gambit-robotics:chef:timer-dev"}
+2025-06-12T04:14:07.431Z	WARN	rdk.resource_manager.rdk:service:generic/chef-timer-dev	resource/graph_node.go:551	Message logged 12 times in past 1m0s: unexpected resource state transition	{"from":"Unhealthy","to":"Configuring"}
+2025-06-12T04:14:07.447Z	ERROR	rdk.resource_manager.rdk:service:generic/chef-timer-dev	resource/graph_node.go:297	resource build error: resource has unresolved dependencies: [burner-1-dev]	{"resource":"rdk:service:generic/chef-timer-dev","model":"gambit-robotics:chef:timer-dev"}
+2025-06-12T04:14:07.431Z	WARN	rdk.resource_manager.rdk:service:generic/chef-analysis-dev	resource/graph_node.go:551	Message logged 12 times in past 1m0s: unexpected resource state transition	{"from":"Unhealthy","to":"Configuring"}
+2025-06-12T04:14:02.461Z	ERROR	rdk.resource_manager.rdk:service:generic/chef-analysis-dev	resource/graph_node.go:297	Message logged 12 times in past 1m0s: resource build error: resource has unresolved dependencies: [burner-1-dev]	{"resource":"rdk:service:generic/chef-analysis-dev","model":"gambit-robotics:chef:analysis-dev"}
+2025-06-12T04:14:07.463Z	ERROR	rdk.resource_manager.rdk:service:generic/chef-analysis-dev	resource/graph_node.go:297	resource build error: resource has unresolved dependencies: [burner-1-dev]	{"resource":"rdk:service:generic/chef-analysis-dev","model":"gambit-robotics:chef:analysis-dev"}
+2025-06-12T04:14:07.993Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1503	
+📋 ===== CLAUDE RESPONSE ===== 📋	{"log_ts":"2025-06-12T04:14:07.993Z"}
+2025-06-12T04:14:07.993Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1505	🎭 Detected Action: Flip	{"log_ts":"2025-06-12T04:14:07.993Z"}
+2025-06-12T04:14:07.993Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1506	🎯 Confidence: 78.0%	{"log_ts":"2025-06-12T04:14:07.993Z"}
+2025-06-12T04:14:07.993Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1511	⏱️  Analysis Duration: 8.2s	{"log_ts":"2025-06-12T04:14:07.993Z"}
+2025-06-12T04:14:07.993Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1512	📋 =========================== 📋
+2025-06-12T04:14:07.995Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1551	✅ Action ACCEPTED: Flip (78.0% ≥ 65.0% required)	{"log_ts":"2025-06-12T04:14:07.994Z"}
+
+------------------------------------------------------------
+
+# Detection 10 - 00:14:12 - Flip
+# Status: ACCEPTED
+🎬 ===== MOTION DETECTED ===== 🎬	{"log_ts":"2025-06-12T04:14:12.309Z"}
+2025-06-12T04:14:12.310Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:444	📊 Similarity: 86.0% (threshold: 87.5%)	{"log_ts":"2025-06-12T04:14:12.310Z"}
+2025-06-12T04:14:12.311Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:445	⏰ Time: 00:14:12 | Duration: 1.0s	{"log_ts":"2025-06-12T04:14:12.311Z"}
+2025-06-12T04:14:12.311Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:446	🎬 ============================= 🎬
+
+	{"log_ts":"2025-06-12T04:14:12.311Z"}
+2025-06-12T04:14:12.311Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1485	
+🧠 Using BASE prompt only (object=false, temp=false, motion=false, recipe=false)
+	{"log_ts":"2025-06-12T04:14:12.311Z"}
+2025-06-12T04:14:12.416Z	WARN	rdk.resource_manager.rdk:service:generic/chef-analysis-dev	resource/graph_node.go:551	unexpected resource state transition	{"from":"Unhealthy","to":"Configuring"}
+2025-06-12T04:14:12.416Z	WARN	rdk.resource_manager.rdk:service:generic/chef-timer-dev	resource/graph_node.go:551	unexpected resource state transition	{"from":"Unhealthy","to":"Configuring"}
+2025-06-12T04:14:12.430Z	ERROR	rdk.resource_manager.rdk:service:generic/chef-timer-dev	resource/graph_node.go:297	resource build error: resource has unresolved dependencies: [burner-1-dev]	{"resource":"rdk:service:generic/chef-timer-dev","model":"gambit-robotics:chef:timer-dev"}
+2025-06-12T04:14:12.443Z	ERROR	rdk.resource_manager.rdk:service:generic/chef-analysis-dev	resource/graph_node.go:297	resource build error: resource has unresolved dependencies: [burner-1-dev]	{"resource":"rdk:service:generic/chef-analysis-dev","model":"gambit-robotics:chef:analysis-dev"}
+2025-06-12T04:14:17.431Z	WARN	rdk.resource_manager.rdk:service:generic/chef-analysis-dev	resource/graph_node.go:551	unexpected resource state transition	{"from":"Unhealthy","to":"Configuring"}
+2025-06-12T04:14:17.431Z	WARN	rdk.resource_manager.rdk:service:generic/chef-timer-dev	resource/graph_node.go:551	unexpected resource state transition	{"from":"Unhealthy","to":"Configuring"}
+2025-06-12T04:14:17.447Z	ERROR	rdk.resource_manager.rdk:service:generic/chef-timer-dev	resource/graph_node.go:297	resource build error: resource has unresolved dependencies: [burner-1-dev]	{"resource":"rdk:service:generic/chef-timer-dev","model":"gambit-robotics:chef:timer-dev"}
+2025-06-12T04:14:17.462Z	ERROR	rdk.resource_manager.rdk:service:generic/chef-analysis-dev	resource/graph_node.go:297	resource build error: resource has unresolved dependencies: [burner-1-dev]	{"resource":"rdk:service:generic/chef-analysis-dev","model":"gambit-robotics:chef:analysis-dev"}
+2025-06-12T04:14:20.382Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1503	
+📋 ===== CLAUDE RESPONSE ===== 📋	{"log_ts":"2025-06-12T04:14:20.382Z"}
+2025-06-12T04:14:20.383Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1505	🎭 Detected Action: Flip	{"log_ts":"2025-06-12T04:14:20.383Z"}
+2025-06-12T04:14:20.383Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1506	🎯 Confidence: 78.0%	{"log_ts":"2025-06-12T04:14:20.383Z"}
+2025-06-12T04:14:20.384Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1511	⏱️  Analysis Duration: 8.1s	{"log_ts":"2025-06-12T04:14:20.383Z"}
+2025-06-12T04:14:20.384Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1512	📋 =========================== 📋
+2025-06-12T04:14:20.385Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1551	✅ Action ACCEPTED: Flip (78.0% ≥ 65.0% required)	{"log_ts":"2025-06-12T04:14:20.384Z"}
+
+------------------------------------------------------------
+
+# Detection 11 - 00:25:17 - Stir
+# Status: ACCEPTED
+🎬 ===== MOTION DETECTED ===== 🎬	{"log_ts":"2025-06-12T04:25:18.221Z"}
+2025-06-12T04:25:18.222Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:444	📊 Similarity: 84.1% (threshold: 87.5%)	{"log_ts":"2025-06-12T04:25:18.221Z"}
+2025-06-12T04:25:18.222Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:445	⏰ Time: 00:25:17 | Duration: 1.0s	{"log_ts":"2025-06-12T04:25:18.222Z"}
+2025-06-12T04:25:18.222Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:446	🎬 ============================= 🎬
+
+	{"log_ts":"2025-06-12T04:25:18.222Z"}
+2025-06-12T04:25:18.223Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1485	
+🧠 Using BASE prompt only (object=false, temp=false, motion=false, recipe=false)
+	{"log_ts":"2025-06-12T04:25:18.222Z"}
+2025-06-12T04:25:17.447Z	ERROR	rdk.resource_manager.rdk:service:generic/chef-timer-dev	resource/graph_node.go:297	Message logged 13 times in past 1m0s: resource build error: resource has unresolved dependencies: [burner-1-dev]	{"resource":"rdk:service:generic/chef-timer-dev","model":"gambit-robotics:chef:timer-dev"}
+2025-06-12T04:25:17.431Z	WARN	rdk.resource_manager.rdk:service:generic/chef-timer-dev	resource/graph_node.go:551	Message logged 12 times in past 1m0s: unexpected resource state transition	{"from":"Unhealthy","to":"Configuring"}
+2025-06-12T04:25:22.431Z	WARN	rdk.resource_manager.rdk:service:generic/chef-timer-dev	resource/graph_node.go:551	unexpected resource state transition	{"from":"Unhealthy","to":"Configuring"}
+2025-06-12T04:25:22.448Z	ERROR	rdk.resource_manager.rdk:service:generic/chef-timer-dev	resource/graph_node.go:297	resource build error: resource has unresolved dependencies: [burner-1-dev]	{"resource":"rdk:service:generic/chef-timer-dev","model":"gambit-robotics:chef:timer-dev"}
+2025-06-12T04:25:22.431Z	WARN	rdk.resource_manager.rdk:service:generic/chef-analysis-dev	resource/graph_node.go:551	Message logged 13 times in past 1m0s: unexpected resource state transition	{"from":"Unhealthy","to":"Configuring"}
+2025-06-12T04:25:17.461Z	ERROR	rdk.resource_manager.rdk:service:generic/chef-analysis-dev	resource/graph_node.go:297	Message logged 12 times in past 1m0s: resource build error: resource has unresolved dependencies: [burner-1-dev]	{"resource":"rdk:service:generic/chef-analysis-dev","model":"gambit-robotics:chef:analysis-dev"}
+2025-06-12T04:25:22.462Z	ERROR	rdk.resource_manager.rdk:service:generic/chef-analysis-dev	resource/graph_node.go:297	resource build error: resource has unresolved dependencies: [burner-1-dev]	{"resource":"rdk:service:generic/chef-analysis-dev","model":"gambit-robotics:chef:analysis-dev"}
+2025-06-12T04:25:26.207Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1503	
+📋 ===== CLAUDE RESPONSE ===== 📋	{"log_ts":"2025-06-12T04:25:26.207Z"}
+2025-06-12T04:25:26.208Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1505	🎭 Detected Action: Stir	{"log_ts":"2025-06-12T04:25:26.208Z"}
+2025-06-12T04:25:26.209Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1506	🎯 Confidence: 78.0%	{"log_ts":"2025-06-12T04:25:26.208Z"}
+2025-06-12T04:25:26.209Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1511	⏱️  Analysis Duration: 8.0s	{"log_ts":"2025-06-12T04:25:26.209Z"}
+2025-06-12T04:25:26.209Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1512	📋 =========================== 📋
+2025-06-12T04:25:26.211Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1551	✅ Action ACCEPTED: Stir (78.0% ≥ 65.0% required)	{"log_ts":"2025-06-12T04:25:26.211Z"}
+
+------------------------------------------------------------
+
+# Detection 12 - 00:27:42 - Stir
+# Status: ACCEPTED
+🎬 ===== MOTION DETECTED ===== 🎬	{"log_ts":"2025-06-12T04:27:42.741Z"}
+2025-06-12T04:27:42.742Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:444	📊 Similarity: 86.9% (threshold: 87.5%)	{"log_ts":"2025-06-12T04:27:42.742Z"}
+2025-06-12T04:27:42.743Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:445	⏰ Time: 00:27:42 | Duration: 1.0s	{"log_ts":"2025-06-12T04:27:42.742Z"}
+2025-06-12T04:27:42.743Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:446	🎬 ============================= 🎬
+
+	{"log_ts":"2025-06-12T04:27:42.743Z"}
+2025-06-12T04:27:42.743Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1485	
+🧠 Using BASE prompt only (object=false, temp=false, motion=false, recipe=false)
+	{"log_ts":"2025-06-12T04:27:42.743Z"}
+2025-06-12T04:27:47.180Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1503	
+📋 ===== CLAUDE RESPONSE ===== 📋	{"log_ts":"2025-06-12T04:27:47.180Z"}
+2025-06-12T04:27:47.181Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1505	🎭 Detected Action: Stir	{"log_ts":"2025-06-12T04:27:47.181Z"}
+2025-06-12T04:27:47.182Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1506	🎯 Confidence: 78.0%	{"log_ts":"2025-06-12T04:27:47.181Z"}
+2025-06-12T04:27:47.182Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1511	⏱️  Analysis Duration: 4.4s	{"log_ts":"2025-06-12T04:27:47.182Z"}
+2025-06-12T04:27:47.182Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1512	📋 =========================== 📋
+2025-06-12T04:27:47.184Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1551	✅ Action ACCEPTED: Stir (78.0% ≥ 65.0% required)	{"log_ts":"2025-06-12T04:27:47.184Z"}
+
+------------------------------------------------------------
+
+# Detection 13 - 00:30:06 - Stir
+# Status: ACCEPTED
+🎬 ===== MOTION DETECTED ===== 🎬	{"log_ts":"2025-06-12T04:30:07.004Z"}
+2025-06-12T04:30:07.005Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:444	📊 Similarity: 86.7% (threshold: 87.5%)	{"log_ts":"2025-06-12T04:30:07.005Z"}
+2025-06-12T04:30:07.005Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:445	⏰ Time: 00:30:06 | Duration: 1.0s	{"log_ts":"2025-06-12T04:30:07.005Z"}
+2025-06-12T04:30:07.005Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:446	🎬 ============================= 🎬
+
+	{"log_ts":"2025-06-12T04:30:07.005Z"}
+2025-06-12T04:30:07.006Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1485	
+🧠 Using BASE prompt only (object=false, temp=false, motion=false, recipe=false)
+	{"log_ts":"2025-06-12T04:30:07.006Z"}
+2025-06-12T04:30:02.431Z	ERROR	rdk.resource_manager.rdk:service:generic/chef-temp-target-dev	resource/graph_node.go:297	Message logged 13 times in past 1m0s: resource build error: resource has unresolved dependencies: [burner-1-dev]	{"resource":"rdk:service:generic/chef-temp-target-dev","model":"gambit-robotics:chef:temp-target-dev"}
+2025-06-12T04:30:07.430Z	ERROR	rdk.resource_manager.rdk:service:generic/chef-temp-target-dev	resource/graph_node.go:297	resource build error: resource has unresolved dependencies: [burner-1-dev]	{"resource":"rdk:service:generic/chef-temp-target-dev","model":"gambit-robotics:chef:temp-target-dev"}
+2025-06-12T04:30:07.408Z	INFO	rdk.resource_manager	impl/resource_manager.go:718	Message logged 13 times in past 1m0s: Now configuring resource	{"resource":"rdk:service:generic/chef-temp-target-dev"}
+2025-06-12T04:30:02.447Z	INFO	rdk.resource_manager	impl/resource_manager.go:718	Message logged 12 times in past 1m0s: Now configuring resource	{"resource":"rdk:service:generic/chef-analysis-dev"}
+2025-06-12T04:30:02.431Z	INFO	rdk.resource_manager	impl/resource_manager.go:718	Message logged 12 times in past 1m0s: Now configuring resource	{"resource":"rdk:service:generic/chef-timer-dev"}
+2025-06-12T04:30:07.431Z	INFO	rdk.resource_manager	impl/resource_manager.go:718	Now configuring resource	{"resource":"rdk:service:generic/chef-timer-dev"}
+2025-06-12T04:30:07.448Z	INFO	rdk.resource_manager	impl/resource_manager.go:718	Now configuring resource	{"resource":"rdk:service:generic/chef-analysis-dev"}
+2025-06-12T04:30:08.051Z	INFO	bill_video-replay.rdk:component:camera/replayCamera-1	models/module.go:376	[Image] Called for camera "rdk:component:camera/replayCamera-1", mimeType="image/jpeg+lazy"	{"log_ts":"2025-06-12T04:30:08.051Z"}
+2025-06-12T04:30:12.409Z	INFO	rdk.resource_manager	impl/resource_manager.go:718	Now configuring resource	{"resource":"rdk:service:generic/chef-temp-target-dev"}
+2025-06-12T04:30:12.429Z	ERROR	rdk.resource_manager.rdk:service:generic/chef-temp-target-dev	resource/graph_node.go:297	resource build error: resource has unresolved dependencies: [burner-1-dev]	{"resource":"rdk:service:generic/chef-temp-target-dev","model":"gambit-robotics:chef:temp-target-dev"}
+2025-06-12T04:30:12.429Z	INFO	rdk.resource_manager	impl/resource_manager.go:718	Now configuring resource	{"resource":"rdk:service:generic/chef-timer-dev"}
+2025-06-12T04:30:12.445Z	INFO	rdk.resource_manager	impl/resource_manager.go:718	Now configuring resource	{"resource":"rdk:service:generic/chef-analysis-dev"}
+2025-06-12T04:30:15.024Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1503	
+📋 ===== CLAUDE RESPONSE ===== 📋	{"log_ts":"2025-06-12T04:30:15.024Z"}
+2025-06-12T04:30:15.025Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1505	🎭 Detected Action: Stir	{"log_ts":"2025-06-12T04:30:15.025Z"}
+2025-06-12T04:30:15.025Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1506	🎯 Confidence: 78.0%	{"log_ts":"2025-06-12T04:30:15.025Z"}
+2025-06-12T04:30:15.026Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1511	⏱️  Analysis Duration: 8.0s	{"log_ts":"2025-06-12T04:30:15.026Z"}
+2025-06-12T04:30:15.026Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1512	📋 =========================== 📋
+2025-06-12T04:30:15.027Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1551	✅ Action ACCEPTED: Stir (78.0% ≥ 65.0% required)	{"log_ts":"2025-06-12T04:30:15.027Z"}
+
+------------------------------------------------------------
+
+# Detection 14 - 00:30:34 - Stir
+# Status: ACCEPTED
+🎬 ===== MOTION DETECTED ===== 🎬	{"log_ts":"2025-06-12T04:30:34.382Z"}
+2025-06-12T04:30:34.383Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:444	📊 Similarity: 87.2% (threshold: 87.5%)	{"log_ts":"2025-06-12T04:30:34.383Z"}
+2025-06-12T04:30:34.383Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:445	⏰ Time: 00:30:34 | Duration: 1.0s	{"log_ts":"2025-06-12T04:30:34.383Z"}
+2025-06-12T04:30:34.384Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:446	🎬 ============================= 🎬
+
+	{"log_ts":"2025-06-12T04:30:34.384Z"}
+2025-06-12T04:30:34.384Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1485	
+🧠 Using BASE prompt only (object=false, temp=false, motion=false, recipe=false)
+	{"log_ts":"2025-06-12T04:30:34.384Z"}
+2025-06-12T04:30:37.430Z	WARN	rdk.resource_manager.rdk:service:generic/chef-analysis-dev	resource/graph_node.go:551	unexpected resource state transition	{"from":"Unhealthy","to":"Configuring"}
+2025-06-12T04:30:37.430Z	WARN	rdk.resource_manager.rdk:service:generic/chef-timer-dev	resource/graph_node.go:551	unexpected resource state transition	{"from":"Unhealthy","to":"Configuring"}
+2025-06-12T04:30:37.447Z	ERROR	rdk.resource_manager.rdk:service:generic/chef-timer-dev	resource/graph_node.go:297	resource build error: resource has unresolved dependencies: [burner-1-dev]	{"resource":"rdk:service:generic/chef-timer-dev","model":"gambit-robotics:chef:timer-dev"}
+2025-06-12T04:30:37.462Z	ERROR	rdk.resource_manager.rdk:service:generic/chef-analysis-dev	resource/graph_node.go:297	resource build error: resource has unresolved dependencies: [burner-1-dev]	{"resource":"rdk:service:generic/chef-analysis-dev","model":"gambit-robotics:chef:analysis-dev"}
+2025-06-12T04:30:41.969Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1503	
+📋 ===== CLAUDE RESPONSE ===== 📋	{"log_ts":"2025-06-12T04:30:41.968Z"}
+2025-06-12T04:30:41.969Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1505	🎭 Detected Action: Stir	{"log_ts":"2025-06-12T04:30:41.969Z"}
+2025-06-12T04:30:41.970Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1506	🎯 Confidence: 78.0%	{"log_ts":"2025-06-12T04:30:41.970Z"}
+2025-06-12T04:30:41.970Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1511	⏱️  Analysis Duration: 7.6s	{"log_ts":"2025-06-12T04:30:41.970Z"}
+2025-06-12T04:30:41.971Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1512	📋 =========================== 📋
+2025-06-12T04:30:41.972Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1551	✅ Action ACCEPTED: Stir (78.0% ≥ 65.0% required)	{"log_ts":"2025-06-12T04:30:41.972Z"}
+
+------------------------------------------------------------
+
+# Detection 15 - 00:30:56 - Stir
+# Status: ACCEPTED
+🎬 ===== MOTION DETECTED ===== 🎬	{"log_ts":"2025-06-12T04:30:57.325Z"}
+2025-06-12T04:30:57.326Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:444	📊 Similarity: 87.5% (threshold: 87.5%)	{"log_ts":"2025-06-12T04:30:57.326Z"}
+2025-06-12T04:30:57.326Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:445	⏰ Time: 00:30:56 | Duration: 1.0s	{"log_ts":"2025-06-12T04:30:57.326Z"}
+2025-06-12T04:30:57.327Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:446	🎬 ============================= 🎬
+
+	{"log_ts":"2025-06-12T04:30:57.327Z"}
+2025-06-12T04:30:57.327Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1485	
+🧠 Using BASE prompt only (object=false, temp=false, motion=false, recipe=false)
+	{"log_ts":"2025-06-12T04:30:57.327Z"}
+2025-06-12T04:30:58.097Z	INFO	bill_video-replay.rdk:component:camera/replayCamera-1	models/module.go:376	[Image] Called for camera "rdk:component:camera/replayCamera-1", mimeType="image/jpeg+lazy"	{"log_ts":"2025-06-12T04:30:58.096Z"}
+2025-06-12T04:31:02.461Z	INFO	bill_video-replay.rdk:component:camera/replayCamera-1	models/module.go:376	[Image] Called for camera "rdk:component:camera/replayCamera-1", mimeType="image/jpeg+lazy"	{"log_ts":"2025-06-12T04:31:02.461Z"}
+2025-06-12T04:31:04.520Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1503	
+📋 ===== CLAUDE RESPONSE ===== 📋	{"log_ts":"2025-06-12T04:31:04.519Z"}
+2025-06-12T04:31:04.521Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1505	🎭 Detected Action: Stir	{"log_ts":"2025-06-12T04:31:04.520Z"}
+2025-06-12T04:31:04.521Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1506	🎯 Confidence: 78.0%	{"log_ts":"2025-06-12T04:31:04.521Z"}
+2025-06-12T04:31:04.521Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1511	⏱️  Analysis Duration: 7.2s	{"log_ts":"2025-06-12T04:31:04.521Z"}
+2025-06-12T04:31:04.522Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1512	📋 =========================== 📋
+2025-06-12T04:31:04.522Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1551	✅ Action ACCEPTED: Stir (78.0% ≥ 65.0% required)	{"log_ts":"2025-06-12T04:31:04.522Z"}
+
+------------------------------------------------------------
+
+# Detection 16 - 00:31:13 - Stir
+# Status: ACCEPTED
+🎬 ===== MOTION DETECTED ===== 🎬	{"log_ts":"2025-06-12T04:31:13.837Z"}
+2025-06-12T04:31:13.838Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:444	📊 Similarity: 86.9% (threshold: 87.5%)	{"log_ts":"2025-06-12T04:31:13.838Z"}
+2025-06-12T04:31:13.838Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:445	⏰ Time: 00:31:13 | Duration: 1.0s	{"log_ts":"2025-06-12T04:31:13.838Z"}
+2025-06-12T04:31:13.839Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:446	🎬 ============================= 🎬
+
+	{"log_ts":"2025-06-12T04:31:13.839Z"}
+2025-06-12T04:31:13.839Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1485	
+🧠 Using BASE prompt only (object=false, temp=false, motion=false, recipe=false)
+	{"log_ts":"2025-06-12T04:31:13.839Z"}
+2025-06-12T04:31:17.412Z	INFO	rdk.resource_manager	impl/resource_manager.go:718	Now configuring resource	{"resource":"rdk:service:generic/chef-temp-target-dev"}
+2025-06-12T04:31:17.433Z	ERROR	rdk.resource_manager.rdk:service:generic/chef-temp-target-dev	resource/graph_node.go:297	resource build error: resource has unresolved dependencies: [burner-1-dev]	{"resource":"rdk:service:generic/chef-temp-target-dev","model":"gambit-robotics:chef:temp-target-dev"}
+2025-06-12T04:31:17.433Z	INFO	rdk.resource_manager	impl/resource_manager.go:718	Now configuring resource	{"resource":"rdk:service:generic/chef-timer-dev"}
+2025-06-12T04:31:17.449Z	INFO	rdk.resource_manager	impl/resource_manager.go:718	Now configuring resource	{"resource":"rdk:service:generic/chef-analysis-dev"}
+2025-06-12T04:31:20.935Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1503	
+📋 ===== CLAUDE RESPONSE ===== 📋	{"log_ts":"2025-06-12T04:31:20.935Z"}
+2025-06-12T04:31:20.936Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1505	🎭 Detected Action: Stir	{"log_ts":"2025-06-12T04:31:20.936Z"}
+2025-06-12T04:31:20.936Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1506	🎯 Confidence: 78.0%	{"log_ts":"2025-06-12T04:31:20.936Z"}
+2025-06-12T04:31:20.937Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1511	⏱️  Analysis Duration: 7.1s	{"log_ts":"2025-06-12T04:31:20.936Z"}
+2025-06-12T04:31:20.937Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1512	📋 =========================== 📋
+2025-06-12T04:31:20.938Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1551	✅ Action ACCEPTED: Stir (78.0% ≥ 65.0% required)	{"log_ts":"2025-06-12T04:31:20.938Z"}
+
+------------------------------------------------------------
+
+# Detection 17 - 00:31:30 - Stir
+# Status: ACCEPTED
+🎬 ===== MOTION DETECTED ===== 🎬	{"log_ts":"2025-06-12T04:31:31.496Z"}
+2025-06-12T04:31:31.498Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:444	📊 Similarity: 87.1% (threshold: 87.5%)	{"log_ts":"2025-06-12T04:31:31.497Z"}
+2025-06-12T04:31:31.498Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:445	⏰ Time: 00:31:30 | Duration: 1.0s	{"log_ts":"2025-06-12T04:31:31.498Z"}
+2025-06-12T04:31:31.499Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:446	🎬 ============================= 🎬
+
+	{"log_ts":"2025-06-12T04:31:31.498Z"}
+2025-06-12T04:31:31.499Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1485	
+🧠 Using BASE prompt only (object=false, temp=false, motion=false, recipe=false)
+	{"log_ts":"2025-06-12T04:31:31.499Z"}
+2025-06-12T04:31:27.462Z	ERROR	rdk.resource_manager.rdk:service:generic/chef-analysis-dev	resource/graph_node.go:297	Message logged 13 times in past 1m0s: resource build error: resource has unresolved dependencies: [burner-1-dev]	{"resource":"rdk:service:generic/chef-analysis-dev","model":"gambit-robotics:chef:analysis-dev"}
+2025-06-12T04:31:27.431Z	WARN	rdk.resource_manager.rdk:service:generic/chef-analysis-dev	resource/graph_node.go:551	Message logged 12 times in past 1m0s: unexpected resource state transition	{"from":"Unhealthy","to":"Configuring"}
+2025-06-12T04:31:32.432Z	WARN	rdk.resource_manager.rdk:service:generic/chef-analysis-dev	resource/graph_node.go:551	unexpected resource state transition	{"from":"Unhealthy","to":"Configuring"}
+2025-06-12T04:31:27.448Z	ERROR	rdk.resource_manager.rdk:service:generic/chef-timer-dev	resource/graph_node.go:297	Message logged 13 times in past 1m0s: resource build error: resource has unresolved dependencies: [burner-1-dev]	{"resource":"rdk:service:generic/chef-timer-dev","model":"gambit-robotics:chef:timer-dev"}
+2025-06-12T04:31:27.431Z	WARN	rdk.resource_manager.rdk:service:generic/chef-timer-dev	resource/graph_node.go:551	Message logged 12 times in past 1m0s: unexpected resource state transition	{"from":"Unhealthy","to":"Configuring"}
+2025-06-12T04:31:32.432Z	WARN	rdk.resource_manager.rdk:service:generic/chef-timer-dev	resource/graph_node.go:551	unexpected resource state transition	{"from":"Unhealthy","to":"Configuring"}
+2025-06-12T04:31:32.448Z	ERROR	rdk.resource_manager.rdk:service:generic/chef-timer-dev	resource/graph_node.go:297	resource build error: resource has unresolved dependencies: [burner-1-dev]	{"resource":"rdk:service:generic/chef-timer-dev","model":"gambit-robotics:chef:timer-dev"}
+2025-06-12T04:31:32.462Z	ERROR	rdk.resource_manager.rdk:service:generic/chef-analysis-dev	resource/graph_node.go:297	resource build error: resource has unresolved dependencies: [burner-1-dev]	{"resource":"rdk:service:generic/chef-analysis-dev","model":"gambit-robotics:chef:analysis-dev"}
+2025-06-12T04:31:37.431Z	WARN	rdk.resource_manager.rdk:service:generic/chef-analysis-dev	resource/graph_node.go:551	unexpected resource state transition	{"from":"Unhealthy","to":"Configuring"}
+2025-06-12T04:31:37.431Z	WARN	rdk.resource_manager.rdk:service:generic/chef-timer-dev	resource/graph_node.go:551	unexpected resource state transition	{"from":"Unhealthy","to":"Configuring"}
+2025-06-12T04:31:37.448Z	ERROR	rdk.resource_manager.rdk:service:generic/chef-timer-dev	resource/graph_node.go:297	resource build error: resource has unresolved dependencies: [burner-1-dev]	{"resource":"rdk:service:generic/chef-timer-dev","model":"gambit-robotics:chef:timer-dev"}
+2025-06-12T04:31:37.462Z	ERROR	rdk.resource_manager.rdk:service:generic/chef-analysis-dev	resource/graph_node.go:297	resource build error: resource has unresolved dependencies: [burner-1-dev]	{"resource":"rdk:service:generic/chef-analysis-dev","model":"gambit-robotics:chef:analysis-dev"}
+2025-06-12T04:31:38.572Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1503	
+📋 ===== CLAUDE RESPONSE ===== 📋	{"log_ts":"2025-06-12T04:31:38.571Z"}
+2025-06-12T04:31:38.572Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1505	🎭 Detected Action: Stir	{"log_ts":"2025-06-12T04:31:38.572Z"}
+2025-06-12T04:31:38.572Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1506	🎯 Confidence: 75.0%	{"log_ts":"2025-06-12T04:31:38.572Z"}
+2025-06-12T04:31:38.573Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1511	⏱️  Analysis Duration: 7.1s	{"log_ts":"2025-06-12T04:31:38.573Z"}
+2025-06-12T04:31:38.573Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1512	📋 =========================== 📋
+2025-06-12T04:31:38.574Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1551	✅ Action ACCEPTED: Stir (75.0% ≥ 65.0% required)	{"log_ts":"2025-06-12T04:31:38.574Z"}
+
+------------------------------------------------------------
+
+# Detection 18 - 00:32:49 - Season
+# Status: ACCEPTED
+🎬 ===== MOTION DETECTED ===== 🎬	{"log_ts":"2025-06-12T04:32:49.929Z"}
+2025-06-12T04:32:49.929Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:444	📊 Similarity: 87.3% (threshold: 87.5%)	{"log_ts":"2025-06-12T04:32:49.929Z"}
+2025-06-12T04:32:49.930Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:445	⏰ Time: 00:32:49 | Duration: 1.0s	{"log_ts":"2025-06-12T04:32:49.930Z"}
+2025-06-12T04:32:49.930Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:446	🎬 ============================= 🎬
+
+	{"log_ts":"2025-06-12T04:32:49.930Z"}
+2025-06-12T04:32:49.930Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1485	
+🧠 Using BASE prompt only (object=false, temp=false, motion=false, recipe=false)
+	{"log_ts":"2025-06-12T04:32:49.930Z"}
+2025-06-12T04:32:52.461Z	INFO	bill_video-replay.rdk:component:camera/replayCamera-1	Message logged 12 times in past 1m0s: models/module.go:376	[Image] Called for camera "rdk:component:camera/replayCamera-1", mimeType="image/jpeg+lazy"	{"log_ts":"2025-06-12T04:32:52.461Z"}
+2025-06-12T04:32:52.848Z	INFO	bill_video-replay.rdk:component:camera/replayCamera-1	Message logged 68 times in past 1m0s: models/module.go:376	[Image] Called for camera "rdk:component:camera/replayCamera-1", mimeType="image/jpeg"	{"log_ts":"2025-06-12T04:32:52.848Z"}
+2025-06-12T04:32:56.589Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1503	
+📋 ===== CLAUDE RESPONSE ===== 📋	{"log_ts":"2025-06-12T04:32:56.588Z"}
+2025-06-12T04:32:56.590Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1505	🎭 Detected Action: Season	{"log_ts":"2025-06-12T04:32:56.589Z"}
+2025-06-12T04:32:56.590Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1506	🎯 Confidence: 78.0%	{"log_ts":"2025-06-12T04:32:56.590Z"}
+2025-06-12T04:32:56.591Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1511	⏱️  Analysis Duration: 6.7s	{"log_ts":"2025-06-12T04:32:56.590Z"}
+2025-06-12T04:32:56.591Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1512	📋 =========================== 📋
+2025-06-12T04:32:56.593Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1551	✅ Action ACCEPTED: Season (78.0% ≥ 65.0% required)	{"log_ts":"2025-06-12T04:32:56.593Z"}
+
+------------------------------------------------------------
+
+# Detection 19 - 00:33:11 - Stir
+# Status: ACCEPTED
+🎬 ===== MOTION DETECTED ===== 🎬	{"log_ts":"2025-06-12T04:33:11.894Z"}
+2025-06-12T04:33:11.895Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:444	📊 Similarity: 86.0% (threshold: 87.5%)	{"log_ts":"2025-06-12T04:33:11.894Z"}
+2025-06-12T04:33:11.895Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:445	⏰ Time: 00:33:11 | Duration: 1.0s	{"log_ts":"2025-06-12T04:33:11.895Z"}
+2025-06-12T04:33:11.895Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:446	🎬 ============================= 🎬
+
+	{"log_ts":"2025-06-12T04:33:11.895Z"}
+2025-06-12T04:33:11.896Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1485	
+🧠 Using BASE prompt only (object=false, temp=false, motion=false, recipe=false)
+	{"log_ts":"2025-06-12T04:33:11.895Z"}
+2025-06-12T04:33:12.410Z	INFO	rdk.resource_manager	impl/resource_manager.go:718	Now configuring resource	{"resource":"rdk:service:generic/chef-temp-target-dev"}
+2025-06-12T04:33:07.432Z	ERROR	rdk.resource_manager.rdk:service:generic/chef-temp-target-dev	resource/graph_node.go:297	Message logged 13 times in past 1m0s: resource build error: resource has unresolved dependencies: [burner-1-dev]	{"resource":"rdk:service:generic/chef-temp-target-dev","model":"gambit-robotics:chef:temp-target-dev"}
+2025-06-12T04:33:12.431Z	ERROR	rdk.resource_manager.rdk:service:generic/chef-temp-target-dev	resource/graph_node.go:297	resource build error: resource has unresolved dependencies: [burner-1-dev]	{"resource":"rdk:service:generic/chef-temp-target-dev","model":"gambit-robotics:chef:temp-target-dev"}
+2025-06-12T04:33:12.431Z	INFO	rdk.resource_manager	impl/resource_manager.go:718	Now configuring resource	{"resource":"rdk:service:generic/chef-timer-dev"}
+2025-06-12T04:33:12.447Z	INFO	rdk.resource_manager	impl/resource_manager.go:718	Now configuring resource	{"resource":"rdk:service:generic/chef-analysis-dev"}
+2025-06-12T04:33:17.409Z	INFO	rdk.resource_manager	impl/resource_manager.go:718	Now configuring resource	{"resource":"rdk:service:generic/chef-temp-target-dev"}
+2025-06-12T04:33:17.431Z	ERROR	rdk.resource_manager.rdk:service:generic/chef-temp-target-dev	resource/graph_node.go:297	resource build error: resource has unresolved dependencies: [burner-1-dev]	{"resource":"rdk:service:generic/chef-temp-target-dev","model":"gambit-robotics:chef:temp-target-dev"}
+2025-06-12T04:33:17.431Z	INFO	rdk.resource_manager	impl/resource_manager.go:718	Now configuring resource	{"resource":"rdk:service:generic/chef-timer-dev"}
+2025-06-12T04:33:17.447Z	INFO	rdk.resource_manager	impl/resource_manager.go:718	Now configuring resource	{"resource":"rdk:service:generic/chef-analysis-dev"}
+2025-06-12T04:33:18.332Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1503	
+📋 ===== CLAUDE RESPONSE ===== 📋	{"log_ts":"2025-06-12T04:33:18.331Z"}
+2025-06-12T04:33:18.332Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1505	🎭 Detected Action: Stir	{"log_ts":"2025-06-12T04:33:18.332Z"}
+2025-06-12T04:33:18.333Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1506	🎯 Confidence: 78.0%	{"log_ts":"2025-06-12T04:33:18.332Z"}
+2025-06-12T04:33:18.333Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1511	⏱️  Analysis Duration: 6.4s	{"log_ts":"2025-06-12T04:33:18.333Z"}
+2025-06-12T04:33:18.333Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1512	📋 =========================== 📋
+2025-06-12T04:33:18.334Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1551	✅ Action ACCEPTED: Stir (78.0% ≥ 65.0% required)	{"log_ts":"2025-06-12T04:33:18.334Z"}
+
+------------------------------------------------------------
+
+# Detection 20 - 00:39:55 - Stir
+# Status: ACCEPTED
+🎬 ===== MOTION DETECTED ===== 🎬	{"log_ts":"2025-06-12T04:39:55.329Z"}
+2025-06-12T04:39:55.330Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:444	📊 Similarity: 85.5% (threshold: 87.5%)	{"log_ts":"2025-06-12T04:39:55.330Z"}
+2025-06-12T04:39:55.330Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:445	⏰ Time: 00:39:55 | Duration: 1.0s	{"log_ts":"2025-06-12T04:39:55.330Z"}
+2025-06-12T04:39:55.330Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:446	🎬 ============================= 🎬
+
+	{"log_ts":"2025-06-12T04:39:55.330Z"}
+2025-06-12T04:39:55.330Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1485	
+🧠 Using BASE prompt only (object=false, temp=false, motion=false, recipe=false)
+	{"log_ts":"2025-06-12T04:39:55.330Z"}
+2025-06-12T04:39:57.413Z	WARN	rdk.resource_manager.rdk:service:generic/chef-analysis-dev	resource/graph_node.go:551	unexpected resource state transition	{"from":"Unhealthy","to":"Configuring"}
+2025-06-12T04:39:57.413Z	WARN	rdk.resource_manager.rdk:service:generic/chef-timer-dev	resource/graph_node.go:551	unexpected resource state transition	{"from":"Unhealthy","to":"Configuring"}
+2025-06-12T04:39:55.043Z	INFO	bill_video-replay.rdk:component:camera/replayCamera-1	Message logged 70 times in past 1m0s: models/module.go:376	[Image] Called for camera "rdk:component:camera/replayCamera-1", mimeType="image/jpeg"	{"log_ts":"2025-06-12T04:39:55.043Z"}
+2025-06-12T04:39:57.559Z	INFO	bill_video-replay.rdk:component:camera/replayCamera-1	Message logged 1212 times in past 1m0s: models/module.go:376	[Image] Called for camera "rdk:component:camera/replayCamera-1", mimeType="image/jpeg+lazy"	{"log_ts":"2025-06-12T04:39:57.559Z"}
+2025-06-12T04:39:57.143Z	WARN	local-module-1	Message logged 60 times in past 1m0s: module/module.go:808	unknown stream for resource	{"name":"rdk:component:camera/burner-0-dev","streamSourceByName":"map[resource.Name]rtppassthrough.Source{}","log_ts":"2025-06-12T04:39:57.143Z"}
+2025-06-12T04:39:57.609Z	INFO	bill_video-replay.rdk:component:camera/replayCamera-1	models/module.go:376	[Image] Called for camera "rdk:component:camera/replayCamera-1", mimeType="image/jpeg+lazy"	{"log_ts":"2025-06-12T04:39:57.609Z"}
+2025-06-12T04:39:57.659Z	INFO	bill_video-replay.rdk:component:camera/replayCamera-1	models/module.go:376	[Image] Called for camera "rdk:component:camera/replayCamera-1", mimeType="image/jpeg+lazy"	{"log_ts":"2025-06-12T04:39:57.659Z"}
+2025-06-12T04:39:57.709Z	INFO	bill_video-replay.rdk:component:camera/replayCamera-1	models/module.go:376	[Image] Called for camera "rdk:component:camera/replayCamera-1", mimeType="image/jpeg+lazy"	{"log_ts":"2025-06-12T04:39:57.709Z"}
+2025-06-12T04:39:57.859Z	INFO	bill_video-replay.rdk:component:camera/replayCamera-1	models/module.go:376	[Image] Called for camera "rdk:component:camera/replayCamera-1", mimeType="image/jpeg"	{"log_ts":"2025-06-12T04:39:57.859Z"}
+2025-06-12T04:39:58.143Z	WARN	local-module-1	module/module.go:808	unknown stream for resource	{"name":"rdk:component:camera/burner-0-dev","streamSourceByName":"map[resource.Name]rtppassthrough.Source{}","log_ts":"2025-06-12T04:39:58.143Z"}
+2025-06-12T04:39:59.143Z	WARN	local-module-1	module/module.go:808	unknown stream for resource	{"name":"rdk:component:camera/burner-0-dev","streamSourceByName":"map[resource.Name]rtppassthrough.Source{}","log_ts":"2025-06-12T04:39:59.142Z"}
+2025-06-12T04:40:00.143Z	WARN	local-module-1	module/module.go:808	unknown stream for resource	{"name":"rdk:component:camera/burner-0-dev","streamSourceByName":"map[resource.Name]rtppassthrough.Source{}","log_ts":"2025-06-12T04:40:00.143Z"}
+2025-06-12T04:40:02.743Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1503	
+📋 ===== CLAUDE RESPONSE ===== 📋	{"log_ts":"2025-06-12T04:40:02.743Z"}
+2025-06-12T04:40:02.744Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1505	🎭 Detected Action: Stir	{"log_ts":"2025-06-12T04:40:02.743Z"}
+2025-06-12T04:40:02.744Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1506	🎯 Confidence: 73.0%	{"log_ts":"2025-06-12T04:40:02.744Z"}
+2025-06-12T04:40:02.744Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1511	⏱️  Analysis Duration: 7.4s	{"log_ts":"2025-06-12T04:40:02.744Z"}
+2025-06-12T04:40:02.744Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1512	📋 =========================== 📋
+2025-06-12T04:40:02.746Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1551	✅ Action ACCEPTED: Stir (73.0% ≥ 65.0% required)	{"log_ts":"2025-06-12T04:40:02.746Z"}
+
+------------------------------------------------------------
+
+
+================================================================================
+# ANALYSIS SUMMARY
+================================================================================
+
+# Detection Counts by Action:
+# Flip: 4 total (✅4 accepted, ❌0 rejected)
+# Season: 1 total (✅1 accepted, ❌0 rejected)
+# Stir: 15 total (✅15 accepted, ❌0 rejected)
+
+# Performance Statistics:
+# Total detections: 20
+# Acceptance rate: 20/20 (100.0%)
+# Average confidence: 77.7%
+# Confidence range: 73.0% - 85.0%
+# Average similarity: 85.8%
+# Similarity range: 84.0% - 87.5%
+# Average analysis time: 7.0s
+# Analysis time range: 4.2s - 8.2s
+
+# Timeline Summary:
+# First detection: 00:05:39 - Stir
+# Last detection: 00:39:55 - Stir

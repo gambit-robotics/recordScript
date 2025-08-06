@@ -1,0 +1,14 @@
+Evaluation Run Summary: 20250616_134836
+==================================================
+
+Timestamp: 2025-06-16T13:48:36.700783
+Run ID: 20250616_134836
+
+Performance Metrics:
+- Total detections: 13
+- Accepted: 13
+- Rejected: 0
+- Acceptance rate: 100.0%
+- Average confidence: 77.2%
+- Average similarity: 86.1%
+- Average analysis time: 8.0s

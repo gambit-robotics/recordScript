@@ -1,0 +1,149 @@
+# Classifier Detection Timeline
+# Extracted classification results in chronological order
+# New Format: Motion Detection + Claude Analysis + Acceptance
+================================================================================
+
+Total detections found: 2
+Accepted: 2, Rejected: 0
+
+# Detection 1 - 17:55:40 - Add food
+# Status: ACCEPTED
+🎬 ===== MOTION DETECTED ===== 🎬	{"log_ts":"2025-06-25T21:55:40.368Z"}
+2025-06-25T21:55:40.368Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:444	📊 Similarity: 87.2% (threshold: 87.5%)	{"log_ts":"2025-06-25T21:55:40.368Z"}
+2025-06-25T21:55:40.368Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:445	⏰ Time: 17:55:40 | Duration: 1.0s	{"log_ts":"2025-06-25T21:55:40.368Z"}
+2025-06-25T21:55:40.368Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:446	🎬 ============================= 🎬
+
+	{"log_ts":"2025-06-25T21:55:40.368Z"}
+2025-06-25T21:55:40.369Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1809	📝 Recipe step: Step 1: add pan (0.0min) - Add pan	{"log_ts":"2025-06-25T21:55:40.368Z"}
+2025-06-25T21:55:40.369Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1809	📝 Recipe step: Step 2: add food (0.0min) - Add minced beef	{"log_ts":"2025-06-25T21:55:40.369Z"}
+2025-06-25T21:55:40.369Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1809	📝 Recipe step: Step 3: add food (0.0min) - Add mushrooms	{"log_ts":"2025-06-25T21:55:40.369Z"}
+2025-06-25T21:55:40.369Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1809	📝 Recipe step: Step 4: stir (0.5min) - Stir ingredients	{"log_ts":"2025-06-25T21:55:40.369Z"}
+2025-06-25T21:55:40.369Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1809	📝 Recipe step: Step 5: season (1.0min) - Add salt and pepper	{"log_ts":"2025-06-25T21:55:40.369Z"}
+2025-06-25T21:55:40.369Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1809	📝 Recipe step: Step 6: stir (2.0min) - Stir ingredients	{"log_ts":"2025-06-25T21:55:40.369Z"}
+2025-06-25T21:55:40.369Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1809	📝 Recipe step: Step 7: season (4.0min) - Add garlic	{"log_ts":"2025-06-25T21:55:40.369Z"}
+2025-06-25T21:55:40.369Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1809	📝 Recipe step: Step 8: stir (4.0min) - Stir ingredients	{"log_ts":"2025-06-25T21:55:40.369Z"}
+2025-06-25T21:55:40.370Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1809	📝 Recipe step: Step 9: season (4.5min) - Add tomato paste	{"log_ts":"2025-06-25T21:55:40.369Z"}
+2025-06-25T21:55:40.370Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1809	📝 Recipe step: Step 10: season (5.0min) - Add herbs	{"log_ts":"2025-06-25T21:55:40.370Z"}
+2025-06-25T21:55:40.370Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1809	📝 Recipe step: Step 11: stir (5.5min) - Stir ingredients	{"log_ts":"2025-06-25T21:55:40.370Z"}
+2025-06-25T21:55:40.370Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1809	📝 Recipe step: Step 12: add food (7.0min) - Add spinach vegetables	{"log_ts":"2025-06-25T21:55:40.370Z"}
+2025-06-25T21:55:40.370Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1809	📝 Recipe step: Step 13: stir (7.0min) - Stir ingredients	{"log_ts":"2025-06-25T21:55:40.370Z"}
+2025-06-25T21:55:40.370Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1814	Recipe steps for burner burner-0-dev (elapsed: 8.2 min):
+Recipe Steps (13 total) - Elapsed Time: 8.2 minutes:
+Step 1: add pan (0.0min) - Add pan
+Step 2: add food (0.0min) - Add minced beef
+Step 3: add food (0.0min) - Add mushrooms
+Step 4: stir (0.5min) - Stir ingredients
+Step 5: season (1.0min) - Add salt and pepper
+Step 6: stir (2.0min) - Stir ingredients
+Step 7: season (4.0min) - Add garlic
+Step 8: stir (4.0min) - Stir ingredients
+Step 9: season (4.5min) - Add tomato paste
+Step 10: season (5.0min) - Add herbs
+Step 11: stir (5.5min) - Stir ingredients
+Step 12: add food (7.0min) - Add spinach vegetables
+Step 13: stir (7.0min) - Stir ingredients	{"log_ts":"2025-06-25T21:55:40.370Z"}
+2025-06-25T21:55:40.370Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1460	
+🧠 ===== PROMPT CONTEXT ===== 🧠	{"log_ts":"2025-06-25T21:55:40.370Z"}
+2025-06-25T21:55:40.370Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1463	👁️  Object Detection Context: ENABLED	{"log_ts":"2025-06-25T21:55:40.370Z"}
+2025-06-25T21:55:40.371Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1464	   Previous: Pan=true Hand=false Utensil=false Lid=false Food=false	{"log_ts":"2025-06-25T21:55:40.370Z"}
+2025-06-25T21:55:40.371Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1466	   Current:  Pan=true Hand=true Utensil=false Lid=false Food=true	{"log_ts":"2025-06-25T21:55:40.371Z"}
+2025-06-25T21:55:40.371Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1489	📖 Recipe Context: FULL RECIPE MODE	{"log_ts":"2025-06-25T21:55:40.371Z"}
+2025-06-25T21:55:40.371Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1491	   Mode: Advisory full recipe context (14 actions)	{"log_ts":"2025-06-25T21:55:40.371Z"}
+2025-06-25T21:55:40.371Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1498	🧠 ========================== 🧠
+	{"log_ts":"2025-06-25T21:55:40.371Z"}
+2025-06-25T21:55:42.146Z	WARN	rdk.resource_manager.rdk:service:generic/chef-analysis-dev	resource/graph_node.go:551	unexpected resource state transition	{"from":"Unhealthy","to":"Configuring"}
+2025-06-25T21:55:42.146Z	WARN	rdk.resource_manager.rdk:service:generic/chef-timer-dev	resource/graph_node.go:551	unexpected resource state transition	{"from":"Unhealthy","to":"Configuring"}
+2025-06-25T21:55:42.162Z	ERROR	rdk.resource_manager.rdk:service:generic/chef-timer-dev	resource/graph_node.go:297	resource build error: resource has unresolved dependencies: [burner-1-dev]	{"resource":"rdk:service:generic/chef-timer-dev","model":"gambit-robotics:chef:timer-dev"}
+2025-06-25T21:55:42.178Z	ERROR	rdk.resource_manager.rdk:service:generic/chef-analysis-dev	resource/graph_node.go:297	resource build error: resource has unresolved dependencies: [burner-1-dev]	{"resource":"rdk:service:generic/chef-analysis-dev","model":"gambit-robotics:chef:analysis-dev"}
+2025-06-25T21:55:44.666Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1516	🧠 Using CACHED prompt system	{"log_ts":"2025-06-25T21:55:44.666Z"}
+2025-06-25T21:55:44.667Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1532	
+📋 ===== CLAUDE RESPONSE ===== 📋	{"log_ts":"2025-06-25T21:55:44.667Z"}
+2025-06-25T21:55:44.667Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1534	🎭 Detected Action: Add food	{"log_ts":"2025-06-25T21:55:44.667Z"}
+2025-06-25T21:55:44.667Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1535	🎯 Confidence: 85.0%	{"log_ts":"2025-06-25T21:55:44.667Z"}
+2025-06-25T21:55:44.667Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1540	⏱️  Analysis Duration: 4.3s	{"log_ts":"2025-06-25T21:55:44.667Z"}
+2025-06-25T21:55:44.667Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1541	📋 =========================== 📋
+2025-06-25T21:55:44.667Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1582	✅ Action ACCEPTED: Add food (85.0% ≥ 75.0% required)	{"log_ts":"2025-06-25T21:55:44.667Z"}
+
+------------------------------------------------------------
+
+# Detection 2 - 18:17:51 - Remove food
+# Status: ACCEPTED
+🎬 ===== MOTION DETECTED ===== 🎬	{"log_ts":"2025-06-25T22:17:51.490Z"}
+2025-06-25T22:17:51.490Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:444	📊 Similarity: 86.8% (threshold: 87.5%)	{"log_ts":"2025-06-25T22:17:51.490Z"}
+2025-06-25T22:17:51.490Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:445	⏰ Time: 18:17:51 | Duration: 1.0s	{"log_ts":"2025-06-25T22:17:51.490Z"}
+2025-06-25T22:17:51.490Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:446	🎬 ============================= 🎬
+
+	{"log_ts":"2025-06-25T22:17:51.490Z"}
+2025-06-25T22:17:51.490Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1809	📝 Recipe step: Step 1: add pan (0.0min) - Add pan	{"log_ts":"2025-06-25T22:17:51.490Z"}
+2025-06-25T22:17:51.490Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1809	📝 Recipe step: Step 2: add food (0.0min) - Add minced beef	{"log_ts":"2025-06-25T22:17:51.490Z"}
+2025-06-25T22:17:51.490Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1809	📝 Recipe step: Step 3: add food (0.0min) - Add mushrooms	{"log_ts":"2025-06-25T22:17:51.490Z"}
+2025-06-25T22:17:51.491Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1809	📝 Recipe step: Step 4: stir (0.5min) - Stir ingredients	{"log_ts":"2025-06-25T22:17:51.490Z"}
+2025-06-25T22:17:51.491Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1809	📝 Recipe step: Step 5: season (1.0min) - Add salt and pepper	{"log_ts":"2025-06-25T22:17:51.491Z"}
+2025-06-25T22:17:51.491Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1809	📝 Recipe step: Step 6: stir (2.0min) - Stir ingredients	{"log_ts":"2025-06-25T22:17:51.491Z"}
+2025-06-25T22:17:51.491Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1809	📝 Recipe step: Step 7: season (4.0min) - Add garlic	{"log_ts":"2025-06-25T22:17:51.491Z"}
+2025-06-25T22:17:51.491Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1809	📝 Recipe step: Step 8: stir (4.0min) - Stir ingredients	{"log_ts":"2025-06-25T22:17:51.491Z"}
+2025-06-25T22:17:51.491Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1809	📝 Recipe step: Step 9: season (4.5min) - Add tomato paste	{"log_ts":"2025-06-25T22:17:51.491Z"}
+2025-06-25T22:17:51.491Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1809	📝 Recipe step: Step 10: season (5.0min) - Add herbs	{"log_ts":"2025-06-25T22:17:51.491Z"}
+2025-06-25T22:17:51.491Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1809	📝 Recipe step: Step 11: stir (5.5min) - Stir ingredients	{"log_ts":"2025-06-25T22:17:51.491Z"}
+2025-06-25T22:17:51.491Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1809	📝 Recipe step: Step 12: add food (7.0min) - Add spinach vegetables	{"log_ts":"2025-06-25T22:17:51.491Z"}
+2025-06-25T22:17:51.491Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1809	📝 Recipe step: Step 13: stir (7.0min) - Stir ingredients	{"log_ts":"2025-06-25T22:17:51.491Z"}
+2025-06-25T22:17:51.491Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1814	Recipe steps for burner burner-0-dev (elapsed: 30.4 min):
+Recipe Steps (13 total) - Elapsed Time: 30.4 minutes:
+Step 1: add pan (0.0min) - Add pan
+Step 2: add food (0.0min) - Add minced beef
+Step 3: add food (0.0min) - Add mushrooms
+Step 4: stir (0.5min) - Stir ingredients
+Step 5: season (1.0min) - Add salt and pepper
+Step 6: stir (2.0min) - Stir ingredients
+Step 7: season (4.0min) - Add garlic
+Step 8: stir (4.0min) - Stir ingredients
+Step 9: season (4.5min) - Add tomato paste
+Step 10: season (5.0min) - Add herbs
+Step 11: stir (5.5min) - Stir ingredients
+Step 12: add food (7.0min) - Add spinach vegetables
+Step 13: stir (7.0min) - Stir ingredients	{"log_ts":"2025-06-25T22:17:51.491Z"}
+2025-06-25T22:17:51.492Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1460	
+🧠 ===== PROMPT CONTEXT ===== 🧠	{"log_ts":"2025-06-25T22:17:51.491Z"}
+2025-06-25T22:17:51.492Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1463	👁️  Object Detection Context: ENABLED	{"log_ts":"2025-06-25T22:17:51.492Z"}
+2025-06-25T22:17:51.492Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1464	   Previous: Pan=true Hand=false Utensil=false Lid=false Food=true	{"log_ts":"2025-06-25T22:17:51.492Z"}
+2025-06-25T22:17:51.492Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1466	   Current:  Pan=true Hand=false Utensil=false Lid=false Food=false	{"log_ts":"2025-06-25T22:17:51.492Z"}
+2025-06-25T22:17:51.492Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1489	📖 Recipe Context: FULL RECIPE MODE	{"log_ts":"2025-06-25T22:17:51.492Z"}
+2025-06-25T22:17:51.492Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1491	   Mode: Advisory full recipe context (14 actions)	{"log_ts":"2025-06-25T22:17:51.492Z"}
+2025-06-25T22:17:51.492Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1498	🧠 ========================== 🧠
+	{"log_ts":"2025-06-25T22:17:51.492Z"}
+2025-06-25T22:17:52.126Z	INFO	rdk.resource_manager	impl/resource_manager.go:718	Now configuring resource	{"resource":"rdk:service:generic/chef-temp-target-dev"}
+2025-06-25T22:17:52.145Z	INFO	rdk.resource_manager	impl/resource_manager.go:718	Now configuring resource	{"resource":"rdk:service:generic/chef-timer-dev"}
+2025-06-25T22:17:52.162Z	INFO	rdk.resource_manager	impl/resource_manager.go:718	Now configuring resource	{"resource":"rdk:service:generic/chef-analysis-dev"}
+2025-06-25T22:17:55.582Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1516	🧠 Using CACHED prompt system	{"log_ts":"2025-06-25T22:17:55.582Z"}
+2025-06-25T22:17:55.582Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1532	
+📋 ===== CLAUDE RESPONSE ===== 📋	{"log_ts":"2025-06-25T22:17:55.582Z"}
+2025-06-25T22:17:55.582Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1534	🎭 Detected Action: Remove food	{"log_ts":"2025-06-25T22:17:55.582Z"}
+2025-06-25T22:17:55.582Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1535	🎯 Confidence: 85.0%	{"log_ts":"2025-06-25T22:17:55.582Z"}
+2025-06-25T22:17:55.582Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1540	⏱️  Analysis Duration: 4.1s	{"log_ts":"2025-06-25T22:17:55.582Z"}
+2025-06-25T22:17:55.583Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1541	📋 =========================== 📋
+2025-06-25T22:17:55.583Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1582	✅ Action ACCEPTED: Remove food (85.0% ≥ 75.0% required)	{"log_ts":"2025-06-25T22:17:55.583Z"}
+
+------------------------------------------------------------
+
+
+================================================================================
+# ANALYSIS SUMMARY
+================================================================================
+
+# Detection Counts by Action:
+# Add food: 1 total (✅1 accepted, ❌0 rejected)
+# Remove food: 1 total (✅1 accepted, ❌0 rejected)
+
+# Performance Statistics:
+# Total detections: 2
+# Acceptance rate: 2/2 (100.0%)
+# Average confidence: 85.0%
+# Confidence range: 85.0% - 85.0%
+# Average similarity: 87.0%
+# Similarity range: 86.8% - 87.2%
+# Average analysis time: 4.2s
+# Analysis time range: 4.1s - 4.3s
+
+# Timeline Summary:
+# First detection: 17:55:40 - Add food
+# Last detection: 18:17:51 - Remove food

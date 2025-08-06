@@ -1,0 +1,304 @@
+# Classifier Detection Timeline
+# Extracted classification results in chronological order
+# New Format: Motion Detection + Claude Analysis + Acceptance
+================================================================================
+
+Total detections found: 32
+Accepted: 28, Rejected: 4
+
+# Detection 1 - 17:16:10 - Stir
+# Status: ACCEPTED
+✅ ACTION ACCEPTED: Stir
+   Confidence: 85.0% (≥ 65.0% required)
+   Time: 17:16:10
+==========================================
+
+------------------------------------------------------------
+
+# Detection 2 - 17:16:18 - Add food
+# Status: ACCEPTED
+✅ ACTION ACCEPTED: Add food
+   Confidence: 85.0% (≥ 60.0% required)
+   Time: 17:16:18
+==========================================
+
+------------------------------------------------------------
+
+# Detection 3 - 17:16:36 - Season
+# Status: ACCEPTED
+✅ ACTION ACCEPTED: Season
+   Confidence: 85.0% (≥ 80.0% required)
+   Time: 17:16:36
+==========================================
+
+------------------------------------------------------------
+
+# Detection 4 - 17:16:43 - Add food
+# Status: ACCEPTED
+✅ ACTION ACCEPTED: Add food
+   Confidence: 88.0% (≥ 60.0% required)
+   Time: 17:16:43
+==========================================
+
+------------------------------------------------------------
+
+# Detection 5 - 17:16:46 - Season
+# Status: ACCEPTED
+✅ ACTION ACCEPTED: Season
+   Confidence: 85.0% (≥ 60.0% required)
+   Time: 17:16:46
+==========================================
+
+------------------------------------------------------------
+
+# Detection 6 - 17:17:28 - Stir
+# Status: ACCEPTED
+✅ ACTION ACCEPTED: Stir
+   Confidence: 82.0% (≥ 60.0% required)
+   Time: 17:17:28
+==========================================
+
+------------------------------------------------------------
+
+# Detection 7 - 17:17:38 - Stir
+# Status: ACCEPTED
+✅ ACTION ACCEPTED: Stir
+   Confidence: 78.0% (≥ 60.0% required)
+   Time: 17:17:38
+==========================================
+
+------------------------------------------------------------
+
+# Detection 8 - 17:18:10 - Stir
+# Status: ACCEPTED
+✅ ACTION ACCEPTED: Stir
+   Confidence: 78.0% (≥ 65.0% required)
+   Time: 17:18:10
+==========================================
+
+------------------------------------------------------------
+
+# Detection 9 - 17:18:17 - Season
+# Status: ACCEPTED
+✅ ACTION ACCEPTED: Season
+   Confidence: 88.0% (≥ 80.0% required)
+   Time: 17:18:17
+==========================================
+
+------------------------------------------------------------
+
+# Detection 10 - 17:18:58 - Stir
+# Status: ACCEPTED
+✅ ACTION ACCEPTED: Stir
+   Confidence: 88.0% (≥ 60.0% required)
+   Time: 17:18:58
+==========================================
+
+------------------------------------------------------------
+
+# Detection 11 - 17:19:25 - Season
+# Status: REJECTED
+2025-07-30T21:19:25.261Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner_logging.go:65	❌ Action rejected: Season (78.0% < 80.0%, 17:19:25)	{"log_ts":"2025-07-30T21:19:25.261Z"}
+
+------------------------------------------------------------
+
+# Detection 12 - 17:19:39 - Stir
+# Status: ACCEPTED
+✅ ACTION ACCEPTED: Stir
+   Confidence: 72.0% (≥ 60.0% required)
+   Time: 17:19:39
+==========================================
+
+------------------------------------------------------------
+
+# Detection 13 - 17:19:52 - Stir
+# Status: ACCEPTED
+✅ ACTION ACCEPTED: Stir
+   Confidence: 82.0% (≥ 65.0% required)
+   Time: 17:19:52
+==========================================
+
+------------------------------------------------------------
+
+# Detection 14 - 17:20:04 - Season
+# Status: REJECTED
+2025-07-30T21:20:04.654Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner_logging.go:65	❌ Action rejected: Season (75.0% < 80.0%, 17:20:04)	{"log_ts":"2025-07-30T21:20:04.654Z"}
+
+------------------------------------------------------------
+
+# Detection 15 - 17:24:01 - Stir
+# Status: ACCEPTED
+✅ ACTION ACCEPTED: Stir
+   Confidence: 78.0% (≥ 65.0% required)
+   Time: 17:24:01
+==========================================
+
+------------------------------------------------------------
+
+# Detection 16 - 17:24:27 - Stir
+# Status: ACCEPTED
+✅ ACTION ACCEPTED: Stir
+   Confidence: 75.0% (≥ 65.0% required)
+   Time: 17:24:27
+==========================================
+
+------------------------------------------------------------
+
+# Detection 17 - 17:24:40 - Stir
+# Status: ACCEPTED
+✅ ACTION ACCEPTED: Stir
+   Confidence: 68.0% (≥ 65.0% required)
+   Time: 17:24:40
+==========================================
+
+------------------------------------------------------------
+
+# Detection 18 - 17:24:53 - Flip
+# Status: ACCEPTED
+✅ ACTION ACCEPTED: Flip
+   Confidence: 72.0% (≥ 65.0% required)
+   Time: 17:24:53
+==========================================
+
+------------------------------------------------------------
+
+# Detection 19 - 17:25:10 - Stir
+# Status: ACCEPTED
+✅ ACTION ACCEPTED: Stir
+   Confidence: 78.0% (≥ 65.0% required)
+   Time: 17:25:10
+==========================================
+
+------------------------------------------------------------
+
+# Detection 20 - 17:25:41 - Season
+# Status: REJECTED
+2025-07-30T21:25:41.964Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner_logging.go:65	❌ Action rejected: Season (68.0% < 80.0%, 17:25:41)	{"log_ts":"2025-07-30T21:25:41.964Z"}
+
+------------------------------------------------------------
+
+# Detection 21 - 17:36:13 - Stir
+# Status: ACCEPTED
+✅ ACTION ACCEPTED: Stir
+   Confidence: 78.0% (≥ 65.0% required)
+   Time: 17:36:13
+==========================================
+
+------------------------------------------------------------
+
+# Detection 22 - 17:41:41 - Stir
+# Status: ACCEPTED
+✅ ACTION ACCEPTED: Stir
+   Confidence: 82.0% (≥ 65.0% required)
+   Time: 17:41:41
+==========================================
+
+------------------------------------------------------------
+
+# Detection 23 - 17:41:59 - Stir
+# Status: ACCEPTED
+✅ ACTION ACCEPTED: Stir
+   Confidence: 78.0% (≥ 65.0% required)
+   Time: 17:41:59
+==========================================
+
+------------------------------------------------------------
+
+# Detection 24 - 17:44:05 - Stir
+# Status: ACCEPTED
+✅ ACTION ACCEPTED: Stir
+   Confidence: 85.0% (≥ 65.0% required)
+   Time: 17:44:05
+==========================================
+
+------------------------------------------------------------
+
+# Detection 25 - 17:44:32 - Stir
+# Status: ACCEPTED
+✅ ACTION ACCEPTED: Stir
+   Confidence: 78.0% (≥ 65.0% required)
+   Time: 17:44:32
+==========================================
+
+------------------------------------------------------------
+
+# Detection 26 - 17:44:51 - Stir
+# Status: ACCEPTED
+✅ ACTION ACCEPTED: Stir
+   Confidence: 75.0% (≥ 65.0% required)
+   Time: 17:44:51
+==========================================
+
+------------------------------------------------------------
+
+# Detection 27 - 17:45:10 - Season
+# Status: REJECTED
+2025-07-30T21:45:10.053Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner_logging.go:65	❌ Action rejected: Season (71.0% < 80.0%, 17:45:10)	{"log_ts":"2025-07-30T21:45:10.053Z"}
+
+------------------------------------------------------------
+
+# Detection 28 - 17:45:29 - Stir
+# Status: ACCEPTED
+✅ ACTION ACCEPTED: Stir
+   Confidence: 78.0% (≥ 65.0% required)
+   Time: 17:45:29
+==========================================
+
+------------------------------------------------------------
+
+# Detection 29 - 17:46:49 - Stir
+# Status: ACCEPTED
+✅ ACTION ACCEPTED: Stir
+   Confidence: 68.0% (≥ 65.0% required)
+   Time: 17:46:49
+==========================================
+
+------------------------------------------------------------
+
+# Detection 30 - 17:47:09 - Stir
+# Status: ACCEPTED
+✅ ACTION ACCEPTED: Stir
+   Confidence: 75.0% (≥ 65.0% required)
+   Time: 17:47:09
+==========================================
+
+------------------------------------------------------------
+
+# Detection 31 - 17:48:19 - Stir
+# Status: ACCEPTED
+✅ ACTION ACCEPTED: Stir
+   Confidence: 68.0% (≥ 65.0% required)
+   Time: 17:48:19
+==========================================
+
+------------------------------------------------------------
+
+# Detection 32 - 17:53:49 - Season
+# Status: ACCEPTED
+✅ ACTION ACCEPTED: Season
+   Confidence: 78.0% (≥ 70.0% required)
+   Time: 17:53:49
+==========================================
+
+------------------------------------------------------------
+
+
+================================================================================
+# ANALYSIS SUMMARY
+================================================================================
+
+# Detection Counts by Action:
+# Add food: 2 total (✅2 accepted, ❌0 rejected)
+# Flip: 1 total (✅1 accepted, ❌0 rejected)
+# Season: 8 total (✅4 accepted, ❌4 rejected)
+# Stir: 21 total (✅21 accepted, ❌0 rejected)
+
+# Performance Statistics:
+# Total detections: 32
+# Acceptance rate: 28/32 (87.5%)
+# Average confidence: 78.2%
+# Confidence range: 68.0% - 88.0%
+
+# Timeline Summary:
+# First detection: 17:16:10 - Stir
+# Last detection: 17:53:49 - Season

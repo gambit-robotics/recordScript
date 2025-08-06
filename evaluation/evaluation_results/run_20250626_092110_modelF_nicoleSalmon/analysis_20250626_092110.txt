@@ -1,0 +1,90 @@
+Analysis for: current_session
+Run ID: 20250626_092110
+Timestamp: 2025-06-26T09:53:07.886985
+============================================================
+
+🔄 Classifier Log Analysis & Ground Truth Alignment
+============================================================
+📂 Loaded log file: evaluation_results/run_20250626_092110/viam_server_20250626_092110.log
+
+🔍 Analyzing log data (440752 characters)...
+📝 Classification timeline exported to: evaluation_results/run_20250626_092110/viam_server_20250626_092110_timeline.log
+🔍 Classifier Performance Analysis
+============================================================
+📊 Ground Truth Dataset:
+   Total labeled segments: 27
+   add-food: 6 occurrences
+   remove-food: 6 occurrences
+   add-pan: 3 occurrences
+   remove-pan: 3 occurrences
+   add-lid: 3 occurrences
+   remove-lid: 3 occurrences
+   flip: 3 occurrences
+
+🔍 Classifier Detections:
+   Total detections: 2
+   Accepted detections: 2
+   Rejected detections: 0
+
+📊 Accepted Detection Breakdown:
+   flip: 1 detections
+   remove-food: 1 detections
+
+🎯 Performance Comparison:
+   add-food        | Expected:  6 | Detected:  0 | Recall:   0.0% ❌
+   add-lid         | Expected:  3 | Detected:  0 | Recall:   0.0% ❌
+   add-pan         | Expected:  3 | Detected:  0 | Recall:   0.0% ❌
+   flip            | Expected:  3 | Detected:  1 | Recall:  33.3% ❌
+   remove-food     | Expected:  6 | Detected:  1 | Recall:  16.7% ❌
+   remove-lid      | Expected:  3 | Detected:  0 | Recall:   0.0% ❌
+   remove-pan      | Expected:  3 | Detected:  0 | Recall:   0.0% ❌
+
+📈 Overall Performance:
+   Total Recall: 7.4%
+   Coverage: 2/27 actions detected
+
+🎯 Confidence Analysis:
+   Average confidence: 81.5%
+   Range: 78.0% - 85.0%
+   High confidence (≥80%): 1/2
+   Medium confidence (60-79%): 1/2
+   Low confidence (<60%): 0/2
+
+📊 Motion Similarity Analysis:
+   Average similarity: 84.9%
+   Range: 83.0% - 86.8%
+
+⚡ Analysis Performance:
+   Average analysis time: 8.8s
+   Range: 8.7s - 9.0s
+   Slow analyses (>5s): 2/2
+
+⏰ Detection Timeline:
+    1. 09:29:41 | Flip            | Conf: 78.0% | Sim: 83.0% |  1.0s | ✅
+    2. 09:51:45 | Remove food     | Conf: 85.0% | Sim: 86.8% |  1.0s | ✅
+
+💡 Key Insights:
+   • Average confidence: 81.5%
+   • Moderate confidence - consider threshold tuning
+   • Average motion similarity: 84.9%
+   • Average analysis time: 8.8s
+   • 2 slow analyses (>5s) may indicate processing bottlenecks
+   • Slow analysis times - consider optimizing model inference
+   • Missing critical actions: add-pan, remove-pan, add-food
+
+📝 Recommendations:
+   • Set confidence threshold around 75-80% to filter noise
+   • Consider raising motion similarity threshold to reduce false triggers
+   • Optimize model inference speed (current avg: 8.8s)
+   • Implement temporal smoothing to reduce duplicate detections
+   • Add action sequence validation (logical flow checking)
+   • Low detection rate - consider lowering confidence threshold
+   • Review video manually to validate detection timing accuracy
+
+✅ Analysis complete!
+
+📋 Summary:
+   • 2 action detections extracted from logs
+   • 7.4% coverage of expected actions
+   • 81.5% average detection confidence
+   • Classification timeline saved to: evaluation_results/run_20250626_092110/viam_server_20250626_092110_timeline.log

@@ -1,0 +1,62 @@
+# Classifier Detection Timeline
+# Extracted classification results in chronological order
+# New Format: Motion Detection + Claude Analysis + Acceptance
+================================================================================
+
+Total detections found: 4
+Accepted: 4, Rejected: 0
+
+# Detection 1 - 16:29:44 - Add pan
+# Status: ACCEPTED
+✅ ACTION ACCEPTED: Add pan
+   Confidence: 95.0% (≥ 55.0% required)
+   Time: 16:29:44
+==========================================
+
+------------------------------------------------------------
+
+# Detection 2 - 16:30:23 - Remove pan
+# Status: ACCEPTED
+✅ ACTION ACCEPTED: Remove pan
+   Confidence: 92.0% (≥ 55.0% required)
+   Time: 16:30:23
+==========================================
+
+------------------------------------------------------------
+
+# Detection 3 - 16:30:35 - Add pan
+# Status: ACCEPTED
+✅ ACTION ACCEPTED: Add pan
+   Confidence: 95.0% (≥ 55.0% required)
+   Time: 16:30:35
+==========================================
+
+------------------------------------------------------------
+
+# Detection 4 - 16:30:58 - Remove pan
+# Status: ACCEPTED
+✅ ACTION ACCEPTED: Remove pan
+   Confidence: 85.0% (≥ 55.0% required)
+   Time: 16:30:58
+==========================================
+
+------------------------------------------------------------
+
+
+================================================================================
+# ANALYSIS SUMMARY
+================================================================================
+
+# Detection Counts by Action:
+# Add pan: 2 total (✅2 accepted, ❌0 rejected)
+# Remove pan: 2 total (✅2 accepted, ❌0 rejected)
+
+# Performance Statistics:
+# Total detections: 4
+# Acceptance rate: 4/4 (100.0%)
+# Average confidence: 91.8%
+# Confidence range: 85.0% - 95.0%
+
+# Timeline Summary:
+# First detection: 16:29:44 - Add pan
+# Last detection: 16:30:58 - Remove pan

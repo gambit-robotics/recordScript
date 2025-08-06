@@ -1,0 +1,12 @@
+Evaluation Run Summary: 20250722_110153
+==================================================
+
+Timestamp: 2025-07-22T11:01:53.567739
+Run ID: 20250722_110153
+
+Performance Metrics:
+- Total detections: 23
+- Accepted: 23
+- Rejected: 0
+- Acceptance rate: 100.0%
+- Average confidence: 78.8%

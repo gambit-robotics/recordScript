@@ -1,0 +1,249 @@
+# Classifier Detection Timeline
+# Extracted classification results in chronological order
+# New Format: Motion Detection + Claude Analysis + Acceptance
+================================================================================
+
+Total detections found: 5
+Accepted: 5, Rejected: 0
+
+# Detection 1 - 10:06:56 - Remove food
+# Status: ACCEPTED
+🎬 ===== MOTION DETECTED ===== 🎬	{"log_ts":"2025-06-26T14:06:57.179Z"}
+2025-06-26T14:06:57.179Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:452	📊 Similarity: 85.7% (threshold: 87.5%)	{"log_ts":"2025-06-26T14:06:57.179Z"}
+2025-06-26T14:06:57.179Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:453	⏰ Time: 10:06:56 | Duration: 1.0s	{"log_ts":"2025-06-26T14:06:57.179Z"}
+2025-06-26T14:06:57.180Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:454	🎬 ============================= 🎬
+
+	{"log_ts":"2025-06-26T14:06:57.179Z"}
+2025-06-26T14:06:57.180Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1931	📝 Recipe step: Step 1: add pan (0.0min) - Place pot on burner	{"log_ts":"2025-06-26T14:06:57.180Z"}
+2025-06-26T14:06:57.180Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1931	📝 Recipe step: Step 2: add food (0.5min) - Add packet of couscous into water	{"log_ts":"2025-06-26T14:06:57.180Z"}
+2025-06-26T14:06:57.180Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1931	📝 Recipe step: Step 3: stir (3.0min) - Stir the couscous in water gently	{"log_ts":"2025-06-26T14:06:57.180Z"}
+2025-06-26T14:06:57.180Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1931	📝 Recipe step: Step 4: add lid (3.5min) - Add lid to pot	{"log_ts":"2025-06-26T14:06:57.180Z"}
+2025-06-26T14:06:57.180Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1931	📝 Recipe step: Step 5: remove pan (5.8min) - Remove pot from heat	{"log_ts":"2025-06-26T14:06:57.180Z"}
+2025-06-26T14:06:57.181Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1936	Recipe steps for burner burner-0-dev (elapsed: 2.3 min):
+Recipe Steps (5 total) - Elapsed Time: 2.3 minutes:
+Step 1: add pan (0.0min) - Place pot on burner
+Step 2: add food (0.5min) - Add packet of couscous into water
+Step 3: stir (3.0min) - Stir the couscous in water gently
+Step 4: add lid (3.5min) - Add lid to pot
+Step 5: remove pan (5.8min) - Remove pot from heat	{"log_ts":"2025-06-26T14:06:57.180Z"}
+2025-06-26T14:06:57.181Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1573	
+🧠 ===== PROMPT CONTEXT ===== 🧠	{"log_ts":"2025-06-26T14:06:57.181Z"}
+2025-06-26T14:06:57.181Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1576	👁️  Object Detection Context: ENABLED	{"log_ts":"2025-06-26T14:06:57.181Z"}
+2025-06-26T14:06:57.181Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1577	   Previous: Pan=true Hand=false Utensil=false Lid=false Food=true	{"log_ts":"2025-06-26T14:06:57.181Z"}
+2025-06-26T14:06:57.181Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1579	   Current:  Pan=true Hand=false Utensil=false Lid=false Food=false	{"log_ts":"2025-06-26T14:06:57.181Z"}
+2025-06-26T14:06:57.181Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1602	📖 Recipe Context: FULL RECIPE MODE	{"log_ts":"2025-06-26T14:06:57.181Z"}
+2025-06-26T14:06:57.181Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1604	   Mode: Advisory full recipe context (6 actions)	{"log_ts":"2025-06-26T14:06:57.181Z"}
+2025-06-26T14:06:57.181Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1611	🧠 ========================== 🧠
+	{"log_ts":"2025-06-26T14:06:57.181Z"}
+2025-06-26T14:07:01.439Z	WARN	rdk.resource_manager.rdk:service:generic/chef-analysis-dev	resource/graph_node.go:551	unexpected resource state transition	{"from":"Unhealthy","to":"Configuring"}
+2025-06-26T14:07:01.439Z	WARN	rdk.resource_manager.rdk:service:generic/chef-timer-dev	resource/graph_node.go:551	unexpected resource state transition	{"from":"Unhealthy","to":"Configuring"}
+2025-06-26T14:07:01.439Z	ERROR	rdk.resource_manager.rdk:service:generic/chef-temp-target-dev	resource/graph_node.go:297	resource build error: resource has unresolved dependencies: [burner-1-dev]	{"resource":"rdk:service:generic/chef-temp-target-dev","model":"gambit-robotics:chef:temp-target-dev"}
+2025-06-26T14:07:02.242Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1629	🧠 Using CACHED prompt system	{"log_ts":"2025-06-26T14:07:02.241Z"}
+2025-06-26T14:07:02.243Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1645	
+📋 ===== CLAUDE RESPONSE ===== 📋	{"log_ts":"2025-06-26T14:07:02.242Z"}
+2025-06-26T14:07:02.243Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1647	🎭 Detected Action: Remove food	{"log_ts":"2025-06-26T14:07:02.243Z"}
+2025-06-26T14:07:02.244Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1648	🎯 Confidence: 85.0%	{"log_ts":"2025-06-26T14:07:02.243Z"}
+2025-06-26T14:07:02.244Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1653	⏱️  Analysis Duration: 5.1s	{"log_ts":"2025-06-26T14:07:02.244Z"}
+2025-06-26T14:07:02.244Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1654	📋 =========================== 📋
+2025-06-26T14:07:02.245Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1695	✅ Action ACCEPTED: Remove food (85.0% ≥ 75.0% required)	{"log_ts":"2025-06-26T14:07:02.244Z"}
+
+------------------------------------------------------------
+
+# Detection 2 - 10:10:45 - Remove food
+# Status: ACCEPTED
+🎬 ===== MOTION DETECTED ===== 🎬	{"log_ts":"2025-06-26T14:10:46.353Z"}
+2025-06-26T14:10:46.353Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:452	📊 Similarity: 86.6% (threshold: 87.5%)	{"log_ts":"2025-06-26T14:10:46.353Z"}
+2025-06-26T14:10:46.353Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:453	⏰ Time: 10:10:45 | Duration: 1.0s	{"log_ts":"2025-06-26T14:10:46.353Z"}
+2025-06-26T14:10:46.354Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:454	🎬 ============================= 🎬
+
+	{"log_ts":"2025-06-26T14:10:46.354Z"}
+2025-06-26T14:10:46.354Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1931	📝 Recipe step: Step 1: add pan (0.0min) - Place pot on burner	{"log_ts":"2025-06-26T14:10:46.354Z"}
+2025-06-26T14:10:46.354Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1931	📝 Recipe step: Step 2: add food (0.5min) - Add packet of couscous into water	{"log_ts":"2025-06-26T14:10:46.354Z"}
+2025-06-26T14:10:46.354Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1931	📝 Recipe step: Step 3: stir (3.0min) - Stir the couscous in water gently	{"log_ts":"2025-06-26T14:10:46.354Z"}
+2025-06-26T14:10:46.354Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1931	📝 Recipe step: Step 4: add lid (3.5min) - Add lid to pot	{"log_ts":"2025-06-26T14:10:46.354Z"}
+2025-06-26T14:10:46.354Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1931	📝 Recipe step: Step 5: remove pan (5.8min) - Remove pot from heat	{"log_ts":"2025-06-26T14:10:46.354Z"}
+2025-06-26T14:10:46.355Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1936	Recipe steps for burner burner-0-dev (elapsed: 6.1 min):
+Recipe Steps (5 total) - Elapsed Time: 6.1 minutes:
+Step 1: add pan (0.0min) - Place pot on burner
+Step 2: add food (0.5min) - Add packet of couscous into water
+Step 3: stir (3.0min) - Stir the couscous in water gently
+Step 4: add lid (3.5min) - Add lid to pot
+Step 5: remove pan (5.8min) - Remove pot from heat	{"log_ts":"2025-06-26T14:10:46.355Z"}
+2025-06-26T14:10:46.355Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1573	
+🧠 ===== PROMPT CONTEXT ===== 🧠	{"log_ts":"2025-06-26T14:10:46.355Z"}
+2025-06-26T14:10:46.355Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1576	👁️  Object Detection Context: ENABLED	{"log_ts":"2025-06-26T14:10:46.355Z"}
+2025-06-26T14:10:46.355Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1577	   Previous: Pan=true Hand=false Utensil=false Lid=false Food=true	{"log_ts":"2025-06-26T14:10:46.355Z"}
+2025-06-26T14:10:46.355Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1579	   Current:  Pan=true Hand=false Utensil=false Lid=false Food=false	{"log_ts":"2025-06-26T14:10:46.355Z"}
+2025-06-26T14:10:46.355Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1602	📖 Recipe Context: FULL RECIPE MODE	{"log_ts":"2025-06-26T14:10:46.355Z"}
+2025-06-26T14:10:46.356Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1604	   Mode: Advisory full recipe context (6 actions)	{"log_ts":"2025-06-26T14:10:46.356Z"}
+2025-06-26T14:10:46.356Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1611	🧠 ========================== 🧠
+	{"log_ts":"2025-06-26T14:10:46.356Z"}
+2025-06-26T14:10:46.398Z	INFO	rdk.resource_manager	impl/resource_manager.go:718	Now configuring resource	{"resource":"rdk:service:generic/chef-temp-target-dev"}
+2025-06-26T14:10:46.414Z	INFO	rdk.resource_manager	impl/resource_manager.go:718	Now configuring resource	{"resource":"rdk:service:generic/chef-timer-dev"}
+2025-06-26T14:10:46.431Z	INFO	rdk.resource_manager	impl/resource_manager.go:718	Now configuring resource	{"resource":"rdk:service:generic/chef-analysis-dev"}
+2025-06-26T14:10:51.403Z	INFO	rdk.resource_manager	impl/resource_manager.go:718	Now configuring resource	{"resource":"rdk:service:generic/chef-temp-target-dev"}
+2025-06-26T14:10:51.936Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1629	🧠 Using CACHED prompt system	{"log_ts":"2025-06-26T14:10:51.936Z"}
+2025-06-26T14:10:51.937Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1645	
+📋 ===== CLAUDE RESPONSE ===== 📋	{"log_ts":"2025-06-26T14:10:51.937Z"}
+2025-06-26T14:10:51.937Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1647	🎭 Detected Action: Remove food	{"log_ts":"2025-06-26T14:10:51.937Z"}
+2025-06-26T14:10:51.937Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1648	🎯 Confidence: 85.0%	{"log_ts":"2025-06-26T14:10:51.937Z"}
+2025-06-26T14:10:51.937Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1653	⏱️  Analysis Duration: 5.6s	{"log_ts":"2025-06-26T14:10:51.937Z"}
+2025-06-26T14:10:51.937Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1654	📋 =========================== 📋
+2025-06-26T14:10:51.937Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1695	✅ Action ACCEPTED: Remove food (85.0% ≥ 75.0% required)	{"log_ts":"2025-06-26T14:10:51.937Z"}
+
+------------------------------------------------------------
+
+# Detection 3 - 10:21:13 - Remove food
+# Status: ACCEPTED
+🎬 ===== MOTION DETECTED ===== 🎬	{"log_ts":"2025-06-26T14:21:14.079Z"}
+2025-06-26T14:21:14.079Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:452	📊 Similarity: 83.5% (threshold: 87.5%)	{"log_ts":"2025-06-26T14:21:14.079Z"}
+2025-06-26T14:21:14.079Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:453	⏰ Time: 10:21:13 | Duration: 1.0s	{"log_ts":"2025-06-26T14:21:14.079Z"}
+2025-06-26T14:21:14.079Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:454	🎬 ============================= 🎬
+
+	{"log_ts":"2025-06-26T14:21:14.079Z"}
+2025-06-26T14:21:14.080Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1931	📝 Recipe step: Step 1: add pan (0.0min) - Place pot on burner	{"log_ts":"2025-06-26T14:21:14.080Z"}
+2025-06-26T14:21:14.080Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1931	📝 Recipe step: Step 2: add food (0.5min) - Add packet of couscous into water	{"log_ts":"2025-06-26T14:21:14.080Z"}
+2025-06-26T14:21:14.080Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1931	📝 Recipe step: Step 3: stir (3.0min) - Stir the couscous in water gently	{"log_ts":"2025-06-26T14:21:14.080Z"}
+2025-06-26T14:21:14.080Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1931	📝 Recipe step: Step 4: add lid (3.5min) - Add lid to pot	{"log_ts":"2025-06-26T14:21:14.080Z"}
+2025-06-26T14:21:14.080Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1931	📝 Recipe step: Step 5: remove pan (5.8min) - Remove pot from heat	{"log_ts":"2025-06-26T14:21:14.080Z"}
+2025-06-26T14:21:14.080Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1936	Recipe steps for burner burner-0-dev (elapsed: 16.5 min):
+Recipe Steps (5 total) - Elapsed Time: 16.5 minutes:
+Step 1: add pan (0.0min) - Place pot on burner
+Step 2: add food (0.5min) - Add packet of couscous into water
+Step 3: stir (3.0min) - Stir the couscous in water gently
+Step 4: add lid (3.5min) - Add lid to pot
+Step 5: remove pan (5.8min) - Remove pot from heat	{"log_ts":"2025-06-26T14:21:14.080Z"}
+2025-06-26T14:21:14.080Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1573	
+🧠 ===== PROMPT CONTEXT ===== 🧠	{"log_ts":"2025-06-26T14:21:14.080Z"}
+2025-06-26T14:21:14.080Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1576	👁️  Object Detection Context: ENABLED	{"log_ts":"2025-06-26T14:21:14.080Z"}
+2025-06-26T14:21:14.080Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1577	   Previous: Pan=true Hand=false Utensil=false Lid=false Food=true	{"log_ts":"2025-06-26T14:21:14.080Z"}
+2025-06-26T14:21:14.080Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1579	   Current:  Pan=true Hand=false Utensil=false Lid=false Food=false	{"log_ts":"2025-06-26T14:21:14.080Z"}
+2025-06-26T14:21:14.081Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1602	📖 Recipe Context: FULL RECIPE MODE	{"log_ts":"2025-06-26T14:21:14.080Z"}
+2025-06-26T14:21:14.081Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1604	   Mode: Advisory full recipe context (6 actions)	{"log_ts":"2025-06-26T14:21:14.081Z"}
+2025-06-26T14:21:14.081Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1611	🧠 ========================== 🧠
+	{"log_ts":"2025-06-26T14:21:14.081Z"}
+2025-06-26T14:21:16.425Z	WARN	rdk.resource_manager.rdk:service:generic/chef-analysis-dev	resource/graph_node.go:551	unexpected resource state transition	{"from":"Unhealthy","to":"Configuring"}
+2025-06-26T14:21:16.425Z	WARN	rdk.resource_manager.rdk:service:generic/chef-timer-dev	resource/graph_node.go:551	unexpected resource state transition	{"from":"Unhealthy","to":"Configuring"}
+2025-06-26T14:21:16.442Z	ERROR	rdk.resource_manager.rdk:service:generic/chef-timer-dev	resource/graph_node.go:297	resource build error: resource has unresolved dependencies: [burner-1-dev]	{"resource":"rdk:service:generic/chef-timer-dev","model":"gambit-robotics:chef:timer-dev"}
+2025-06-26T14:21:16.458Z	ERROR	rdk.resource_manager.rdk:service:generic/chef-analysis-dev	resource/graph_node.go:297	resource build error: resource has unresolved dependencies: [burner-1-dev]	{"resource":"rdk:service:generic/chef-analysis-dev","model":"gambit-robotics:chef:analysis-dev"}
+2025-06-26T14:21:18.828Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1629	🧠 Using CACHED prompt system	{"log_ts":"2025-06-26T14:21:18.828Z"}
+2025-06-26T14:21:18.828Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1645	
+📋 ===== CLAUDE RESPONSE ===== 📋	{"log_ts":"2025-06-26T14:21:18.828Z"}
+2025-06-26T14:21:18.828Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1647	🎭 Detected Action: Remove food	{"log_ts":"2025-06-26T14:21:18.828Z"}
+2025-06-26T14:21:18.828Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1648	🎯 Confidence: 85.0%	{"log_ts":"2025-06-26T14:21:18.828Z"}
+2025-06-26T14:21:18.828Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1653	⏱️  Analysis Duration: 4.7s	{"log_ts":"2025-06-26T14:21:18.828Z"}
+2025-06-26T14:21:18.828Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1654	📋 =========================== 📋
+2025-06-26T14:21:18.829Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1695	✅ Action ACCEPTED: Remove food (85.0% ≥ 75.0% required)	{"log_ts":"2025-06-26T14:21:18.828Z"}
+
+------------------------------------------------------------
+
+# Detection 4 - 10:24:21 - Remove pan
+# Status: ACCEPTED
+🎬 ===== MOTION DETECTED ===== 🎬	{"log_ts":"2025-06-26T14:24:22.101Z"}
+2025-06-26T14:24:22.101Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:452	📊 Similarity: 77.0% (threshold: 87.5%)	{"log_ts":"2025-06-26T14:24:22.101Z"}
+2025-06-26T14:24:22.101Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:453	⏰ Time: 10:24:21 | Duration: 1.0s	{"log_ts":"2025-06-26T14:24:22.101Z"}
+2025-06-26T14:24:22.101Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:454	🎬 ============================= 🎬
+
+	{"log_ts":"2025-06-26T14:24:22.101Z"}
+2025-06-26T14:24:22.102Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1931	📝 Recipe step: Step 1: add pan (0.0min) - Place pot on burner	{"log_ts":"2025-06-26T14:24:22.101Z"}
+2025-06-26T14:24:22.102Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1931	📝 Recipe step: Step 2: add food (0.5min) - Add packet of couscous into water	{"log_ts":"2025-06-26T14:24:22.102Z"}
+2025-06-26T14:24:22.102Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1931	📝 Recipe step: Step 3: stir (3.0min) - Stir the couscous in water gently	{"log_ts":"2025-06-26T14:24:22.102Z"}
+2025-06-26T14:24:22.102Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1931	📝 Recipe step: Step 4: add lid (3.5min) - Add lid to pot	{"log_ts":"2025-06-26T14:24:22.102Z"}
+2025-06-26T14:24:22.102Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1931	📝 Recipe step: Step 5: remove pan (5.8min) - Remove pot from heat	{"log_ts":"2025-06-26T14:24:22.102Z"}
+2025-06-26T14:24:22.102Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1936	Recipe steps for burner burner-0-dev (elapsed: 19.7 min):
+Recipe Steps (5 total) - Elapsed Time: 19.7 minutes:
+Step 1: add pan (0.0min) - Place pot on burner
+Step 2: add food (0.5min) - Add packet of couscous into water
+Step 3: stir (3.0min) - Stir the couscous in water gently
+Step 4: add lid (3.5min) - Add lid to pot
+Step 5: remove pan (5.8min) - Remove pot from heat	{"log_ts":"2025-06-26T14:24:22.102Z"}
+2025-06-26T14:24:22.102Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1573	
+🧠 ===== PROMPT CONTEXT ===== 🧠	{"log_ts":"2025-06-26T14:24:22.102Z"}
+2025-06-26T14:24:22.102Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1576	👁️  Object Detection Context: ENABLED	{"log_ts":"2025-06-26T14:24:22.102Z"}
+2025-06-26T14:24:22.103Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1577	   Previous: Pan=true Hand=false Utensil=false Lid=false Food=true	{"log_ts":"2025-06-26T14:24:22.102Z"}
+2025-06-26T14:24:22.103Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1579	   Current:  Pan=false Hand=false Utensil=false Lid=false Food=false	{"log_ts":"2025-06-26T14:24:22.103Z"}
+2025-06-26T14:24:22.103Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1602	📖 Recipe Context: FULL RECIPE MODE	{"log_ts":"2025-06-26T14:24:22.103Z"}
+2025-06-26T14:24:22.103Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1604	   Mode: Advisory full recipe context (6 actions)	{"log_ts":"2025-06-26T14:24:22.103Z"}
+2025-06-26T14:24:22.103Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1611	🧠 ========================== 🧠
+	{"log_ts":"2025-06-26T14:24:22.103Z"}
+2025-06-26T14:24:26.434Z	WARN	rdk.resource_manager.rdk:service:generic/chef-analysis-dev	resource/graph_node.go:551	unexpected resource state transition	{"from":"Unhealthy","to":"Configuring"}
+2025-06-26T14:24:26.434Z	WARN	rdk.resource_manager.rdk:service:generic/chef-timer-dev	resource/graph_node.go:551	unexpected resource state transition	{"from":"Unhealthy","to":"Configuring"}
+2025-06-26T14:24:30.511Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1629	🧠 Using CACHED prompt system	{"log_ts":"2025-06-26T14:24:30.511Z"}
+2025-06-26T14:24:30.511Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1645	
+📋 ===== CLAUDE RESPONSE ===== 📋	{"log_ts":"2025-06-26T14:24:30.511Z"}
+2025-06-26T14:24:30.511Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1647	🎭 Detected Action: Remove pan	{"log_ts":"2025-06-26T14:24:30.511Z"}
+2025-06-26T14:24:30.511Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1648	🎯 Confidence: 92.0%	{"log_ts":"2025-06-26T14:24:30.511Z"}
+2025-06-26T14:24:30.511Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1653	⏱️  Analysis Duration: 8.4s	{"log_ts":"2025-06-26T14:24:30.511Z"}
+2025-06-26T14:24:30.512Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1654	📋 =========================== 📋
+2025-06-26T14:24:30.512Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1695	✅ Action ACCEPTED: Remove pan (92.0% ≥ 55.0% required)	{"log_ts":"2025-06-26T14:24:30.512Z"}
+
+------------------------------------------------------------
+
+# Detection 5 - 10:38:59 - Remove lid
+# Status: ACCEPTED
+🎬 ===== MOTION DETECTED ===== 🎬	{"log_ts":"2025-06-26T14:39:00.260Z"}
+2025-06-26T14:39:00.261Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:452	📊 Similarity: 75.0% (threshold: 87.5%)	{"log_ts":"2025-06-26T14:39:00.261Z"}
+2025-06-26T14:39:00.261Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:453	⏰ Time: 10:38:59 | Duration: 1.0s	{"log_ts":"2025-06-26T14:39:00.261Z"}
+2025-06-26T14:39:00.261Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:454	🎬 ============================= 🎬
+
+	{"log_ts":"2025-06-26T14:39:00.261Z"}
+2025-06-26T14:39:00.261Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1931	📝 Recipe step: Step 1: add pan (0.0min) - Place pot on burner	{"log_ts":"2025-06-26T14:39:00.261Z"}
+2025-06-26T14:39:00.262Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1931	📝 Recipe step: Step 2: add food (0.5min) - Add packet of couscous into water	{"log_ts":"2025-06-26T14:39:00.262Z"}
+2025-06-26T14:39:00.262Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1931	📝 Recipe step: Step 3: stir (3.0min) - Stir the couscous in water gently	{"log_ts":"2025-06-26T14:39:00.262Z"}
+2025-06-26T14:39:00.262Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1931	📝 Recipe step: Step 4: add lid (3.5min) - Add lid to pot	{"log_ts":"2025-06-26T14:39:00.262Z"}
+2025-06-26T14:39:00.262Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1931	📝 Recipe step: Step 5: remove pan (5.8min) - Remove pot from heat	{"log_ts":"2025-06-26T14:39:00.262Z"}
+2025-06-26T14:39:00.262Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1936	Recipe steps for burner burner-0-dev (elapsed: 34.3 min):
+Recipe Steps (5 total) - Elapsed Time: 34.3 minutes:
+Step 1: add pan (0.0min) - Place pot on burner
+Step 2: add food (0.5min) - Add packet of couscous into water
+Step 3: stir (3.0min) - Stir the couscous in water gently
+Step 4: add lid (3.5min) - Add lid to pot
+Step 5: remove pan (5.8min) - Remove pot from heat	{"log_ts":"2025-06-26T14:39:00.262Z"}
+2025-06-26T14:39:00.263Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1573	
+🧠 ===== PROMPT CONTEXT ===== 🧠	{"log_ts":"2025-06-26T14:39:00.262Z"}
+2025-06-26T14:39:00.263Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1576	👁️  Object Detection Context: ENABLED	{"log_ts":"2025-06-26T14:39:00.263Z"}
+2025-06-26T14:39:00.263Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1577	   Previous: Pan=true Hand=false Utensil=false Lid=true Food=false	{"log_ts":"2025-06-26T14:39:00.263Z"}
+2025-06-26T14:39:00.263Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1579	   Current:  Pan=true Hand=false Utensil=false Lid=false Food=false	{"log_ts":"2025-06-26T14:39:00.263Z"}
+2025-06-26T14:39:00.263Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1602	📖 Recipe Context: FULL RECIPE MODE	{"log_ts":"2025-06-26T14:39:00.263Z"}
+2025-06-26T14:39:00.263Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1604	   Mode: Advisory full recipe context (6 actions)	{"log_ts":"2025-06-26T14:39:00.263Z"}
+2025-06-26T14:39:00.263Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1611	🧠 ========================== 🧠
+	{"log_ts":"2025-06-26T14:39:00.263Z"}
+2025-06-26T14:39:01.434Z	INFO	rdk.resource_manager	impl/resource_manager.go:718	Message logged 12 times in past 1m0s: Now configuring resource	{"resource":"rdk:service:generic/chef-timer-dev"}
+2025-06-26T14:39:01.450Z	INFO	rdk.resource_manager	impl/resource_manager.go:718	Message logged 12 times in past 1m0s: Now configuring resource	{"resource":"rdk:service:generic/chef-analysis-dev"}
+2025-06-26T14:39:06.420Z	INFO	rdk.resource_manager	impl/resource_manager.go:718	Message logged 13 times in past 1m0s: Now configuring resource	{"resource":"rdk:service:generic/chef-temp-target-dev"}
+2025-06-26T14:39:06.439Z	INFO	rdk.resource_manager	impl/resource_manager.go:718	Now configuring resource	{"resource":"rdk:service:generic/chef-timer-dev"}
+2025-06-26T14:39:06.457Z	INFO	rdk.resource_manager	impl/resource_manager.go:718	Now configuring resource	{"resource":"rdk:service:generic/chef-analysis-dev"}
+2025-06-26T14:39:11.115Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1629	🧠 Using CACHED prompt system	{"log_ts":"2025-06-26T14:39:11.115Z"}
+2025-06-26T14:39:11.115Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1645	
+📋 ===== CLAUDE RESPONSE ===== 📋	{"log_ts":"2025-06-26T14:39:11.115Z"}
+2025-06-26T14:39:11.115Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1647	🎭 Detected Action: Remove lid	{"log_ts":"2025-06-26T14:39:11.115Z"}
+2025-06-26T14:39:11.116Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1648	🎯 Confidence: 85.0%	{"log_ts":"2025-06-26T14:39:11.116Z"}
+2025-06-26T14:39:11.116Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1653	⏱️  Analysis Duration: 10.9s	{"log_ts":"2025-06-26T14:39:11.116Z"}
+2025-06-26T14:39:11.116Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1654	📋 =========================== 📋
+2025-06-26T14:39:11.116Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1695	✅ Action ACCEPTED: Remove lid (85.0% ≥ 55.0% required)	{"log_ts":"2025-06-26T14:39:11.116Z"}
+
+------------------------------------------------------------
+
+
+================================================================================
+# ANALYSIS SUMMARY
+================================================================================
+
+# Detection Counts by Action:
+# Remove food: 3 total (✅3 accepted, ❌0 rejected)
+# Remove lid: 1 total (✅1 accepted, ❌0 rejected)
+# Remove pan: 1 total (✅1 accepted, ❌0 rejected)
+
+# Performance Statistics:
+# Total detections: 5
+# Acceptance rate: 5/5 (100.0%)
+# Average confidence: 86.4%
+# Confidence range: 85.0% - 92.0%
+# Average similarity: 81.6%
+# Similarity range: 75.0% - 86.6%
+# Average analysis time: 6.9s
+# Analysis time range: 4.7s - 10.9s
+
+# Timeline Summary:
+# First detection: 10:06:56 - Remove food
+# Last detection: 10:38:59 - Remove lid

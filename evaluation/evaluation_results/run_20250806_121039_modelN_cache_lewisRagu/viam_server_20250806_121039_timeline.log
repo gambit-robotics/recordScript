@@ -1,0 +1,257 @@
+# Classifier Detection Timeline
+# Extracted classification results in chronological order
+# New Format: Motion Detection + Claude Analysis + Acceptance
+================================================================================
+
+Total detections found: 23
+Accepted: 23, Rejected: 0
+
+# Detection 1 - 12:11:50 - Add food
+# Status: ACCEPTED
+✅ ACTION ACCEPTED: Add food
+   Confidence: 85.0% (≥ 60.0% required)
+   Time: 12:11:50
+   Context: objects: pan+food→pan+food | temp: 34.9°C→35.0°C (+0.1°C) | recipe: [add pan add food] | elapsed: 0.2min
+==========================================
+
+------------------------------------------------------------
+
+# Detection 2 - 12:12:19 - Add food
+# Status: ACCEPTED
+✅ ACTION ACCEPTED: Add food
+   Confidence: 88.0% (≥ 60.0% required)
+   Time: 12:12:19
+   Context: objects: pan+food→pan+food | temp: 34.6°C→34.6°C (+0.0°C) | color: pattern: decrease | area: 46.7% | confidence: high | hue: decreased (20.8) | recipe: [add food stir] | elapsed: 0.7min
+==========================================
+
+------------------------------------------------------------
+
+# Detection 3 - 12:12:26 - Stir
+# Status: ACCEPTED
+✅ ACTION ACCEPTED: Stir
+   Confidence: 82.0% (≥ 60.0% required)
+   Time: 12:12:26
+   Context: objects: pan+food→pan+food | temp: 34.6°C→34.4°C (-0.3°C) | recipe: [stir season] | elapsed: 0.8min
+==========================================
+
+------------------------------------------------------------
+
+# Detection 4 - 12:13:11 - Stir
+# Status: ACCEPTED
+✅ ACTION ACCEPTED: Stir
+   Confidence: 82.0% (≥ 60.0% required)
+   Time: 12:13:11
+   Context: objects: pan+food→pan+food | temp: 34.1°C→34.2°C (+0.1°C) | color: pattern: mixed | area: 47.4% | confidence: high | hue: decreased (18.5) | recipe: [season stir] | elapsed: 1.5min
+==========================================
+
+------------------------------------------------------------
+
+# Detection 5 - 12:13:20 - Stir
+# Status: ACCEPTED
+✅ ACTION ACCEPTED: Stir
+   Confidence: 82.0% (≥ 60.0% required)
+   Time: 12:13:20
+   Context: objects: pan+food→pan+food | temp: 34.2°C→34.0°C (-0.2°C) | color: pattern: decrease | area: 50.7% | confidence: high | sat: decreased (-27.0%) | recipe: [season stir] | elapsed: 1.6min
+==========================================
+
+------------------------------------------------------------
+
+# Detection 6 - 12:13:53 - Season
+# Status: ACCEPTED
+✅ ACTION ACCEPTED: Season
+   Confidence: 88.0% (≥ 80.0% required)
+   Time: 12:13:53
+   Context: objects: pan+food→pan+food | temp: 33.6°C→33.8°C (+0.2°C) | color: pattern: mixed | area: 43.4% | confidence: high | hue: increased (19.7) | recipe: [season season] | elapsed: 2.2min
+==========================================
+
+------------------------------------------------------------
+
+# Detection 7 - 12:14:38 - Stir
+# Status: ACCEPTED
+✅ ACTION ACCEPTED: Stir
+   Confidence: 85.0% (≥ 60.0% required)
+   Time: 12:14:38
+   Context: objects: pan+food→pan+food | temp: 33.2°C→33.3°C (+0.2°C) | recipe: [season stir] | elapsed: 3.0min
+==========================================
+
+------------------------------------------------------------
+
+# Detection 8 - 12:15:51 - Stir
+# Status: ACCEPTED
+✅ ACTION ACCEPTED: Stir
+   Confidence: 78.0% (≥ 60.0% required)
+   Time: 12:15:51
+   Context: objects: pan+food→pan+food | temp: 32.5°C→32.5°C (+0.0°C) | recipe: [add food stir] | elapsed: 4.1min
+==========================================
+
+------------------------------------------------------------
+
+# Detection 9 - 12:19:48 - Stir
+# Status: ACCEPTED
+✅ ACTION ACCEPTED: Stir
+   Confidence: 85.0% (≥ 65.0% required)
+   Time: 12:19:48
+   Context: objects: pan+food→pan+food | temp: 30.8°C→30.8°C (+0.0°C) | elapsed: 8.1min
+==========================================
+
+------------------------------------------------------------
+
+# Detection 10 - 12:20:09 - Stir
+# Status: ACCEPTED
+✅ ACTION ACCEPTED: Stir
+   Confidence: 88.0% (≥ 65.0% required)
+   Time: 12:20:09
+   Context: objects: pan+food→pan+hand+food | temp: 31.5°C→30.5°C (-1.0°C) | elapsed: 8.5min
+==========================================
+
+------------------------------------------------------------
+
+# Detection 11 - 12:20:21 - Season
+# Status: ACCEPTED
+✅ ACTION ACCEPTED: Season
+   Confidence: 78.0% (≥ 70.0% required)
+   Time: 12:20:21
+   Context: objects: pan+hand+food→pan+hand+food | temp: 30.7°C→30.5°C (-0.1°C) | elapsed: 8.7min
+==========================================
+
+------------------------------------------------------------
+
+# Detection 12 - 12:20:58 - Stir
+# Status: ACCEPTED
+✅ ACTION ACCEPTED: Stir
+   Confidence: 85.0% (≥ 65.0% required)
+   Time: 12:20:58
+   Context: objects: pan+food→pan+food | temp: 30.4°C→30.6°C (+0.2°C) | elapsed: 9.2min
+==========================================
+
+------------------------------------------------------------
+
+# Detection 13 - 12:21:30 - Stir
+# Status: ACCEPTED
+✅ ACTION ACCEPTED: Stir
+   Confidence: 83.0% (≥ 65.0% required)
+   Time: 12:21:30
+   Context: objects: pan+food→pan+food | temp: 30.3°C→30.2°C (-0.1°C) | elapsed: 9.8min
+==========================================
+
+------------------------------------------------------------
+
+# Detection 14 - 12:31:32 - Add food
+# Status: ACCEPTED
+✅ ACTION ACCEPTED: Add food
+   Confidence: 88.0% (≥ 50.0% required)
+   Time: 12:31:32
+   Context: objects: none→none | temp: 28.3°C→28.3°C (+0.0°C) | color: pattern: increase | area: 42.5% | confidence: high | hue: increased (17.4) | elapsed: 19.8min
+==========================================
+
+------------------------------------------------------------
+
+# Detection 15 - 12:35:39 - Stir
+# Status: ACCEPTED
+✅ ACTION ACCEPTED: Stir
+   Confidence: 78.0% (≥ 65.0% required)
+   Time: 12:35:39
+   Context: objects: none→none | temp: 28.3°C→28.3°C (+0.0°C) | color: pattern: mixed | area: 41.7% | confidence: high | hue: decreased (16.0) | elapsed: 23.9min
+==========================================
+
+------------------------------------------------------------
+
+# Detection 16 - 12:36:16 - Stir
+# Status: ACCEPTED
+✅ ACTION ACCEPTED: Stir
+   Confidence: 85.0% (≥ 65.0% required)
+   Time: 12:36:16
+   Context: objects: none→none | temp: 28.3°C→28.3°C (+0.0°C) | elapsed: 24.6min
+==========================================
+
+------------------------------------------------------------
+
+# Detection 17 - 12:36:28 - Season
+# Status: ACCEPTED
+✅ ACTION ACCEPTED: Season
+   Confidence: 85.0% (≥ 80.0% required)
+   Time: 12:36:28
+   Context: objects: none→none | temp: 28.3°C→28.3°C (+0.0°C) | elapsed: 24.8min
+==========================================
+
+------------------------------------------------------------
+
+# Detection 18 - 12:36:44 - Stir
+# Status: ACCEPTED
+✅ ACTION ACCEPTED: Stir
+   Confidence: 85.0% (≥ 65.0% required)
+   Time: 12:36:44
+   Context: objects: none→none | temp: 28.3°C→28.3°C (+0.0°C) | elapsed: 25.1min
+==========================================
+
+------------------------------------------------------------
+
+# Detection 19 - 12:37:11 - Stir
+# Status: ACCEPTED
+✅ ACTION ACCEPTED: Stir
+   Confidence: 82.0% (≥ 65.0% required)
+   Time: 12:37:11
+   Context: objects: none→none | temp: 28.3°C→28.3°C (+0.0°C) | elapsed: 25.4min
+==========================================
+
+------------------------------------------------------------
+
+# Detection 20 - 12:37:22 - Stir
+# Status: ACCEPTED
+✅ ACTION ACCEPTED: Stir
+   Confidence: 85.0% (≥ 65.0% required)
+   Time: 12:37:22
+   Context: objects: none→none | temp: 28.3°C→28.3°C (+0.0°C) | elapsed: 25.7min
+==========================================
+
+------------------------------------------------------------
+
+# Detection 21 - 12:37:40 - Stir
+# Status: ACCEPTED
+✅ ACTION ACCEPTED: Stir
+   Confidence: 82.0% (≥ 65.0% required)
+   Time: 12:37:40
+   Context: objects: none→none | temp: 28.3°C→28.3°C (+0.0°C) | elapsed: 26.0min
+==========================================
+
+------------------------------------------------------------
+
+# Detection 22 - 12:40:36 - Stir
+# Status: ACCEPTED
+✅ ACTION ACCEPTED: Stir
+   Confidence: 85.0% (≥ 65.0% required)
+   Time: 12:40:36
+   Context: objects: none→none | temp: 28.3°C→28.3°C (+0.0°C) | elapsed: 28.9min
+==========================================
+
+------------------------------------------------------------
+
+# Detection 23 - 12:46:04 - Add food
+# Status: ACCEPTED
+✅ ACTION ACCEPTED: Add food
+   Confidence: 88.0% (≥ 75.0% required)
+   Time: 12:46:04
+   Context: objects: none→none | temp: 28.3°C→28.3°C (+0.0°C) | elapsed: 34.4min
+==========================================
+
+------------------------------------------------------------
+
+
+================================================================================
+# ANALYSIS SUMMARY
+================================================================================
+
+# Detection Counts by Action:
+# Add food: 4 total (✅4 accepted, ❌0 rejected)
+# Season: 3 total (✅3 accepted, ❌0 rejected)
+# Stir: 16 total (✅16 accepted, ❌0 rejected)
+
+# Performance Statistics:
+# Total detections: 23
+# Acceptance rate: 23/23 (100.0%)
+# Average confidence: 84.0%
+# Confidence range: 78.0% - 88.0%
+
+# Timeline Summary:
+# First detection: 12:11:50 - Add food
+# Last detection: 12:46:04 - Add food

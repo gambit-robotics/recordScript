@@ -1,0 +1,113 @@
+Analysis for: current_session
+Run ID: 20250709_170800
+Timestamp: 2025-07-09T17:44:46.437646
+============================================================
+
+🔄 Classifier Log Analysis & Ground Truth Alignment
+============================================================
+📂 Loaded log file: evaluation_results/run_20250709_170800/viam_server_20250709_170800.log
+
+🔍 Analyzing log data (578664 characters)...
+📝 Classification timeline exported to: evaluation_results/run_20250709_170800/viam_server_20250709_170800_timeline.log
+🔍 Classifier Performance Analysis
+============================================================
+📊 Ground Truth Dataset:
+   Total labeled segments: 27
+   add-food: 6 occurrences
+   remove-food: 6 occurrences
+   add-pan: 3 occurrences
+   remove-pan: 3 occurrences
+   add-lid: 3 occurrences
+   remove-lid: 3 occurrences
+   flip: 3 occurrences
+
+🔍 Classifier Detections:
+   Total detections: 16
+   Accepted detections: 15
+   Rejected detections: 1
+
+📊 Accepted Detection Breakdown:
+   season: 1 detections
+   stir: 12 detections
+   flip: 1 detections
+   add-food: 1 detections
+
+❌ Rejected Detection Breakdown:
+   remove-food: 1 rejected
+
+🎯 Performance Comparison:
+   add-food        | Expected:  6 | Detected:  1 | Recall:  16.7% ❌
+   add-lid         | Expected:  3 | Detected:  0 | Recall:   0.0% ❌
+   add-pan         | Expected:  3 | Detected:  0 | Recall:   0.0% ❌
+   flip            | Expected:  3 | Detected:  1 | Recall:  33.3% ❌
+   remove-food     | Expected:  6 | Detected:  0 | Recall:   0.0% ❌
+   remove-lid      | Expected:  3 | Detected:  0 | Recall:   0.0% ❌
+   remove-pan      | Expected:  3 | Detected:  0 | Recall:   0.0% ❌
+   season          | Expected:  0 | Detected:  1 | Recall:   0.0% 🔄
+   stir            | Expected:  0 | Detected: 12 | Recall:   0.0% 🔄
+
+📈 Overall Performance:
+   Total Recall: 55.6%
+   Coverage: 15/27 actions detected
+
+🎯 Confidence Analysis:
+   Average confidence: 76.0%
+   Range: 68.0% - 78.0%
+   High confidence (≥80%): 0/16
+   Medium confidence (60-79%): 16/16
+   Low confidence (<60%): 0/16
+
+📊 Motion Similarity Analysis:
+   Average similarity: 85.6%
+   Range: 84.1% - 87.4%
+
+⚡ Analysis Performance:
+   Average analysis time: 4.4s
+   Range: 3.2s - 6.9s
+   Slow analyses (>5s): 5/16
+
+⏰ Detection Timeline:
+    1. 17:08:55 | Season          | Conf: 78.0% | Sim: 85.9% |  1.0s | ✅
+    2. 17:10:55 | Stir            | Conf: 75.0% | Sim: 84.7% |  1.0s | ✅
+    3. 17:11:14 | Flip            | Conf: 75.0% | Sim: 86.0% |  1.0s | ✅
+    4. 17:11:42 | Add food        | Conf: 78.0% | Sim: 84.2% |  1.0s | ✅
+    5. 17:12:37 | Stir            | Conf: 75.0% | Sim: 85.7% |  1.0s | ✅
+    6. 17:16:49 | Stir            | Conf: 78.0% | Sim: 85.5% |  1.0s | ✅
+    7. 17:17:14 | Remove food     | Conf: 71.0% | Sim: 85.0% |  1.0s | ❌
+    8. 17:17:27 | Stir            | Conf: 78.0% | Sim: 84.1% |  1.0s | ✅
+    9. 17:17:58 | Stir            | Conf: 78.0% | Sim: 85.8% |  1.0s | ✅
+   10. 17:18:30 | Stir            | Conf: 68.0% | Sim: 85.9% |  1.0s | ✅
+   11. 17:30:58 | Stir            | Conf: 78.0% | Sim: 86.2% |  1.0s | ✅
+   12. 17:33:22 | Stir            | Conf: 78.0% | Sim: 85.1% |  1.0s | ✅
+   13. 17:33:49 | Stir            | Conf: 78.0% | Sim: 86.4% |  1.0s | ✅
+   14. 17:34:46 | Stir            | Conf: 75.0% | Sim: 85.7% |  1.0s | ✅
+   15. 17:37:37 | Stir            | Conf: 78.0% | Sim: 87.4% |  1.0s | ✅
+   16. 17:43:10 | Stir            | Conf: 75.0% | Sim: 85.7% |  1.0s | ✅
+
+💡 Key Insights:
+   • Acceptance rate: 93.8% (15/16 detections)
+   • Average confidence: 76.0%
+   • Accepted avg: 76.3%, Rejected avg: 71.0%
+   • Moderate confidence - consider threshold tuning
+   • 1 low-confidence detections may be false positives
+   • Average motion similarity: 85.6%
+   • Average analysis time: 4.4s
+   • 5 slow analyses (>5s) may indicate processing bottlenecks
+   • Slow analysis times - consider optimizing model inference
+   • Missing critical actions: add-pan, remove-pan, remove-food
+
+📝 Recommendations:
+   • Current threshold appears effective (highest rejected: 71.0%)
+   • Optimize model inference speed (current avg: 4.4s)
+   • Implement temporal smoothing to reduce duplicate detections
+   • Add action sequence validation (logical flow checking)
+   • Low detection rate - consider lowering confidence threshold
+   • Review video manually to validate detection timing accuracy
+
+✅ Analysis complete!
+
+📋 Summary:
+   • 16 action detections extracted from logs
+   • 59.3% coverage of expected actions
+   • 76.0% average detection confidence
+   • Classification timeline saved to: evaluation_results/run_20250709_170800/viam_server_20250709_170800_timeline.log

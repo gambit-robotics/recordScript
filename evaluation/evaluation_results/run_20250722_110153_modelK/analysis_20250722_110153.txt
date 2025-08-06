@@ -1,0 +1,99 @@
+Analysis for: current_session
+Run ID: 20250722_110153
+Timestamp: 2025-07-22T11:38:51.944927
+============================================================
+
+🔄 Classifier Log Analysis & Ground Truth Alignment
+============================================================
+📂 Loaded log file: evaluation_results/run_20250722_110153/viam_server_20250722_110153.log
+
+🔍 Analyzing log data (8981575 characters)...
+📝 Classification timeline exported to: evaluation_results/run_20250722_110153/viam_server_20250722_110153_timeline.log
+🔍 Classifier Performance Analysis
+============================================================
+📊 Ground Truth Dataset:
+   Total labeled segments: 27
+   add-food: 6 occurrences
+   remove-food: 6 occurrences
+   add-pan: 3 occurrences
+   remove-pan: 3 occurrences
+   add-lid: 3 occurrences
+   remove-lid: 3 occurrences
+   flip: 3 occurrences
+
+🔍 Classifier Detections:
+   Total detections: 23
+   Accepted detections: 23
+   Rejected detections: 0
+
+📊 Accepted Detection Breakdown:
+   stir: 18 detections
+   flip: 2 detections
+   add-food: 1 detections
+   season: 2 detections
+
+🎯 Performance Comparison:
+   add-food        | Expected:  6 | Detected:  1 | Recall:  16.7% ❌
+   add-lid         | Expected:  3 | Detected:  0 | Recall:   0.0% ❌
+   add-pan         | Expected:  3 | Detected:  0 | Recall:   0.0% ❌
+   flip            | Expected:  3 | Detected:  2 | Recall:  66.7% ⚠️
+   remove-food     | Expected:  6 | Detected:  0 | Recall:   0.0% ❌
+   remove-lid      | Expected:  3 | Detected:  0 | Recall:   0.0% ❌
+   remove-pan      | Expected:  3 | Detected:  0 | Recall:   0.0% ❌
+   season          | Expected:  0 | Detected:  2 | Recall:   0.0% 🔄
+   stir            | Expected:  0 | Detected: 18 | Recall:   0.0% 🔄
+
+📈 Overall Performance:
+   Total Recall: 85.2%
+   Coverage: 23/27 actions detected
+
+🎯 Confidence Analysis:
+   Average confidence: 78.8%
+   Range: 71.0% - 85.0%
+   High confidence (≥80%): 4/23
+   Medium confidence (60-79%): 19/23
+   Low confidence (<60%): 0/23
+
+⏰ Detection Timeline:
+    1. 11:03:08 | Stir            | Conf: 78.0% | Sim:  N/A |  N/A | ✅
+    2. 11:03:38 | Flip            | Conf: 71.0% | Sim:  N/A |  N/A | ✅
+    3. 11:03:47 | Add food        | Conf: 85.0% | Sim:  N/A |  N/A | ✅
+    4. 11:04:25 | Stir            | Conf: 78.0% | Sim:  N/A |  N/A | ✅
+    5. 11:04:33 | Stir            | Conf: 78.0% | Sim:  N/A |  N/A | ✅
+    6. 11:04:40 | Stir            | Conf: 78.0% | Sim:  N/A |  N/A | ✅
+    7. 11:05:11 | Stir            | Conf: 78.0% | Sim:  N/A |  N/A | ✅
+    8. 11:05:20 | Stir            | Conf: 78.0% | Sim:  N/A |  N/A | ✅
+    9. 11:05:28 | Stir            | Conf: 78.0% | Sim:  N/A |  N/A | ✅
+   10. 11:05:57 | Stir            | Conf: 78.0% | Sim:  N/A |  N/A | ✅
+   11. 11:07:05 | Stir            | Conf: 85.0% | Sim:  N/A |  N/A | ✅
+   12. 11:07:48 | Stir            | Conf: 78.0% | Sim:  N/A |  N/A | ✅
+   13. 11:11:05 | Stir            | Conf: 85.0% | Sim:  N/A |  N/A | ✅
+   14. 11:11:29 | Stir            | Conf: 78.0% | Sim:  N/A |  N/A | ✅
+   15. 11:11:40 | Stir            | Conf: 78.0% | Sim:  N/A |  N/A | ✅
+   16. 11:12:00 | Season          | Conf: 75.0% | Sim:  N/A |  N/A | ✅
+   17. 11:22:47 | Stir            | Conf: 85.0% | Sim:  N/A |  N/A | ✅
+   18. 11:25:16 | Flip            | Conf: 78.0% | Sim:  N/A |  N/A | ✅
+   19. 11:25:27 | Season          | Conf: 78.0% | Sim:  N/A |  N/A | ✅
+   20. 11:26:53 | Stir            | Conf: 78.0% | Sim:  N/A |  N/A | ✅
+   21. 11:27:47 | Stir            | Conf: 78.0% | Sim:  N/A |  N/A | ✅
+   22. 11:28:02 | Stir            | Conf: 78.0% | Sim:  N/A |  N/A | ✅
+   23. 11:28:25 | Stir            | Conf: 78.0% | Sim:  N/A |  N/A | ✅
+
+💡 Key Insights:
+   • Average confidence: 78.8%
+   • Moderate confidence - consider threshold tuning
+   • Missing critical actions: add-pan, remove-pan, remove-food
+
+📝 Recommendations:
+   • Set confidence threshold around 65-70% to avoid missing actions
+   • Implement temporal smoothing to reduce duplicate detections
+   • Add action sequence validation (logical flow checking)
+   • Review video manually to validate detection timing accuracy
+
+✅ Analysis complete!
+
+📋 Summary:
+   • 23 action detections extracted from logs
+   • 85.2% coverage of expected actions
+   • 78.8% average detection confidence
+   • Classification timeline saved to: evaluation_results/run_20250722_110153/viam_server_20250722_110153_timeline.log

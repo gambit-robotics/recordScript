@@ -1,0 +1,98 @@
+Analysis for: current_session
+Run ID: 20250724_171756
+Timestamp: 2025-07-24T17:58:02.404677
+============================================================
+
+🔄 Classifier Log Analysis & Ground Truth Alignment
+============================================================
+📂 Loaded log file: evaluation_results/run_20250724_171756/viam_server_20250724_171756.log
+
+🔍 Analyzing log data (10268670 characters)...
+📝 Classification timeline exported to: evaluation_results/run_20250724_171756/viam_server_20250724_171756_timeline.log
+🔍 Classifier Performance Analysis
+============================================================
+📊 Ground Truth Dataset:
+   Total labeled segments: 27
+   add-food: 6 occurrences
+   remove-food: 6 occurrences
+   add-pan: 3 occurrences
+   remove-pan: 3 occurrences
+   add-lid: 3 occurrences
+   remove-lid: 3 occurrences
+   flip: 3 occurrences
+
+🔍 Classifier Detections:
+   Total detections: 18
+   Accepted detections: 18
+   Rejected detections: 0
+
+📊 Accepted Detection Breakdown:
+   remove-pan: 4 detections
+   add-pan: 3 detections
+   add-lid: 2 detections
+   add-food: 4 detections
+   remove-food: 3 detections
+   flip: 1 detections
+   remove-lid: 1 detections
+
+🎯 Performance Comparison:
+   add-food        | Expected:  6 | Detected:  4 | Recall:  66.7% ⚠️
+   add-lid         | Expected:  3 | Detected:  2 | Recall:  66.7% ⚠️
+   add-pan         | Expected:  3 | Detected:  3 | Recall: 100.0% ✅
+   flip            | Expected:  3 | Detected:  1 | Recall:  33.3% ❌
+   remove-food     | Expected:  6 | Detected:  3 | Recall:  50.0% ⚠️
+   remove-lid      | Expected:  3 | Detected:  1 | Recall:  33.3% ❌
+   remove-pan      | Expected:  3 | Detected:  4 | Recall: 133.3% ✅
+
+📈 Overall Performance:
+   Total Recall: 66.7%
+   Coverage: 18/27 actions detected
+
+🎯 Confidence Analysis:
+   Average confidence: 85.4%
+   Range: 78.0% - 92.0%
+   High confidence (≥80%): 14/18
+   Medium confidence (60-79%): 4/18
+   Low confidence (<60%): 0/18
+
+⏰ Detection Timeline:
+    1. 17:20:12 | Remove pan      | Conf: 85.0% | Sim:  N/A |  N/A | ✅
+    2. 17:21:38 | Remove pan      | Conf: 85.0% | Sim:  N/A |  N/A | ✅
+    3. 17:21:42 | Add pan         | Conf: 92.0% | Sim:  N/A |  N/A | ✅
+    4. 17:22:48 | Remove pan      | Conf: 88.0% | Sim:  N/A |  N/A | ✅
+    5. 17:27:00 | Add pan         | Conf: 92.0% | Sim:  N/A |  N/A | ✅
+    6. 17:27:31 | Add lid         | Conf: 78.0% | Sim:  N/A |  N/A | ✅
+    7. 17:30:03 | Remove pan      | Conf: 88.0% | Sim:  N/A |  N/A | ✅
+    8. 17:31:30 | Add pan         | Conf: 88.0% | Sim:  N/A |  N/A | ✅
+    9. 17:32:52 | Add lid         | Conf: 85.0% | Sim:  N/A |  N/A | ✅
+   10. 17:39:20 | Add food        | Conf: 78.0% | Sim:  N/A |  N/A | ✅
+   11. 17:41:06 | Remove food     | Conf: 88.0% | Sim:  N/A |  N/A | ✅
+   12. 17:41:57 | Remove food     | Conf: 88.0% | Sim:  N/A |  N/A | ✅
+   13. 17:42:16 | Add food        | Conf: 85.0% | Sim:  N/A |  N/A | ✅
+   14. 17:48:49 | Remove food     | Conf: 88.0% | Sim:  N/A |  N/A | ✅
+   15. 17:51:19 | Add food        | Conf: 88.0% | Sim:  N/A |  N/A | ✅
+   16. 17:53:55 | Flip            | Conf: 78.0% | Sim:  N/A |  N/A | ✅
+   17. 17:55:45 | Add food        | Conf: 85.0% | Sim:  N/A |  N/A | ✅
+   18. 17:57:14 | Remove lid      | Conf: 78.0% | Sim:  N/A |  N/A | ✅
+
+💡 Key Insights:
+   • Average confidence: 85.4%
+   • High average confidence indicates good model certainty
+   • Lid manipulation ratio (add/remove): 2.00
+   • Imbalanced lid actions - check for missed detections
+   • Food manipulation ratio (add/remove): 1.33
+
+📝 Recommendations:
+   • Set confidence threshold around 75-80% to filter noise
+   • Implement temporal smoothing to reduce duplicate detections
+   • Add action sequence validation (logical flow checking)
+   • Low detection rate - consider lowering confidence threshold
+   • Review video manually to validate detection timing accuracy
+
+✅ Analysis complete!
+
+📋 Summary:
+   • 18 action detections extracted from logs
+   • 66.7% coverage of expected actions
+   • 85.4% average detection confidence
+   • Classification timeline saved to: evaluation_results/run_20250724_171756/viam_server_20250724_171756_timeline.log

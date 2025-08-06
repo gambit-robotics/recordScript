@@ -1,0 +1,327 @@
+# Classifier Detection Timeline
+# Extracted classification results in chronological order
+# New Format: Motion Detection + Claude Analysis + Acceptance
+================================================================================
+
+Total detections found: 4
+Accepted: 4, Rejected: 0
+
+# Detection 1 - 17:09:28 - Add pan
+# Status: ACCEPTED
+🎬 ===== MOTION DETECTED ===== 🎬	{"log_ts":"2025-06-25T21:08:35.584Z"}
+2025-06-25T21:08:35.584Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:460	📊 Similarity: 0.0% (threshold: 87.5%)	{"log_ts":"2025-06-25T21:08:35.584Z"}
+2025-06-25T21:08:35.585Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:461	⏰ Time: 17:08:35 | Duration: 9223372036.9s	{"log_ts":"2025-06-25T21:08:35.585Z"}
+2025-06-25T21:08:35.585Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:462	🎬 ============================= 🎬
+
+	{"log_ts":"2025-06-25T21:08:35.585Z"}
+2025-06-25T21:08:35.585Z	WARN	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1510	Cannot detect cooking action: nil image provided	{"log_ts":"2025-06-25T21:08:35.585Z"}
+2025-06-25T21:08:35.814Z	INFO	bill_video-replay.rdk:component:camera/replayCamera-1	models/module.go:376	[Image] Called for camera "rdk:component:camera/replayCamera-1", mimeType="image/jpeg+lazy"	{"log_ts":"2025-06-25T21:08:35.813Z"}
+2025-06-25T21:08:35.818Z	INFO	rdk.resource_manager	impl/resource_manager.go:718	Now configuring resource	{"resource":"rdk:service:generic/chef-temp-target-dev"}
+2025-06-25T21:08:35.850Z	ERROR	rdk.resource_manager.rdk:service:generic/chef-temp-target-dev	resource/graph_node.go:297	resource build error: resource has unresolved dependencies: [burner-1-dev]	{"resource":"rdk:service:generic/chef-temp-target-dev","model":"gambit-robotics:chef:temp-target-dev"}
+2025-06-25T21:08:35.852Z	INFO	rdk.resource_manager	impl/resource_manager.go:718	Now configuring resource	{"resource":"rdk:service:generic/chef-timer-dev"}
+2025-06-25T21:08:35.874Z	ERROR	rdk.resource_manager.rdk:service:generic/chef-timer-dev	resource/graph_node.go:297	resource build error: resource has unresolved dependencies: [burner-1-dev]	{"resource":"rdk:service:generic/chef-timer-dev","model":"gambit-robotics:chef:timer-dev"}
+2025-06-25T21:08:35.874Z	INFO	rdk.resource_manager	impl/resource_manager.go:718	Now configuring resource	{"resource":"viam-labs:service:speech/speech-1-dev"}
+2025-06-25T21:08:35.874Z	INFO	rdk.resource_manager	impl/resource_manager.go:718	Now configuring resource	{"resource":"rdk:service:generic/chef-analysis-dev"}
+2025-06-25T21:08:35.874Z	INFO	rdk.resource_manager	impl/resource_manager.go:718	Now configuring resource	{"resource":"rdk:service:generic/chef-claude-dev"}
+2025-06-25T21:08:35.874Z	INFO	rdk.resource_manager	impl/resource_manager.go:718	Now configuring resource	{"resource":"rdk:component:generic/web-dev"}
+2025-06-25T21:08:35.874Z	INFO	rdk.resource_manager	impl/resource_manager.go:718	Now configuring resource	{"resource":"rdk:component:camera/overlay-dev"}
+2025-06-25T21:08:35.874Z	INFO	rdk.resource_manager	impl/resource_manager.go:718	Now configuring resource	{"resource":"viam-labs:service:speech/speech-1-vosk-dev"}
+2025-06-25T21:08:35.874Z	INFO	rdk.modmanager.local-module-1	modmanager/manager.go:522	Adding resource to module	{"resource":"overlay-dev","module":"local-module-1"}
+2025-06-25T21:08:35.874Z	INFO	rdk.modmanager.local-module-1	modmanager/manager.go:522	Adding resource to module	{"resource":"web-dev","module":"local-module-1"}
+2025-06-25T21:08:35.874Z	INFO	rdk.modmanager.local-module-1	modmanager/manager.go:522	Adding resource to module	{"resource":"chef-claude-dev","module":"local-module-1"}
+2025-06-25T21:08:35.874Z	WARN	local-module-1.rdk:component:generic/web-dev	chef/web-service.go:67	No Claude API key found in any core, using default key	{"log_ts":"2025-06-25T21:08:35.874Z"}
+2025-06-25T21:08:35.874Z	INFO	local-module-1.rdk:service:generic/chef-claude-dev	chef/chef-claude.go:80	Claude service initialized with resource name: rdk:service:generic/chef-claude-dev	{"log_ts":"2025-06-25T21:08:35.874Z"}
+2025-06-25T21:08:35.875Z	INFO	local-module-1.rdk:component:generic/web-dev	chef/https_temp.go:317	Starting HTTP server on port 8765 (with selective HTTPS redirect)	{"log_ts":"2025-06-25T21:08:35.875Z"}
+2025-06-25T21:08:35.875Z	INFO	local-module-1.rdk:component:generic/web-dev	chef/https_temp.go:284	Starting HTTPS server on port 8766	{"log_ts":"2025-06-25T21:08:35.875Z"}
+2025-06-25T21:08:35.892Z	ERROR	rdk.resource_manager.rdk:service:generic/chef-analysis-dev	resource/graph_node.go:297	resource build error: resource has unresolved dependencies: [burner-1-dev]	{"resource":"rdk:service:generic/chef-analysis-dev","model":"gambit-robotics:chef:analysis-dev"}
+2025-06-25T21:08:35.892Z	INFO	rdk.modmanager.viam-labs_stt-vosk	modmanager/manager.go:522	Adding resource to module	{"resource":"speech-1-vosk-dev","module":"viam-labs_stt-vosk"}
+2025-06-25T21:08:35.892Z	INFO	rdk.modmanager.viam-labs_speech	modmanager/manager.go:522	Adding resource to module	{"resource":"speech-1-dev","module":"viam-labs_speech"}
+2025-06-25T21:08:35.893Z	ERROR	rdk.modmanager.viam-labs_stt-vosk.StdErr	pexec/managed_process.go:396	
+\_ LOG (VoskAPI:ReadDataFiles():model.cc:213) Decoding params beam=10 max-active=3000 lattice-beam=2
+2025-06-25T21:08:35.893Z	ERROR	rdk.modmanager.viam-labs_stt-vosk.StdErr	pexec/managed_process.go:396	
+\_ LOG (VoskAPI:ReadDataFiles():model.cc:216) Silence phones 1:2:3:4:5:6:7:8:9:10
+2025-06-25T21:08:35.916Z	WARN	rdk.modmanager.viam-labs_speech	modmanager/manager.go:541	No built-in grpc client for modular resource	{"resource":"viam-labs:service:speech/speech-1-dev"}
+2025-06-25T21:08:35.919Z	ERROR	rdk.modmanager.viam-labs_stt-vosk.StdErr	pexec/managed_process.go:396	
+\_ LOG (VoskAPI:RemoveOrphanNodes():nnet-nnet.cc:948) Removed 0 orphan nodes.
+2025-06-25T21:08:35.919Z	ERROR	rdk.modmanager.viam-labs_stt-vosk.StdErr	pexec/managed_process.go:396	
+\_ LOG (VoskAPI:RemoveOrphanComponents():nnet-nnet.cc:847) Removing 0 orphan components.
+2025-06-25T21:08:35.945Z	ERROR	rdk.modmanager.viam-labs_stt-vosk.StdErr	pexec/managed_process.go:396	
+\_ LOG (VoskAPI:ReadDataFiles():model.cc:248) Loading i-vector extractor from /Users/marcuslam/.cache/vosk/vosk-model-small-en-us-0.15/ivector/final.ie
+2025-06-25T21:08:35.956Z	ERROR	rdk.modmanager.viam-labs_stt-vosk.StdErr	pexec/managed_process.go:396	
+\_ LOG (VoskAPI:ComputeDerivedVars():ivector-extractor.cc:183) Computing derived variables for iVector extractor
+2025-06-25T21:08:35.970Z	ERROR	rdk.modmanager.viam-labs_stt-vosk.StdErr	pexec/managed_process.go:396	
+\_ LOG (VoskAPI:ComputeDerivedVars():ivector-extractor.cc:204) Done.
+2025-06-25T21:08:35.970Z	ERROR	rdk.modmanager.viam-labs_stt-vosk.StdErr	pexec/managed_process.go:396	
+\_ LOG (VoskAPI:ReadDataFiles():model.cc:282) Loading HCL and G from /Users/marcuslam/.cache/vosk/vosk-model-small-en-us-0.15/graph/HCLr.fst /Users/marcuslam/.cache/vosk/vosk-model-small-en-us-0.15/graph/Gr.fst
+2025-06-25T21:08:36.081Z	ERROR	rdk.modmanager.viam-labs_stt-vosk.StdErr	pexec/managed_process.go:396	
+\_ LOG (VoskAPI:ReadDataFiles():model.cc:303) Loading winfo /Users/marcuslam/.cache/vosk/vosk-model-small-en-us-0.15/graph/phones/word_boundary.int
+2025-06-25T21:08:36.081Z	WARN	rdk.modmanager.viam-labs_stt-vosk	modmanager/manager.go:541	No built-in grpc client for modular resource	{"resource":"viam-labs:service:speech/speech-1-vosk-dev"}
+2025-06-25T21:08:36.097Z	INFO	bill_video-replay.rdk:component:camera/replayCamera-1	models/module.go:376	[Image] Called for camera "rdk:component:camera/replayCamera-1", mimeType="image/jpeg"	{"log_ts":"2025-06-25T21:08:36.097Z"}
+2025-06-25T21:08:36.370Z	INFO	bill_video-replay.rdk:component:camera/replayCamera-1	models/module.go:376	[Image] Called for camera "rdk:component:camera/replayCamera-1", mimeType="image/jpeg"	{"log_ts":"2025-06-25T21:08:36.370Z"}
+2025-06-25T21:08:36.572Z	INFO	rdk	impl/local_robot.go:1454	Robot (re)configured
+2025-06-25T21:08:36.572Z	INFO	rdk	server/entrypoint.go:338	Robot reconfigured with full config	{"time_to_reconfigure":"11.279945333s"}
+2025-06-25T21:08:36.595Z	INFO	rdk.resource_manager	impl/resource_manager.go:718	Now configuring resource	{"resource":"rdk:service:generic/chef-temp-target-dev"}
+2025-06-25T21:08:36.615Z	WARN	rdk.resource_manager.rdk:service:generic/chef-analysis-dev	resource/graph_node.go:551	unexpected resource state transition	{"from":"Unhealthy","to":"Configuring"}
+2025-06-25T21:08:36.615Z	WARN	rdk.resource_manager.rdk:service:generic/chef-timer-dev	resource/graph_node.go:551	unexpected resource state transition	{"from":"Unhealthy","to":"Configuring"}
+2025-06-25T21:08:36.615Z	ERROR	rdk.resource_manager.rdk:service:generic/chef-temp-target-dev	resource/graph_node.go:297	resource build error: resource has unresolved dependencies: [burner-1-dev]	{"resource":"rdk:service:generic/chef-temp-target-dev","model":"gambit-robotics:chef:temp-target-dev"}
+2025-06-25T21:08:36.615Z	INFO	rdk.resource_manager	impl/resource_manager.go:718	Now configuring resource	{"resource":"rdk:service:generic/chef-timer-dev"}
+2025-06-25T21:08:36.633Z	ERROR	rdk.resource_manager.rdk:service:generic/chef-timer-dev	resource/graph_node.go:297	resource build error: resource has unresolved dependencies: [burner-1-dev]	{"resource":"rdk:service:generic/chef-timer-dev","model":"gambit-robotics:chef:timer-dev"}
+2025-06-25T21:08:36.633Z	INFO	rdk.resource_manager	impl/resource_manager.go:718	Now configuring resource	{"resource":"rdk:service:generic/chef-analysis-dev"}
+2025-06-25T21:08:36.649Z	ERROR	rdk.resource_manager.rdk:service:generic/chef-analysis-dev	resource/graph_node.go:297	resource build error: resource has unresolved dependencies: [burner-1-dev]	{"resource":"rdk:service:generic/chef-analysis-dev","model":"gambit-robotics:chef:analysis-dev"}
+2025-06-25T21:08:37.181Z	INFO	rdk.resource_manager	impl/resource_manager.go:718	Now configuring resource	{"resource":"rdk:service:generic/chef-temp-target-dev"}
+2025-06-25T21:08:37.205Z	WARN	rdk.resource_manager.rdk:service:generic/chef-analysis-dev	resource/graph_node.go:551	unexpected resource state transition	{"from":"Unhealthy","to":"Configuring"}
+2025-06-25T21:08:37.206Z	WARN	rdk.resource_manager.rdk:service:generic/chef-timer-dev	resource/graph_node.go:551	unexpected resource state transition	{"from":"Unhealthy","to":"Configuring"}
+2025-06-25T21:08:37.206Z	ERROR	rdk.resource_manager.rdk:service:generic/chef-temp-target-dev	resource/graph_node.go:297	resource build error: resource has unresolved dependencies: [burner-1-dev]	{"resource":"rdk:service:generic/chef-temp-target-dev","model":"gambit-robotics:chef:temp-target-dev"}
+2025-06-25T21:08:37.206Z	INFO	rdk.resource_manager	impl/resource_manager.go:718	Now configuring resource	{"resource":"rdk:service:generic/chef-timer-dev"}
+2025-06-25T21:08:37.225Z	ERROR	rdk.resource_manager.rdk:service:generic/chef-timer-dev	resource/graph_node.go:297	resource build error: resource has unresolved dependencies: [burner-1-dev]	{"resource":"rdk:service:generic/chef-timer-dev","model":"gambit-robotics:chef:timer-dev"}
+2025-06-25T21:08:37.225Z	INFO	rdk.resource_manager	impl/resource_manager.go:718	Now configuring resource	{"resource":"rdk:service:generic/chef-analysis-dev"}
+2025-06-25T21:08:37.242Z	ERROR	rdk.resource_manager.rdk:service:generic/chef-analysis-dev	resource/graph_node.go:297	resource build error: resource has unresolved dependencies: [burner-1-dev]	{"resource":"rdk:service:generic/chef-analysis-dev","model":"gambit-robotics:chef:analysis-dev"}
+2025-06-25T21:08:40.345Z	WARN	rdk.resource_manager.rdk:service:generic/chef-analysis-dev	resource/graph_node.go:551	unexpected resource state transition	{"from":"Unhealthy","to":"Configuring"}
+2025-06-25T21:08:40.345Z	WARN	rdk.resource_manager.rdk:service:generic/chef-timer-dev	resource/graph_node.go:551	unexpected resource state transition	{"from":"Unhealthy","to":"Configuring"}
+2025-06-25T21:09:20.318Z	INFO	rdk.resource_manager	impl/resource_manager.go:718	Message logged 12 times in past 1m0s: Now configuring resource	{"resource":"rdk:service:generic/chef-temp-target-dev"}
+2025-06-25T21:09:20.361Z	INFO	rdk.resource_manager	impl/resource_manager.go:718	Message logged 12 times in past 1m0s: Now configuring resource	{"resource":"rdk:service:generic/chef-analysis-dev"}
+2025-06-25T21:09:20.342Z	INFO	rdk.resource_manager	impl/resource_manager.go:718	Message logged 12 times in past 1m0s: Now configuring resource	{"resource":"rdk:service:generic/chef-timer-dev"}
+2025-06-25T21:09:25.314Z	INFO	rdk.resource_manager	impl/resource_manager.go:718	Now configuring resource	{"resource":"rdk:service:generic/chef-temp-target-dev"}
+2025-06-25T21:09:25.340Z	INFO	rdk.resource_manager	impl/resource_manager.go:718	Now configuring resource	{"resource":"rdk:service:generic/chef-timer-dev"}
+2025-06-25T21:09:25.358Z	INFO	rdk.resource_manager	impl/resource_manager.go:718	Now configuring resource	{"resource":"rdk:service:generic/chef-analysis-dev"}
+2025-06-25T21:09:21.071Z	INFO	bill_video-replay.rdk:component:camera/replayCamera-1	Message logged 15 times in past 1m0s: models/module.go:376	[Image] Called for camera "rdk:component:camera/replayCamera-1", mimeType="image/jpeg+lazy"	{"log_ts":"2025-06-25T21:09:21.070Z"}
+2025-06-25T21:09:24.413Z	INFO	bill_video-replay.rdk:component:camera/replayCamera-1	Message logged 62 times in past 1m0s: models/module.go:376	[Image] Called for camera "rdk:component:camera/replayCamera-1", mimeType="image/jpeg"	{"log_ts":"2025-06-25T21:09:24.413Z"}
+2025-06-25T21:09:25.413Z	INFO	bill_video-replay.rdk:component:camera/replayCamera-1	models/module.go:376	[Image] Called for camera "rdk:component:camera/replayCamera-1", mimeType="image/jpeg"	{"log_ts":"2025-06-25T21:09:25.413Z"}
+2025-06-25T21:09:25.419Z	INFO	bill_video-replay.rdk:component:camera/replayCamera-1	models/module.go:376	[Image] Called for camera "rdk:component:camera/replayCamera-1", mimeType="image/jpeg+lazy"	{"log_ts":"2025-06-25T21:09:25.419Z"}
+2025-06-25T21:09:25.452Z	INFO	bill_video-replay.rdk:component:camera/replayCamera-1	models/module.go:376	[Image] Called for camera "rdk:component:camera/replayCamera-1", mimeType="image/jpeg"	{"log_ts":"2025-06-25T21:09:25.452Z"}
+2025-06-25T21:09:26.415Z	INFO	bill_video-replay.rdk:component:camera/replayCamera-1	models/module.go:376	[Image] Called for camera "rdk:component:camera/replayCamera-1", mimeType="image/jpeg"	{"log_ts":"2025-06-25T21:09:26.415Z"}
+2025-06-25T21:09:28.607Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:459	
+
+🎬 ===== MOTION DETECTED ===== 🎬	{"log_ts":"2025-06-25T21:09:28.606Z"}
+2025-06-25T21:09:28.607Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:460	📊 Similarity: 72.5% (threshold: 87.5%)	{"log_ts":"2025-06-25T21:09:28.607Z"}
+2025-06-25T21:09:28.607Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:461	⏰ Time: 17:09:28 | Duration: 1.0s	{"log_ts":"2025-06-25T21:09:28.607Z"}
+2025-06-25T21:09:28.607Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:462	🎬 ============================= 🎬
+
+	{"log_ts":"2025-06-25T21:09:28.607Z"}
+2025-06-25T21:09:28.607Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1939	📝 Recipe step: Step 1: add pan (0.0min) - Add pan	{"log_ts":"2025-06-25T21:09:28.607Z"}
+2025-06-25T21:09:28.608Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1939	📝 Recipe step: Step 2: season (0.5min) - Add oil	{"log_ts":"2025-06-25T21:09:28.607Z"}
+2025-06-25T21:09:28.608Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1939	📝 Recipe step: Step 3: add food (1.5min) - Add salmon fillet	{"log_ts":"2025-06-25T21:09:28.608Z"}
+2025-06-25T21:09:28.608Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1939	📝 Recipe step: Step 4: season (2.0min) - Add salt and pepper	{"log_ts":"2025-06-25T21:09:28.608Z"}
+2025-06-25T21:09:28.608Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1939	📝 Recipe step: Step 5: flip (3.5min) - Flip salmon fillet	{"log_ts":"2025-06-25T21:09:28.608Z"}
+2025-06-25T21:09:28.608Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1939	📝 Recipe step: Step 6: add food (4.0min) - Add green beans	{"log_ts":"2025-06-25T21:09:28.608Z"}
+2025-06-25T21:09:28.608Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1939	📝 Recipe step: Step 7: season (4.5min) - Add paprika to green beans	{"log_ts":"2025-06-25T21:09:28.608Z"}
+2025-06-25T21:09:28.609Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1939	📝 Recipe step: Step 8: flip (4.5min) - Flip salmon fillet	{"log_ts":"2025-06-25T21:09:28.609Z"}
+2025-06-25T21:09:28.609Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1939	📝 Recipe step: Step 9: remove pan (6.0min) - Remove pan	{"log_ts":"2025-06-25T21:09:28.609Z"}
+2025-06-25T21:09:28.609Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1944	Recipe steps for burner burner-0-dev (elapsed: 0.9 min):
+Recipe Steps (9 total) - Elapsed Time: 0.9 minutes:
+Step 1: add pan (0.0min) - Add pan
+Step 2: season (0.5min) - Add oil
+Step 3: add food (1.5min) - Add salmon fillet
+Step 4: season (2.0min) - Add salt and pepper
+Step 5: flip (3.5min) - Flip salmon fillet
+Step 6: add food (4.0min) - Add green beans
+Step 7: season (4.5min) - Add paprika to green beans
+Step 8: flip (4.5min) - Flip salmon fillet
+Step 9: remove pan (6.0min) - Remove pan	{"log_ts":"2025-06-25T21:09:28.609Z"}
+2025-06-25T21:09:28.609Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1581	
+🧠 ===== PROMPT CONTEXT ===== 🧠	{"log_ts":"2025-06-25T21:09:28.609Z"}
+2025-06-25T21:09:28.609Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1584	👁️  Object Detection Context: ENABLED	{"log_ts":"2025-06-25T21:09:28.609Z"}
+2025-06-25T21:09:28.610Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1585	   Previous: Pan=false Hand=false Utensil=false Lid=false Food=false	{"log_ts":"2025-06-25T21:09:28.609Z"}
+2025-06-25T21:09:28.610Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1587	   Current:  Pan=true Hand=false Utensil=false Lid=false Food=false	{"log_ts":"2025-06-25T21:09:28.610Z"}
+2025-06-25T21:09:28.610Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1610	📖 Recipe Context: FULL RECIPE MODE	{"log_ts":"2025-06-25T21:09:28.610Z"}
+2025-06-25T21:09:28.610Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1612	   Mode: Advisory full recipe context (10 actions)	{"log_ts":"2025-06-25T21:09:28.610Z"}
+2025-06-25T21:09:28.610Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1619	🧠 ========================== 🧠
+	{"log_ts":"2025-06-25T21:09:28.610Z"}
+2025-06-25T21:09:30.318Z	INFO	rdk.resource_manager	impl/resource_manager.go:718	Now configuring resource	{"resource":"rdk:service:generic/chef-temp-target-dev"}
+2025-06-25T21:09:30.343Z	INFO	rdk.resource_manager	impl/resource_manager.go:718	Now configuring resource	{"resource":"rdk:service:generic/chef-timer-dev"}
+2025-06-25T21:09:30.363Z	INFO	rdk.resource_manager	impl/resource_manager.go:718	Now configuring resource	{"resource":"rdk:service:generic/chef-analysis-dev"}
+2025-06-25T21:09:30.777Z	INFO	bill_video-replay.rdk:component:camera/replayCamera-1	models/module.go:376	[Image] Called for camera "rdk:component:camera/replayCamera-1", mimeType="image/jpeg+lazy"	{"log_ts":"2025-06-25T21:09:30.777Z"}
+2025-06-25T21:09:32.814Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1637	🧠 Using CACHED prompt system	{"log_ts":"2025-06-25T21:09:32.813Z"}
+2025-06-25T21:09:32.815Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1653	
+📋 ===== CLAUDE RESPONSE ===== 📋	{"log_ts":"2025-06-25T21:09:32.814Z"}
+2025-06-25T21:09:32.815Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1655	🎭 Detected Action: Add pan	{"log_ts":"2025-06-25T21:09:32.815Z"}
+2025-06-25T21:09:32.815Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1656	🎯 Confidence: 95.0%	{"log_ts":"2025-06-25T21:09:32.815Z"}
+2025-06-25T21:09:32.816Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1661	⏱️  Analysis Duration: 4.2s	{"log_ts":"2025-06-25T21:09:32.816Z"}
+2025-06-25T21:09:32.816Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1662	📋 =========================== 📋
+2025-06-25T21:09:32.817Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1703	✅ Action ACCEPTED: Add pan (95.0% ≥ 55.0% required)	{"log_ts":"2025-06-25T21:09:32.816Z"}
+
+------------------------------------------------------------
+
+# Detection 2 - 17:16:50 - Add food
+# Status: ACCEPTED
+🎬 ===== MOTION DETECTED ===== 🎬	{"log_ts":"2025-06-25T21:16:50.328Z"}
+2025-06-25T21:16:50.329Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:460	📊 Similarity: 86.3% (threshold: 87.5%)	{"log_ts":"2025-06-25T21:16:50.328Z"}
+2025-06-25T21:16:50.329Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:461	⏰ Time: 17:16:50 | Duration: 1.0s	{"log_ts":"2025-06-25T21:16:50.329Z"}
+2025-06-25T21:16:50.329Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:462	🎬 ============================= 🎬
+
+	{"log_ts":"2025-06-25T21:16:50.329Z"}
+2025-06-25T21:16:50.329Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1939	📝 Recipe step: Step 1: add pan (0.0min) - Add pan	{"log_ts":"2025-06-25T21:16:50.329Z"}
+2025-06-25T21:16:50.329Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1939	📝 Recipe step: Step 2: season (0.5min) - Add oil	{"log_ts":"2025-06-25T21:16:50.329Z"}
+2025-06-25T21:16:50.329Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1939	📝 Recipe step: Step 3: add food (1.5min) - Add salmon fillet	{"log_ts":"2025-06-25T21:16:50.329Z"}
+2025-06-25T21:16:50.329Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1939	📝 Recipe step: Step 4: season (2.0min) - Add salt and pepper	{"log_ts":"2025-06-25T21:16:50.329Z"}
+2025-06-25T21:16:50.329Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1939	📝 Recipe step: Step 5: flip (3.5min) - Flip salmon fillet	{"log_ts":"2025-06-25T21:16:50.329Z"}
+2025-06-25T21:16:50.329Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1939	📝 Recipe step: Step 6: add food (4.0min) - Add green beans	{"log_ts":"2025-06-25T21:16:50.329Z"}
+2025-06-25T21:16:50.329Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1939	📝 Recipe step: Step 7: season (4.5min) - Add paprika to green beans	{"log_ts":"2025-06-25T21:16:50.329Z"}
+2025-06-25T21:16:50.329Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1939	📝 Recipe step: Step 8: flip (4.5min) - Flip salmon fillet	{"log_ts":"2025-06-25T21:16:50.329Z"}
+2025-06-25T21:16:50.329Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1939	📝 Recipe step: Step 9: remove pan (6.0min) - Remove pan	{"log_ts":"2025-06-25T21:16:50.329Z"}
+2025-06-25T21:16:50.330Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1944	Recipe steps for burner burner-0-dev (elapsed: 8.2 min):
+Recipe Steps (9 total) - Elapsed Time: 8.2 minutes:
+Step 1: add pan (0.0min) - Add pan
+Step 2: season (0.5min) - Add oil
+Step 3: add food (1.5min) - Add salmon fillet
+Step 4: season (2.0min) - Add salt and pepper
+Step 5: flip (3.5min) - Flip salmon fillet
+Step 6: add food (4.0min) - Add green beans
+Step 7: season (4.5min) - Add paprika to green beans
+Step 8: flip (4.5min) - Flip salmon fillet
+Step 9: remove pan (6.0min) - Remove pan	{"log_ts":"2025-06-25T21:16:50.329Z"}
+2025-06-25T21:16:50.330Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1581	
+🧠 ===== PROMPT CONTEXT ===== 🧠	{"log_ts":"2025-06-25T21:16:50.330Z"}
+2025-06-25T21:16:50.330Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1584	👁️  Object Detection Context: ENABLED	{"log_ts":"2025-06-25T21:16:50.330Z"}
+2025-06-25T21:16:50.330Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1585	   Previous: Pan=true Hand=false Utensil=false Lid=false Food=false	{"log_ts":"2025-06-25T21:16:50.330Z"}
+2025-06-25T21:16:50.330Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1587	   Current:  Pan=true Hand=true Utensil=false Lid=false Food=true	{"log_ts":"2025-06-25T21:16:50.330Z"}
+2025-06-25T21:16:50.330Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1610	📖 Recipe Context: FULL RECIPE MODE	{"log_ts":"2025-06-25T21:16:50.330Z"}
+2025-06-25T21:16:50.330Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1612	   Mode: Advisory full recipe context (10 actions)	{"log_ts":"2025-06-25T21:16:50.330Z"}
+2025-06-25T21:16:50.330Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1619	🧠 ========================== 🧠
+	{"log_ts":"2025-06-25T21:16:50.330Z"}
+2025-06-25T21:16:50.342Z	ERROR	rdk.resource_manager.rdk:service:generic/chef-timer-dev	resource/graph_node.go:297	resource build error: resource has unresolved dependencies: [burner-1-dev]	{"resource":"rdk:service:generic/chef-timer-dev","model":"gambit-robotics:chef:timer-dev"}
+2025-06-25T21:16:50.358Z	ERROR	rdk.resource_manager.rdk:service:generic/chef-analysis-dev	resource/graph_node.go:297	resource build error: resource has unresolved dependencies: [burner-1-dev]	{"resource":"rdk:service:generic/chef-analysis-dev","model":"gambit-robotics:chef:analysis-dev"}
+2025-06-25T21:16:51.816Z	INFO	rdk.modmanager	camera/client.go:446	Message logged 60 times in past 1m0s: SubscribeRTP is creating a video track	{"client":"0x14000e02480","peerConnection":"0x14000b99908"}
+2025-06-25T21:16:51.978Z	INFO	rdk.modmanager	camera/client.go:446	Message logged 61 times in past 1m0s: SubscribeRTP is creating a video track	{"client":"0x140019186c0","peerConnection":"0x140005e0008"}
+2025-06-25T21:16:52.817Z	INFO	rdk.modmanager	camera/client.go:446	SubscribeRTP is creating a video track	{"client":"0x14000e02480","peerConnection":"0x14000b99908"}
+2025-06-25T21:16:52.978Z	INFO	rdk.modmanager	camera/client.go:446	SubscribeRTP is creating a video track	{"client":"0x140019186c0","peerConnection":"0x140005e0008"}
+2025-06-25T21:16:53.817Z	INFO	rdk.modmanager	camera/client.go:446	SubscribeRTP is creating a video track	{"client":"0x14000e02480","peerConnection":"0x14000b99908"}
+2025-06-25T21:16:53.978Z	INFO	rdk.modmanager	camera/client.go:446	SubscribeRTP is creating a video track	{"client":"0x140019186c0","peerConnection":"0x140005e0008"}
+2025-06-25T21:16:54.759Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1637	🧠 Using CACHED prompt system	{"log_ts":"2025-06-25T21:16:54.759Z"}
+2025-06-25T21:16:54.760Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1653	
+📋 ===== CLAUDE RESPONSE ===== 📋	{"log_ts":"2025-06-25T21:16:54.759Z"}
+2025-06-25T21:16:54.760Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1655	🎭 Detected Action: Add food	{"log_ts":"2025-06-25T21:16:54.760Z"}
+2025-06-25T21:16:54.760Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1656	🎯 Confidence: 85.0%	{"log_ts":"2025-06-25T21:16:54.760Z"}
+2025-06-25T21:16:54.760Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1661	⏱️  Analysis Duration: 4.4s	{"log_ts":"2025-06-25T21:16:54.760Z"}
+2025-06-25T21:16:54.760Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1662	📋 =========================== 📋
+2025-06-25T21:16:54.760Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1703	✅ Action ACCEPTED: Add food (85.0% ≥ 75.0% required)	{"log_ts":"2025-06-25T21:16:54.760Z"}
+
+------------------------------------------------------------
+
+# Detection 3 - 17:17:54 - Season
+# Status: ACCEPTED
+🎬 ===== MOTION DETECTED ===== 🎬	{"log_ts":"2025-06-25T21:17:56.570Z"}
+2025-06-25T21:17:56.571Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:460	📊 Similarity: 87.3% (threshold: 87.5%)	{"log_ts":"2025-06-25T21:17:56.571Z"}
+2025-06-25T21:17:56.571Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:461	⏰ Time: 17:17:54 | Duration: 1.0s	{"log_ts":"2025-06-25T21:17:56.571Z"}
+2025-06-25T21:17:56.571Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:462	🎬 ============================= 🎬
+
+	{"log_ts":"2025-06-25T21:17:56.571Z"}
+2025-06-25T21:17:56.571Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1939	📝 Recipe step: Step 1: add pan (0.0min) - Add pan	{"log_ts":"2025-06-25T21:17:56.571Z"}
+2025-06-25T21:17:56.571Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1939	📝 Recipe step: Step 2: season (0.5min) - Add oil	{"log_ts":"2025-06-25T21:17:56.571Z"}
+2025-06-25T21:17:56.571Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1939	📝 Recipe step: Step 3: add food (1.5min) - Add salmon fillet	{"log_ts":"2025-06-25T21:17:56.571Z"}
+2025-06-25T21:17:56.571Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1939	📝 Recipe step: Step 4: season (2.0min) - Add salt and pepper	{"log_ts":"2025-06-25T21:17:56.571Z"}
+2025-06-25T21:17:56.571Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1939	📝 Recipe step: Step 5: flip (3.5min) - Flip salmon fillet	{"log_ts":"2025-06-25T21:17:56.571Z"}
+2025-06-25T21:17:56.571Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1939	📝 Recipe step: Step 6: add food (4.0min) - Add green beans	{"log_ts":"2025-06-25T21:17:56.571Z"}
+2025-06-25T21:17:56.571Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1939	📝 Recipe step: Step 7: season (4.5min) - Add paprika to green beans	{"log_ts":"2025-06-25T21:17:56.571Z"}
+2025-06-25T21:17:56.571Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1939	📝 Recipe step: Step 8: flip (4.5min) - Flip salmon fillet	{"log_ts":"2025-06-25T21:17:56.571Z"}
+2025-06-25T21:17:56.572Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1939	📝 Recipe step: Step 9: remove pan (6.0min) - Remove pan	{"log_ts":"2025-06-25T21:17:56.571Z"}
+2025-06-25T21:17:56.572Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1944	Recipe steps for burner burner-0-dev (elapsed: 9.4 min):
+Recipe Steps (9 total) - Elapsed Time: 9.4 minutes:
+Step 1: add pan (0.0min) - Add pan
+Step 2: season (0.5min) - Add oil
+Step 3: add food (1.5min) - Add salmon fillet
+Step 4: season (2.0min) - Add salt and pepper
+Step 5: flip (3.5min) - Flip salmon fillet
+Step 6: add food (4.0min) - Add green beans
+Step 7: season (4.5min) - Add paprika to green beans
+Step 8: flip (4.5min) - Flip salmon fillet
+Step 9: remove pan (6.0min) - Remove pan	{"log_ts":"2025-06-25T21:17:56.572Z"}
+2025-06-25T21:17:56.572Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1581	
+🧠 ===== PROMPT CONTEXT ===== 🧠	{"log_ts":"2025-06-25T21:17:56.572Z"}
+2025-06-25T21:17:56.572Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1584	👁️  Object Detection Context: ENABLED	{"log_ts":"2025-06-25T21:17:56.572Z"}
+2025-06-25T21:17:56.572Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1585	   Previous: Pan=true Hand=false Utensil=false Lid=false Food=true	{"log_ts":"2025-06-25T21:17:56.572Z"}
+2025-06-25T21:17:56.572Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1587	   Current:  Pan=true Hand=true Utensil=false Lid=false Food=true	{"log_ts":"2025-06-25T21:17:56.572Z"}
+2025-06-25T21:17:56.572Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1610	📖 Recipe Context: FULL RECIPE MODE	{"log_ts":"2025-06-25T21:17:56.572Z"}
+2025-06-25T21:17:56.572Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1612	   Mode: Advisory full recipe context (10 actions)	{"log_ts":"2025-06-25T21:17:56.572Z"}
+2025-06-25T21:17:56.572Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1619	🧠 ========================== 🧠
+	{"log_ts":"2025-06-25T21:17:56.572Z"}
+2025-06-25T21:18:00.327Z	WARN	rdk.resource_manager.rdk:service:generic/chef-analysis-dev	resource/graph_node.go:551	unexpected resource state transition	{"from":"Unhealthy","to":"Configuring"}
+2025-06-25T21:18:00.327Z	WARN	rdk.resource_manager.rdk:service:generic/chef-timer-dev	resource/graph_node.go:551	unexpected resource state transition	{"from":"Unhealthy","to":"Configuring"}
+2025-06-25T21:17:55.329Z	ERROR	rdk.resource_manager.rdk:service:generic/chef-temp-target-dev	resource/graph_node.go:297	Message logged 12 times in past 1m0s: resource build error: resource has unresolved dependencies: [burner-1-dev]	{"resource":"rdk:service:generic/chef-temp-target-dev","model":"gambit-robotics:chef:temp-target-dev"}
+2025-06-25T21:18:00.327Z	ERROR	rdk.resource_manager.rdk:service:generic/chef-temp-target-dev	resource/graph_node.go:297	resource build error: resource has unresolved dependencies: [burner-1-dev]	{"resource":"rdk:service:generic/chef-temp-target-dev","model":"gambit-robotics:chef:temp-target-dev"}
+2025-06-25T21:18:00.344Z	ERROR	rdk.resource_manager.rdk:service:generic/chef-timer-dev	resource/graph_node.go:297	resource build error: resource has unresolved dependencies: [burner-1-dev]	{"resource":"rdk:service:generic/chef-timer-dev","model":"gambit-robotics:chef:timer-dev"}
+2025-06-25T21:18:00.360Z	ERROR	rdk.resource_manager.rdk:service:generic/chef-analysis-dev	resource/graph_node.go:297	resource build error: resource has unresolved dependencies: [burner-1-dev]	{"resource":"rdk:service:generic/chef-analysis-dev","model":"gambit-robotics:chef:analysis-dev"}
+2025-06-25T21:18:00.810Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1637	🧠 Using CACHED prompt system	{"log_ts":"2025-06-25T21:18:00.810Z"}
+2025-06-25T21:18:00.810Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1653	
+📋 ===== CLAUDE RESPONSE ===== 📋	{"log_ts":"2025-06-25T21:18:00.810Z"}
+2025-06-25T21:18:00.810Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1655	🎭 Detected Action: Season	{"log_ts":"2025-06-25T21:18:00.810Z"}
+2025-06-25T21:18:00.810Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1656	🎯 Confidence: 78.0%	{"log_ts":"2025-06-25T21:18:00.810Z"}
+2025-06-25T21:18:00.810Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1661	⏱️  Analysis Duration: 4.2s	{"log_ts":"2025-06-25T21:18:00.810Z"}
+2025-06-25T21:18:00.810Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1662	📋 =========================== 📋
+2025-06-25T21:18:00.811Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1703	✅ Action ACCEPTED: Season (78.0% ≥ 65.0% required)	{"log_ts":"2025-06-25T21:18:00.811Z"}
+
+------------------------------------------------------------
+
+# Detection 4 - 17:39:01 - Remove food
+# Status: ACCEPTED
+🎬 ===== MOTION DETECTED ===== 🎬	{"log_ts":"2025-06-25T21:39:01.364Z"}
+2025-06-25T21:39:01.364Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:460	📊 Similarity: 86.8% (threshold: 87.5%)	{"log_ts":"2025-06-25T21:39:01.364Z"}
+2025-06-25T21:39:01.365Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:461	⏰ Time: 17:39:01 | Duration: 1.0s	{"log_ts":"2025-06-25T21:39:01.364Z"}
+2025-06-25T21:39:01.365Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:462	🎬 ============================= 🎬
+
+	{"log_ts":"2025-06-25T21:39:01.365Z"}
+2025-06-25T21:39:01.365Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1939	📝 Recipe step: Step 1: add pan (0.0min) - Add pan	{"log_ts":"2025-06-25T21:39:01.365Z"}
+2025-06-25T21:39:01.365Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1939	📝 Recipe step: Step 2: season (0.5min) - Add oil	{"log_ts":"2025-06-25T21:39:01.365Z"}
+2025-06-25T21:39:01.365Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1939	📝 Recipe step: Step 3: add food (1.5min) - Add salmon fillet	{"log_ts":"2025-06-25T21:39:01.365Z"}
+2025-06-25T21:39:01.365Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1939	📝 Recipe step: Step 4: season (2.0min) - Add salt and pepper	{"log_ts":"2025-06-25T21:39:01.365Z"}
+2025-06-25T21:39:01.365Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1939	📝 Recipe step: Step 5: flip (3.5min) - Flip salmon fillet	{"log_ts":"2025-06-25T21:39:01.365Z"}
+2025-06-25T21:39:01.365Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1939	📝 Recipe step: Step 6: add food (4.0min) - Add green beans	{"log_ts":"2025-06-25T21:39:01.365Z"}
+2025-06-25T21:39:01.366Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1939	📝 Recipe step: Step 7: season (4.5min) - Add paprika to green beans	{"log_ts":"2025-06-25T21:39:01.365Z"}
+2025-06-25T21:39:01.366Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1939	📝 Recipe step: Step 8: flip (4.5min) - Flip salmon fillet	{"log_ts":"2025-06-25T21:39:01.366Z"}
+2025-06-25T21:39:01.366Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1939	📝 Recipe step: Step 9: remove pan (6.0min) - Remove pan	{"log_ts":"2025-06-25T21:39:01.366Z"}
+2025-06-25T21:39:01.366Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1944	Recipe steps for burner burner-0-dev (elapsed: 30.4 min):
+Recipe Steps (9 total) - Elapsed Time: 30.4 minutes:
+Step 1: add pan (0.0min) - Add pan
+Step 2: season (0.5min) - Add oil
+Step 3: add food (1.5min) - Add salmon fillet
+Step 4: season (2.0min) - Add salt and pepper
+Step 5: flip (3.5min) - Flip salmon fillet
+Step 6: add food (4.0min) - Add green beans
+Step 7: season (4.5min) - Add paprika to green beans
+Step 8: flip (4.5min) - Flip salmon fillet
+Step 9: remove pan (6.0min) - Remove pan	{"log_ts":"2025-06-25T21:39:01.366Z"}
+2025-06-25T21:39:01.366Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1581	
+🧠 ===== PROMPT CONTEXT ===== 🧠	{"log_ts":"2025-06-25T21:39:01.366Z"}
+2025-06-25T21:39:01.366Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1584	👁️  Object Detection Context: ENABLED	{"log_ts":"2025-06-25T21:39:01.366Z"}
+2025-06-25T21:39:01.366Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1585	   Previous: Pan=true Hand=false Utensil=false Lid=false Food=true	{"log_ts":"2025-06-25T21:39:01.366Z"}
+2025-06-25T21:39:01.366Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1587	   Current:  Pan=true Hand=false Utensil=false Lid=false Food=false	{"log_ts":"2025-06-25T21:39:01.366Z"}
+2025-06-25T21:39:01.366Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1610	📖 Recipe Context: FULL RECIPE MODE	{"log_ts":"2025-06-25T21:39:01.366Z"}
+2025-06-25T21:39:01.367Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1612	   Mode: Advisory full recipe context (10 actions)	{"log_ts":"2025-06-25T21:39:01.366Z"}
+2025-06-25T21:39:01.367Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1619	🧠 ========================== 🧠
+	{"log_ts":"2025-06-25T21:39:01.367Z"}
+2025-06-25T21:39:05.330Z	ERROR	rdk.resource_manager.rdk:service:generic/chef-temp-target-dev	resource/graph_node.go:297	resource build error: resource has unresolved dependencies: [burner-1-dev]	{"resource":"rdk:service:generic/chef-temp-target-dev","model":"gambit-robotics:chef:temp-target-dev"}
+2025-06-25T21:39:05.654Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1637	🧠 Using CACHED prompt system	{"log_ts":"2025-06-25T21:39:05.654Z"}
+2025-06-25T21:39:05.654Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1653	
+📋 ===== CLAUDE RESPONSE ===== 📋	{"log_ts":"2025-06-25T21:39:05.654Z"}
+2025-06-25T21:39:05.655Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1655	🎭 Detected Action: Remove food	{"log_ts":"2025-06-25T21:39:05.654Z"}
+2025-06-25T21:39:05.655Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1656	🎯 Confidence: 85.0%	{"log_ts":"2025-06-25T21:39:05.655Z"}
+2025-06-25T21:39:05.655Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1661	⏱️  Analysis Duration: 4.3s	{"log_ts":"2025-06-25T21:39:05.655Z"}
+2025-06-25T21:39:05.655Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1662	📋 =========================== 📋
+2025-06-25T21:39:05.655Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1703	✅ Action ACCEPTED: Remove food (85.0% ≥ 75.0% required)	{"log_ts":"2025-06-25T21:39:05.655Z"}
+
+------------------------------------------------------------
+
+
+================================================================================
+# ANALYSIS SUMMARY
+================================================================================
+
+# Detection Counts by Action:
+# Add food: 1 total (✅1 accepted, ❌0 rejected)
+# Add pan: 1 total (✅1 accepted, ❌0 rejected)
+# Remove food: 1 total (✅1 accepted, ❌0 rejected)
+# Season: 1 total (✅1 accepted, ❌0 rejected)
+
+# Performance Statistics:
+# Total detections: 4
+# Acceptance rate: 4/4 (100.0%)
+# Average confidence: 85.8%
+# Confidence range: 78.0% - 95.0%
+# Average similarity: 83.2%
+# Similarity range: 72.5% - 87.3%
+# Average analysis time: 4.3s
+# Analysis time range: 4.2s - 4.4s
+
+# Timeline Summary:
+# First detection: 17:09:28 - Add pan
+# Last detection: 17:39:01 - Remove food

@@ -1,0 +1,26 @@
+{
+  "timestamp": "2025-08-05T08:43:31.764087",
+  "run_id": "20250805_084331",
+  "output_directory": "evaluation_results/run_20250805_084331",
+  "timeout_minutes": 40,
+  "summary": {
+    "total_detections": 21,
+    "accepted_detections": 21,
+    "rejected_detections": 0,
+    "acceptance_rate": 100.0,
+    "avg_confidence": 85.6
+  },
+  "session": {
+    "log_file": "run_20250805_084331/viam_server_20250805_084331.log",
+    "video_completed": false,
+    "timestamp": "2025-08-05T09:23:36.978849",
+    "success": true,
+    "metrics": {
+      "total_detections": 21,
+      "accepted_detections": 21,
+      "rejected_detections": 0,
+      "avg_confidence": 85.6
+    },
+    "analysis_file": "run_20250805_084331/analysis_20250805_084331.txt"
+  }
+}

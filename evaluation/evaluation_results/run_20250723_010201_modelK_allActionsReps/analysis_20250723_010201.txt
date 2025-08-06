@@ -1,0 +1,95 @@
+Analysis for: current_session
+Run ID: 20250723_010201
+Timestamp: 2025-07-23T01:42:07.806336
+============================================================
+
+🔄 Classifier Log Analysis & Ground Truth Alignment
+============================================================
+📂 Loaded log file: evaluation_results/run_20250723_010201/viam_server_20250723_010201.log
+
+🔍 Analyzing log data (17130832 characters)...
+📝 Classification timeline exported to: evaluation_results/run_20250723_010201/viam_server_20250723_010201_timeline.log
+🔍 Classifier Performance Analysis
+============================================================
+📊 Ground Truth Dataset:
+   Total labeled segments: 27
+   add-food: 6 occurrences
+   remove-food: 6 occurrences
+   add-pan: 3 occurrences
+   remove-pan: 3 occurrences
+   add-lid: 3 occurrences
+   remove-lid: 3 occurrences
+   flip: 3 occurrences
+
+🔍 Classifier Detections:
+   Total detections: 17
+   Accepted detections: 17
+   Rejected detections: 0
+
+📊 Accepted Detection Breakdown:
+   remove-pan: 4 detections
+   add-pan: 3 detections
+   season: 1 detections
+   flip: 2 detections
+   remove-food: 3 detections
+   add-food: 4 detections
+
+🎯 Performance Comparison:
+   add-food        | Expected:  6 | Detected:  4 | Recall:  66.7% ⚠️
+   add-lid         | Expected:  3 | Detected:  0 | Recall:   0.0% ❌
+   add-pan         | Expected:  3 | Detected:  3 | Recall: 100.0% ✅
+   flip            | Expected:  3 | Detected:  2 | Recall:  66.7% ⚠️
+   remove-food     | Expected:  6 | Detected:  3 | Recall:  50.0% ⚠️
+   remove-lid      | Expected:  3 | Detected:  0 | Recall:   0.0% ❌
+   remove-pan      | Expected:  3 | Detected:  4 | Recall: 133.3% ✅
+   season          | Expected:  0 | Detected:  1 | Recall:   0.0% 🔄
+
+📈 Overall Performance:
+   Total Recall: 63.0%
+   Coverage: 17/27 actions detected
+
+🎯 Confidence Analysis:
+   Average confidence: 86.2%
+   Range: 75.0% - 95.0%
+   High confidence (≥80%): 14/17
+   Medium confidence (60-79%): 3/17
+   Low confidence (<60%): 0/17
+
+⏰ Detection Timeline:
+    1. 01:04:19 | Remove pan      | Conf: 95.0% | Sim:  N/A |  N/A | ✅
+    2. 01:05:37 | Add pan         | Conf: 85.0% | Sim:  N/A |  N/A | ✅
+    3. 01:06:53 | Remove pan      | Conf: 85.0% | Sim:  N/A |  N/A | ✅
+    4. 01:11:07 | Add pan         | Conf: 95.0% | Sim:  N/A |  N/A | ✅
+    5. 01:13:00 | Season          | Conf: 75.0% | Sim:  N/A |  N/A | ✅
+    6. 01:14:08 | Remove pan      | Conf: 85.0% | Sim:  N/A |  N/A | ✅
+    7. 01:15:35 | Add pan         | Conf: 95.0% | Sim:  N/A |  N/A | ✅
+    8. 01:21:03 | Remove pan      | Conf: 85.0% | Sim:  N/A |  N/A | ✅
+    9. 01:22:50 | Flip            | Conf: 78.0% | Sim:  N/A |  N/A | ✅
+   10. 01:23:03 | Remove food     | Conf: 92.0% | Sim:  N/A |  N/A | ✅
+   11. 01:23:29 | Add food        | Conf: 85.0% | Sim:  N/A |  N/A | ✅
+   12. 01:25:08 | Remove food     | Conf: 85.0% | Sim:  N/A |  N/A | ✅
+   13. 01:26:12 | Add food        | Conf: 85.0% | Sim:  N/A |  N/A | ✅
+   14. 01:26:24 | Remove food     | Conf: 85.0% | Sim:  N/A |  N/A | ✅
+   15. 01:34:04 | Add food        | Conf: 95.0% | Sim:  N/A |  N/A | ✅
+   16. 01:35:24 | Add food        | Conf: 85.0% | Sim:  N/A |  N/A | ✅
+   17. 01:37:05 | Flip            | Conf: 75.0% | Sim:  N/A |  N/A | ✅
+
+💡 Key Insights:
+   • Average confidence: 86.2%
+   • High average confidence indicates good model certainty
+   • Food manipulation ratio (add/remove): 1.33
+
+📝 Recommendations:
+   • Set confidence threshold around 75-80% to filter noise
+   • Implement temporal smoothing to reduce duplicate detections
+   • Add action sequence validation (logical flow checking)
+   • Low detection rate - consider lowering confidence threshold
+   • Review video manually to validate detection timing accuracy
+
+✅ Analysis complete!
+
+📋 Summary:
+   • 17 action detections extracted from logs
+   • 63.0% coverage of expected actions
+   • 86.2% average detection confidence
+   • Classification timeline saved to: evaluation_results/run_20250723_010201/viam_server_20250723_010201_timeline.log

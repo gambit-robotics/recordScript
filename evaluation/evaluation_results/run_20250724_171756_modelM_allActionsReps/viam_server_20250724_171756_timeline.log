@@ -1,0 +1,193 @@
+# Classifier Detection Timeline
+# Extracted classification results in chronological order
+# New Format: Motion Detection + Claude Analysis + Acceptance
+================================================================================
+
+Total detections found: 18
+Accepted: 18, Rejected: 0
+
+# Detection 1 - 17:20:12 - Remove pan
+# Status: ACCEPTED
+✅ ACTION ACCEPTED: Remove pan
+   Confidence: 85.0% (≥ 60.0% required)
+   Time: 17:20:12
+==========================================
+
+------------------------------------------------------------
+
+# Detection 2 - 17:21:38 - Remove pan
+# Status: ACCEPTED
+✅ ACTION ACCEPTED: Remove pan
+   Confidence: 85.0% (≥ 60.0% required)
+   Time: 17:21:38
+==========================================
+
+------------------------------------------------------------
+
+# Detection 3 - 17:21:42 - Add pan
+# Status: ACCEPTED
+✅ ACTION ACCEPTED: Add pan
+   Confidence: 92.0% (≥ 60.0% required)
+   Time: 17:21:42
+==========================================
+
+------------------------------------------------------------
+
+# Detection 4 - 17:22:48 - Remove pan
+# Status: ACCEPTED
+✅ ACTION ACCEPTED: Remove pan
+   Confidence: 88.0% (≥ 60.0% required)
+   Time: 17:22:48
+==========================================
+
+------------------------------------------------------------
+
+# Detection 5 - 17:27:00 - Add pan
+# Status: ACCEPTED
+✅ ACTION ACCEPTED: Add pan
+   Confidence: 92.0% (≥ 55.0% required)
+   Time: 17:27:00
+==========================================
+
+------------------------------------------------------------
+
+# Detection 6 - 17:27:31 - Add lid
+# Status: ACCEPTED
+✅ ACTION ACCEPTED: Add lid
+   Confidence: 78.0% (≥ 60.0% required)
+   Time: 17:27:31
+==========================================
+
+------------------------------------------------------------
+
+# Detection 7 - 17:30:03 - Remove pan
+# Status: ACCEPTED
+✅ ACTION ACCEPTED: Remove pan
+   Confidence: 88.0% (≥ 55.0% required)
+   Time: 17:30:03
+==========================================
+
+------------------------------------------------------------
+
+# Detection 8 - 17:31:30 - Add pan
+# Status: ACCEPTED
+✅ ACTION ACCEPTED: Add pan
+   Confidence: 88.0% (≥ 55.0% required)
+   Time: 17:31:30
+==========================================
+
+------------------------------------------------------------
+
+# Detection 9 - 17:32:52 - Add lid
+# Status: ACCEPTED
+✅ ACTION ACCEPTED: Add lid
+   Confidence: 85.0% (≥ 60.0% required)
+   Time: 17:32:52
+==========================================
+
+------------------------------------------------------------
+
+# Detection 10 - 17:39:20 - Add food
+# Status: ACCEPTED
+✅ ACTION ACCEPTED: Add food
+   Confidence: 78.0% (≥ 75.0% required)
+   Time: 17:39:20
+==========================================
+
+------------------------------------------------------------
+
+# Detection 11 - 17:41:06 - Remove food
+# Status: ACCEPTED
+✅ ACTION ACCEPTED: Remove food
+   Confidence: 88.0% (≥ 55.0% required)
+   Time: 17:41:06
+==========================================
+
+------------------------------------------------------------
+
+# Detection 12 - 17:41:57 - Remove food
+# Status: ACCEPTED
+✅ ACTION ACCEPTED: Remove food
+   Confidence: 88.0% (≥ 55.0% required)
+   Time: 17:41:57
+==========================================
+
+------------------------------------------------------------
+
+# Detection 13 - 17:42:16 - Add food
+# Status: ACCEPTED
+✅ ACTION ACCEPTED: Add food
+   Confidence: 85.0% (≥ 55.0% required)
+   Time: 17:42:16
+==========================================
+
+------------------------------------------------------------
+
+# Detection 14 - 17:48:49 - Remove food
+# Status: ACCEPTED
+✅ ACTION ACCEPTED: Remove food
+   Confidence: 88.0% (≥ 55.0% required)
+   Time: 17:48:49
+==========================================
+
+------------------------------------------------------------
+
+# Detection 15 - 17:51:19 - Add food
+# Status: ACCEPTED
+✅ ACTION ACCEPTED: Add food
+   Confidence: 88.0% (≥ 55.0% required)
+   Time: 17:51:19
+==========================================
+
+------------------------------------------------------------
+
+# Detection 16 - 17:53:55 - Flip
+# Status: ACCEPTED
+✅ ACTION ACCEPTED: Flip
+   Confidence: 78.0% (≥ 65.0% required)
+   Time: 17:53:55
+==========================================
+
+------------------------------------------------------------
+
+# Detection 17 - 17:55:45 - Add food
+# Status: ACCEPTED
+✅ ACTION ACCEPTED: Add food
+   Confidence: 85.0% (≥ 55.0% required)
+   Time: 17:55:45
+==========================================
+
+------------------------------------------------------------
+
+# Detection 18 - 17:57:14 - Remove lid
+# Status: ACCEPTED
+✅ ACTION ACCEPTED: Remove lid
+   Confidence: 78.0% (≥ 60.0% required)
+   Time: 17:57:14
+==========================================
+
+------------------------------------------------------------
+
+
+================================================================================
+# ANALYSIS SUMMARY
+================================================================================
+
+# Detection Counts by Action:
+# Add food: 4 total (✅4 accepted, ❌0 rejected)
+# Add lid: 2 total (✅2 accepted, ❌0 rejected)
+# Add pan: 3 total (✅3 accepted, ❌0 rejected)
+# Flip: 1 total (✅1 accepted, ❌0 rejected)
+# Remove food: 3 total (✅3 accepted, ❌0 rejected)
+# Remove lid: 1 total (✅1 accepted, ❌0 rejected)
+# Remove pan: 4 total (✅4 accepted, ❌0 rejected)
+
+# Performance Statistics:
+# Total detections: 18
+# Acceptance rate: 18/18 (100.0%)
+# Average confidence: 85.4%
+# Confidence range: 78.0% - 92.0%
+
+# Timeline Summary:
+# First detection: 17:20:12 - Remove pan
+# Last detection: 17:57:14 - Remove lid

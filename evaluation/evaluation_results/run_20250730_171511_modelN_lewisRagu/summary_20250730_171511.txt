@@ -1,0 +1,10 @@
+Evaluation Run Summary: 20250730_171511
+==================================================
+
+Timestamp: 2025-07-30T17:15:11.191456
+Run ID: 20250730_171511
+
+Performance Metrics:
+- Total detections: 0
+- Accepted: 0
+- Rejected: 0

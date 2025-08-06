@@ -1,0 +1,102 @@
+Analysis for: current_session
+Run ID: 20250616_143159
+Timestamp: 2025-06-16T15:08:44.766953
+============================================================
+
+🔄 Classifier Log Analysis & Ground Truth Alignment
+============================================================
+📂 Loaded log file: evaluation_results/run_20250616_143159/viam_server_20250616_143159.log
+
+🔍 Analyzing log data (1129067 characters)...
+📝 Classification timeline exported to: evaluation_results/run_20250616_143159/viam_server_20250616_143159_timeline.log
+🔍 Classifier Performance Analysis
+============================================================
+📊 Ground Truth Dataset:
+   Total labeled segments: 27
+   add-food: 6 occurrences
+   remove-food: 6 occurrences
+   add-pan: 3 occurrences
+   remove-pan: 3 occurrences
+   add-lid: 3 occurrences
+   remove-lid: 3 occurrences
+   flip: 3 occurrences
+
+🔍 Classifier Detections:
+   Total detections: 12
+   Accepted detections: 12
+   Rejected detections: 0
+
+📊 Accepted Detection Breakdown:
+   add-food: 2 detections
+   stir: 6 detections
+   season: 4 detections
+
+🎯 Performance Comparison:
+   add-food        | Expected:  6 | Detected:  2 | Recall:  33.3% ❌
+   add-lid         | Expected:  3 | Detected:  0 | Recall:   0.0% ❌
+   add-pan         | Expected:  3 | Detected:  0 | Recall:   0.0% ❌
+   flip            | Expected:  3 | Detected:  0 | Recall:   0.0% ❌
+   remove-food     | Expected:  6 | Detected:  0 | Recall:   0.0% ❌
+   remove-lid      | Expected:  3 | Detected:  0 | Recall:   0.0% ❌
+   remove-pan      | Expected:  3 | Detected:  0 | Recall:   0.0% ❌
+   season          | Expected:  0 | Detected:  4 | Recall:   0.0% 🔄
+   stir            | Expected:  0 | Detected:  6 | Recall:   0.0% 🔄
+
+📈 Overall Performance:
+   Total Recall: 44.4%
+   Coverage: 12/27 actions detected
+
+🎯 Confidence Analysis:
+   Average confidence: 79.8%
+   Range: 78.0% - 85.0%
+   High confidence (≥80%): 3/12
+   Medium confidence (60-79%): 9/12
+   Low confidence (<60%): 0/12
+
+📊 Motion Similarity Analysis:
+   Average similarity: 86.1%
+   Range: 84.0% - 87.1%
+
+⚡ Analysis Performance:
+   Average analysis time: 5.9s
+   Range: 4.4s - 9.5s
+   Slow analyses (>5s): 7/12
+
+⏰ Detection Timeline:
+    1. 14:32:53 | Add food        | Conf: 78.0% | Sim: 86.2% |  1.0s | ✅
+    2. 14:33:22 | Add food        | Conf: 85.0% | Sim: 84.0% |  1.0s | ✅
+    3. 14:36:35 | Stir            | Conf: 78.0% | Sim: 85.4% |  1.0s | ✅
+    4. 14:41:13 | Season          | Conf: 78.0% | Sim: 85.3% |  1.0s | ✅
+    5. 14:41:26 | Season          | Conf: 78.0% | Sim: 86.0% |  1.0s | ✅
+    6. 14:54:57 | Stir            | Conf: 78.0% | Sim: 86.9% |  1.0s | ✅
+    7. 14:57:20 | Season          | Conf: 78.0% | Sim: 86.7% |  1.0s | ✅
+    8. 14:57:48 | Stir            | Conf: 78.0% | Sim: 86.5% |  1.0s | ✅
+    9. 14:58:09 | Season          | Conf: 78.0% | Sim: 86.5% |  1.0s | ✅
+   10. 14:58:44 | Stir            | Conf: 78.0% | Sim: 87.1% |  1.0s | ✅
+   11. 15:06:58 | Stir            | Conf: 85.0% | Sim: 85.9% |  2.7s | ✅
+   12. 15:07:11 | Stir            | Conf: 85.0% | Sim: 86.5% |  1.0s | ✅
+
+💡 Key Insights:
+   • Average confidence: 79.8%
+   • Moderate confidence - consider threshold tuning
+   • Average motion similarity: 86.1%
+   • Average analysis time: 5.9s
+   • 7 slow analyses (>5s) may indicate processing bottlenecks
+   • Slow analysis times - consider optimizing model inference
+   • Missing critical actions: add-pan, remove-pan, remove-food
+
+📝 Recommendations:
+   • Set confidence threshold around 65-70% to avoid missing actions
+   • Optimize model inference speed (current avg: 5.9s)
+   • Implement temporal smoothing to reduce duplicate detections
+   • Add action sequence validation (logical flow checking)
+   • Low detection rate - consider lowering confidence threshold
+   • Review video manually to validate detection timing accuracy
+
+✅ Analysis complete!
+
+📋 Summary:
+   • 12 action detections extracted from logs
+   • 44.4% coverage of expected actions
+   • 79.8% average detection confidence
+   • Classification timeline saved to: evaluation_results/run_20250616_143159/viam_server_20250616_143159_timeline.log

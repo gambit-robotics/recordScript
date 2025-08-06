@@ -1,0 +1,49 @@
+Analysis for: current_session
+Run ID: 20250617_142034
+Timestamp: 2025-06-17T14:54:22.832020
+============================================================
+
+🔄 Classifier Log Analysis & Ground Truth Alignment
+============================================================
+📂 Loaded log file: evaluation_results/run_20250617_142034/viam_server_20250617_142034.log
+
+🔍 Analyzing log data (642146 characters)...
+🔍 Classifier Performance Analysis
+============================================================
+📊 Ground Truth Dataset:
+   Total labeled segments: 27
+   add-food: 6 occurrences
+   remove-food: 6 occurrences
+   add-pan: 3 occurrences
+   remove-pan: 3 occurrences
+   add-lid: 3 occurrences
+   remove-lid: 3 occurrences
+   flip: 3 occurrences
+
+🔍 Classifier Detections:
+   Total detections: 0
+   Accepted detections: 0
+   Rejected detections: 0
+
+📊 Accepted Detection Breakdown:
+
+🎯 Performance Comparison:
+   add-food        | Expected:  6 | Detected:  0 | Recall:   0.0% ❌
+   add-lid         | Expected:  3 | Detected:  0 | Recall:   0.0% ❌
+   add-pan         | Expected:  3 | Detected:  0 | Recall:   0.0% ❌
+   flip            | Expected:  3 | Detected:  0 | Recall:   0.0% ❌
+   remove-food     | Expected:  6 | Detected:  0 | Recall:   0.0% ❌
+   remove-lid      | Expected:  3 | Detected:  0 | Recall:   0.0% ❌
+   remove-pan      | Expected:  3 | Detected:  0 | Recall:   0.0% ❌
+
+📈 Overall Performance:
+   Total Recall: 0.0%
+   Coverage: 0/27 actions detected
+
+⏰ Detection Timeline:
+
+💡 Key Insights:
+   • No classifier detections found in logs
+   • Check if classification is running and logging properly
+
+✅ Analysis complete!

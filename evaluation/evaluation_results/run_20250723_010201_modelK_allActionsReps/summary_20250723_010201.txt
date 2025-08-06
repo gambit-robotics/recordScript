@@ -1,0 +1,12 @@
+Evaluation Run Summary: 20250723_010201
+==================================================
+
+Timestamp: 2025-07-23T01:02:01.789026
+Run ID: 20250723_010201
+
+Performance Metrics:
+- Total detections: 17
+- Accepted: 17
+- Rejected: 0
+- Acceptance rate: 100.0%
+- Average confidence: 86.2%

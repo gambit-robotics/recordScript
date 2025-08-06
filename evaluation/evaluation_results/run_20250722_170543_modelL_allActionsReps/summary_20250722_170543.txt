@@ -1,0 +1,12 @@
+Evaluation Run Summary: 20250722_170543
+==================================================
+
+Timestamp: 2025-07-22T17:05:43.597762
+Run ID: 20250722_170543
+
+Performance Metrics:
+- Total detections: 17
+- Accepted: 17
+- Rejected: 0
+- Acceptance rate: 100.0%
+- Average confidence: 84.4%

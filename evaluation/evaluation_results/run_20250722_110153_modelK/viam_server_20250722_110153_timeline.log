@@ -1,0 +1,235 @@
+# Classifier Detection Timeline
+# Extracted classification results in chronological order
+# New Format: Motion Detection + Claude Analysis + Acceptance
+================================================================================
+
+Total detections found: 23
+Accepted: 23, Rejected: 0
+
+# Detection 1 - 11:03:08 - Stir
+# Status: ACCEPTED
+✅ ACTION ACCEPTED: Stir
+   Confidence: 78.0% (≥ 75.0% required)
+   Time: 11:03:08
+==========================================
+
+------------------------------------------------------------
+
+# Detection 2 - 11:03:38 - Flip
+# Status: ACCEPTED
+✅ ACTION ACCEPTED: Flip
+   Confidence: 71.0% (≥ 65.0% required)
+   Time: 11:03:38
+==========================================
+
+------------------------------------------------------------
+
+# Detection 3 - 11:03:47 - Add food
+# Status: ACCEPTED
+✅ ACTION ACCEPTED: Add food
+   Confidence: 85.0% (≥ 60.0% required)
+   Time: 11:03:47
+==========================================
+
+------------------------------------------------------------
+
+# Detection 4 - 11:04:25 - Stir
+# Status: ACCEPTED
+✅ ACTION ACCEPTED: Stir
+   Confidence: 78.0% (≥ 75.0% required)
+   Time: 11:04:25
+==========================================
+
+------------------------------------------------------------
+
+# Detection 5 - 11:04:33 - Stir
+# Status: ACCEPTED
+✅ ACTION ACCEPTED: Stir
+   Confidence: 78.0% (≥ 75.0% required)
+   Time: 11:04:33
+==========================================
+
+------------------------------------------------------------
+
+# Detection 6 - 11:04:40 - Stir
+# Status: ACCEPTED
+✅ ACTION ACCEPTED: Stir
+   Confidence: 78.0% (≥ 75.0% required)
+   Time: 11:04:40
+==========================================
+
+------------------------------------------------------------
+
+# Detection 7 - 11:05:11 - Stir
+# Status: ACCEPTED
+✅ ACTION ACCEPTED: Stir
+   Confidence: 78.0% (≥ 75.0% required)
+   Time: 11:05:11
+==========================================
+
+------------------------------------------------------------
+
+# Detection 8 - 11:05:20 - Stir
+# Status: ACCEPTED
+✅ ACTION ACCEPTED: Stir
+   Confidence: 78.0% (≥ 75.0% required)
+   Time: 11:05:20
+==========================================
+
+------------------------------------------------------------
+
+# Detection 9 - 11:05:28 - Stir
+# Status: ACCEPTED
+✅ ACTION ACCEPTED: Stir
+   Confidence: 78.0% (≥ 75.0% required)
+   Time: 11:05:28
+==========================================
+
+------------------------------------------------------------
+
+# Detection 10 - 11:05:57 - Stir
+# Status: ACCEPTED
+✅ ACTION ACCEPTED: Stir
+   Confidence: 78.0% (≥ 75.0% required)
+   Time: 11:05:57
+==========================================
+
+------------------------------------------------------------
+
+# Detection 11 - 11:07:05 - Stir
+# Status: ACCEPTED
+✅ ACTION ACCEPTED: Stir
+   Confidence: 85.0% (≥ 75.0% required)
+   Time: 11:07:05
+==========================================
+
+------------------------------------------------------------
+
+# Detection 12 - 11:07:48 - Stir
+# Status: ACCEPTED
+✅ ACTION ACCEPTED: Stir
+   Confidence: 78.0% (≥ 75.0% required)
+   Time: 11:07:48
+==========================================
+
+------------------------------------------------------------
+
+# Detection 13 - 11:11:05 - Stir
+# Status: ACCEPTED
+✅ ACTION ACCEPTED: Stir
+   Confidence: 85.0% (≥ 75.0% required)
+   Time: 11:11:05
+==========================================
+
+------------------------------------------------------------
+
+# Detection 14 - 11:11:29 - Stir
+# Status: ACCEPTED
+✅ ACTION ACCEPTED: Stir
+   Confidence: 78.0% (≥ 75.0% required)
+   Time: 11:11:29
+==========================================
+
+------------------------------------------------------------
+
+# Detection 15 - 11:11:40 - Stir
+# Status: ACCEPTED
+✅ ACTION ACCEPTED: Stir
+   Confidence: 78.0% (≥ 75.0% required)
+   Time: 11:11:40
+==========================================
+
+------------------------------------------------------------
+
+# Detection 16 - 11:12:00 - Season
+# Status: ACCEPTED
+✅ ACTION ACCEPTED: Season
+   Confidence: 75.0% (≥ 70.0% required)
+   Time: 11:12:00
+==========================================
+
+------------------------------------------------------------
+
+# Detection 17 - 11:22:47 - Stir
+# Status: ACCEPTED
+✅ ACTION ACCEPTED: Stir
+   Confidence: 85.0% (≥ 75.0% required)
+   Time: 11:22:47
+==========================================
+
+------------------------------------------------------------
+
+# Detection 18 - 11:25:16 - Flip
+# Status: ACCEPTED
+✅ ACTION ACCEPTED: Flip
+   Confidence: 78.0% (≥ 65.0% required)
+   Time: 11:25:16
+==========================================
+
+------------------------------------------------------------
+
+# Detection 19 - 11:25:27 - Season
+# Status: ACCEPTED
+✅ ACTION ACCEPTED: Season
+   Confidence: 78.0% (≥ 55.0% required)
+   Time: 11:25:27
+==========================================
+
+------------------------------------------------------------
+
+# Detection 20 - 11:26:53 - Stir
+# Status: ACCEPTED
+✅ ACTION ACCEPTED: Stir
+   Confidence: 78.0% (≥ 75.0% required)
+   Time: 11:26:53
+==========================================
+
+------------------------------------------------------------
+
+# Detection 21 - 11:27:47 - Stir
+# Status: ACCEPTED
+✅ ACTION ACCEPTED: Stir
+   Confidence: 78.0% (≥ 75.0% required)
+   Time: 11:27:47
+==========================================
+
+------------------------------------------------------------
+
+# Detection 22 - 11:28:02 - Stir
+# Status: ACCEPTED
+✅ ACTION ACCEPTED: Stir
+   Confidence: 78.0% (≥ 75.0% required)
+   Time: 11:28:02
+==========================================
+
+------------------------------------------------------------
+
+# Detection 23 - 11:28:25 - Stir
+# Status: ACCEPTED
+✅ ACTION ACCEPTED: Stir
+   Confidence: 78.0% (≥ 75.0% required)
+   Time: 11:28:25
+==========================================
+
+------------------------------------------------------------
+
+
+================================================================================
+# ANALYSIS SUMMARY
+================================================================================
+
+# Detection Counts by Action:
+# Add food: 1 total (✅1 accepted, ❌0 rejected)
+# Flip: 2 total (✅2 accepted, ❌0 rejected)
+# Season: 2 total (✅2 accepted, ❌0 rejected)
+# Stir: 18 total (✅18 accepted, ❌0 rejected)
+
+# Performance Statistics:
+# Total detections: 23
+# Acceptance rate: 23/23 (100.0%)
+# Average confidence: 78.8%
+# Confidence range: 71.0% - 85.0%
+
+# Timeline Summary:
+# First detection: 11:03:08 - Stir
+# Last detection: 11:28:25 - Stir

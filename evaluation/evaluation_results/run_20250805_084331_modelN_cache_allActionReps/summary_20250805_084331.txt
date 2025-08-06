@@ -1,0 +1,12 @@
+Evaluation Run Summary: 20250805_084331
+==================================================
+
+Timestamp: 2025-08-05T08:43:31.764087
+Run ID: 20250805_084331
+
+Performance Metrics:
+- Total detections: 21
+- Accepted: 21
+- Rejected: 0
+- Acceptance rate: 100.0%
+- Average confidence: 85.6%

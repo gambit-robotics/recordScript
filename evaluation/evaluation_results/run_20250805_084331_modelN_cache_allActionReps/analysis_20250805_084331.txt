@@ -1,0 +1,78 @@
+Analysis for: current_session
+Run ID: 20250805_084331
+Timestamp: 2025-08-05T09:23:37.736430
+============================================================
+
+🔄 Classifier Log Analysis & Ground Truth Alignment
+============================================================
+📂 Loaded log file: evaluation_results/run_20250805_084331/viam_server_20250805_084331.log
+
+🔍 Analyzing log data (6823945 characters)...
+📝 Classification timeline exported to: evaluation_results/run_20250805_084331/viam_server_20250805_084331_timeline.log
+❌ Ground truth file ../data/datasets/ml_dataset.csv not found
+🔍 Classifier Performance Analysis
+============================================================
+📊 No ground truth data available
+
+🔍 Classifier Detections:
+   Total detections: 21
+   Accepted detections: 21
+   Rejected detections: 0
+
+📊 Accepted Detection Breakdown:
+   remove-pan: 4 detections
+   add-pan: 4 detections
+   add-lid: 1 detections
+   add-food: 7 detections
+   flip: 3 detections
+   remove-food: 1 detections
+   remove-lid: 1 detections
+
+🎯 Confidence Analysis:
+   Average confidence: 85.6%
+   Range: 75.0% - 95.0%
+   High confidence (≥80%): 15/21
+   Medium confidence (60-79%): 6/21
+   Low confidence (<60%): 0/21
+
+⏰ Detection Timeline:
+    1. 08:45:45 | Remove pan      | Conf: 95.0% | Sim:  N/A |  N/A | ✅
+    2. 08:47:13 | Add pan         | Conf: 85.0% | Sim:  N/A |  N/A | ✅
+    3. 08:47:17 | Add pan         | Conf: 95.0% | Sim:  N/A |  N/A | ✅
+    4. 08:48:26 | Remove pan      | Conf: 95.0% | Sim:  N/A |  N/A | ✅
+    5. 08:52:36 | Add pan         | Conf: 95.0% | Sim:  N/A |  N/A | ✅
+    6. 08:54:31 | Add lid         | Conf: 85.0% | Sim:  N/A |  N/A | ✅
+    7. 08:55:38 | Remove pan      | Conf: 92.0% | Sim:  N/A |  N/A | ✅
+    8. 08:57:12 | Add pan         | Conf: 92.0% | Sim:  N/A |  N/A | ✅
+    9. 08:58:31 | Add food        | Conf: 82.0% | Sim:  N/A |  N/A | ✅
+   10. 09:02:37 | Remove pan      | Conf: 88.0% | Sim:  N/A |  N/A | ✅
+   11. 09:04:20 | Flip            | Conf: 78.0% | Sim:  N/A |  N/A | ✅
+   12. 09:05:01 | Add food        | Conf: 82.0% | Sim:  N/A |  N/A | ✅
+   13. 09:06:44 | Add food        | Conf: 75.0% | Sim:  N/A |  N/A | ✅
+   14. 09:07:32 | Flip            | Conf: 78.0% | Sim:  N/A |  N/A | ✅
+   15. 09:07:41 | Add food        | Conf: 88.0% | Sim:  N/A |  N/A | ✅
+   16. 09:13:09 | Flip            | Conf: 78.0% | Sim:  N/A |  N/A | ✅
+   17. 09:15:39 | Add food        | Conf: 88.0% | Sim:  N/A |  N/A | ✅
+   18. 09:16:59 | Add food        | Conf: 85.0% | Sim:  N/A |  N/A | ✅
+   19. 09:18:53 | Remove food     | Conf: 85.0% | Sim:  N/A |  N/A | ✅
+   20. 09:19:07 | Remove lid      | Conf: 78.0% | Sim:  N/A |  N/A | ✅
+   21. 09:21:14 | Add food        | Conf: 78.0% | Sim:  N/A |  N/A | ✅
+
+💡 Key Insights:
+   • Average confidence: 85.6%
+   • High average confidence indicates good model certainty
+   • Lid manipulation ratio (add/remove): 1.00
+   • Food manipulation ratio (add/remove): 7.00
+
+📝 Recommendations:
+   • Set confidence threshold around 75-80% to filter noise
+   • Implement temporal smoothing to reduce duplicate detections
+   • Add action sequence validation (logical flow checking)
+   • Review video manually to validate detection timing accuracy
+
+✅ Analysis complete!
+
+📋 Summary:
+   • 21 action detections extracted from logs
+   • 85.6% average detection confidence
+   • Classification timeline saved to: evaluation_results/run_20250805_084331/viam_server_20250805_084331_timeline.log

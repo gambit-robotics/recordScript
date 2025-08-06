@@ -1,0 +1,136 @@
+# Classifier Detection Timeline
+# Extracted classification results in chronological order
+# New Format: Motion Detection + Claude Analysis + Acceptance
+================================================================================
+
+Total detections found: 2
+Accepted: 2, Rejected: 0
+
+# Detection 1 - 09:29:41 - Flip
+# Status: ACCEPTED
+🎬 ===== MOTION DETECTED ===== 🎬	{"log_ts":"2025-06-26T13:29:41.479Z"}
+2025-06-26T13:29:41.480Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:440	📊 Similarity: 83.0% (threshold: 87.5%)	{"log_ts":"2025-06-26T13:29:41.480Z"}
+2025-06-26T13:29:41.480Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:441	⏰ Time: 09:29:41 | Duration: 1.0s	{"log_ts":"2025-06-26T13:29:41.480Z"}
+2025-06-26T13:29:41.480Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:442	🎬 ============================= 🎬
+
+	{"log_ts":"2025-06-26T13:29:41.480Z"}
+2025-06-26T13:29:41.480Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1800	📝 Recipe step: Step 1: add pan (0.0min) - Place pan on burner	{"log_ts":"2025-06-26T13:29:41.480Z"}
+2025-06-26T13:29:41.480Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1800	📝 Recipe step: Step 2: season (0.4min) - Add oil and heat until shimmering	{"log_ts":"2025-06-26T13:29:41.480Z"}
+2025-06-26T13:29:41.480Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1800	📝 Recipe step: Step 3: add food (1.2min) - Lay salmon fillet skin-side down	{"log_ts":"2025-06-26T13:29:41.480Z"}
+2025-06-26T13:29:41.480Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1800	📝 Recipe step: Step 4: season (1.8min) - Season salmon with salt and pepper	{"log_ts":"2025-06-26T13:29:41.480Z"}
+2025-06-26T13:29:41.480Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1800	📝 Recipe step: Step 5: flip (3.2min) - Flip salmon gently	{"log_ts":"2025-06-26T13:29:41.480Z"}
+2025-06-26T13:29:41.480Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1800	📝 Recipe step: Step 6: add food (3.8min) - Toss green beans into pan beside salmon	{"log_ts":"2025-06-26T13:29:41.480Z"}
+2025-06-26T13:29:41.480Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1800	📝 Recipe step: Step 7: season (4.2min) - Dust beans with paprika	{"log_ts":"2025-06-26T13:29:41.480Z"}
+2025-06-26T13:29:41.480Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1800	📝 Recipe step: Step 8: flip (4.6min) - Flip salmon again briefly to finish	{"log_ts":"2025-06-26T13:29:41.480Z"}
+2025-06-26T13:29:41.480Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1800	📝 Recipe step: Step 9: remove pan (5.8min) - Remove pan from heat	{"log_ts":"2025-06-26T13:29:41.480Z"}
+2025-06-26T13:29:41.481Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1805	Recipe steps for burner burner-0-dev (elapsed: 8.4 min):
+Recipe Steps (9 total) - Elapsed Time: 8.4 minutes:
+Step 1: add pan (0.0min) - Place pan on burner
+Step 2: season (0.4min) - Add oil and heat until shimmering
+Step 3: add food (1.2min) - Lay salmon fillet skin-side down
+Step 4: season (1.8min) - Season salmon with salt and pepper
+Step 5: flip (3.2min) - Flip salmon gently
+Step 6: add food (3.8min) - Toss green beans into pan beside salmon
+Step 7: season (4.2min) - Dust beans with paprika
+Step 8: flip (4.6min) - Flip salmon again briefly to finish
+Step 9: remove pan (5.8min) - Remove pan from heat	{"log_ts":"2025-06-26T13:29:41.480Z"}
+2025-06-26T13:29:41.481Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1456	
+🧠 ===== PROMPT CONTEXT ===== 🧠	{"log_ts":"2025-06-26T13:29:41.481Z"}
+2025-06-26T13:29:41.481Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1459	👁️  Object Detection Context: ENABLED	{"log_ts":"2025-06-26T13:29:41.481Z"}
+2025-06-26T13:29:41.481Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1460	   Previous: Pan=true Hand=false Utensil=false Lid=false Food=true	{"log_ts":"2025-06-26T13:29:41.481Z"}
+2025-06-26T13:29:41.481Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1462	   Current:  Pan=true Hand=false Utensil=false Lid=false Food=true	{"log_ts":"2025-06-26T13:29:41.481Z"}
+2025-06-26T13:29:41.481Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1485	📖 Recipe Context: FULL RECIPE MODE	{"log_ts":"2025-06-26T13:29:41.481Z"}
+2025-06-26T13:29:41.481Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1487	   Mode: Advisory full recipe context (10 actions)	{"log_ts":"2025-06-26T13:29:41.481Z"}
+2025-06-26T13:29:41.481Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1494	🧠 ========================== 🧠
+	{"log_ts":"2025-06-26T13:29:41.481Z"}
+2025-06-26T13:29:46.409Z	ERROR	rdk.resource_manager.rdk:service:generic/chef-temp-target-dev	resource/graph_node.go:297	resource build error: resource has unresolved dependencies: [burner-1-dev]	{"resource":"rdk:service:generic/chef-temp-target-dev","model":"gambit-robotics:chef:temp-target-dev"}
+2025-06-26T13:29:50.488Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1512	🧠 Using CACHED prompt system	{"log_ts":"2025-06-26T13:29:50.488Z"}
+2025-06-26T13:29:50.489Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1528	
+📋 ===== CLAUDE RESPONSE ===== 📋	{"log_ts":"2025-06-26T13:29:50.489Z"}
+2025-06-26T13:29:50.489Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1530	🎭 Detected Action: Flip	{"log_ts":"2025-06-26T13:29:50.489Z"}
+2025-06-26T13:29:50.489Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1531	🎯 Confidence: 78.0%	{"log_ts":"2025-06-26T13:29:50.489Z"}
+2025-06-26T13:29:50.489Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1536	⏱️  Analysis Duration: 9.0s	{"log_ts":"2025-06-26T13:29:50.489Z"}
+2025-06-26T13:29:50.489Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1537	📋 =========================== 📋
+2025-06-26T13:29:50.489Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1573	✅ Action ACCEPTED: Flip (78.0% ≥ 65.0% required)	{"log_ts":"2025-06-26T13:29:50.489Z"}
+
+------------------------------------------------------------
+
+# Detection 2 - 09:51:45 - Remove food
+# Status: ACCEPTED
+🎬 ===== MOTION DETECTED ===== 🎬	{"log_ts":"2025-06-26T13:51:45.661Z"}
+2025-06-26T13:51:45.662Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:440	📊 Similarity: 86.8% (threshold: 87.5%)	{"log_ts":"2025-06-26T13:51:45.662Z"}
+2025-06-26T13:51:45.662Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:441	⏰ Time: 09:51:45 | Duration: 1.0s	{"log_ts":"2025-06-26T13:51:45.662Z"}
+2025-06-26T13:51:45.662Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:442	🎬 ============================= 🎬
+
+	{"log_ts":"2025-06-26T13:51:45.662Z"}
+2025-06-26T13:51:45.662Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1800	📝 Recipe step: Step 1: add pan (0.0min) - Place pan on burner	{"log_ts":"2025-06-26T13:51:45.662Z"}
+2025-06-26T13:51:45.662Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1800	📝 Recipe step: Step 2: season (0.4min) - Add oil and heat until shimmering	{"log_ts":"2025-06-26T13:51:45.662Z"}
+2025-06-26T13:51:45.662Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1800	📝 Recipe step: Step 3: add food (1.2min) - Lay salmon fillet skin-side down	{"log_ts":"2025-06-26T13:51:45.662Z"}
+2025-06-26T13:51:45.662Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1800	📝 Recipe step: Step 4: season (1.8min) - Season salmon with salt and pepper	{"log_ts":"2025-06-26T13:51:45.662Z"}
+2025-06-26T13:51:45.662Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1800	📝 Recipe step: Step 5: flip (3.2min) - Flip salmon gently	{"log_ts":"2025-06-26T13:51:45.662Z"}
+2025-06-26T13:51:45.662Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1800	📝 Recipe step: Step 6: add food (3.8min) - Toss green beans into pan beside salmon	{"log_ts":"2025-06-26T13:51:45.662Z"}
+2025-06-26T13:51:45.662Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1800	📝 Recipe step: Step 7: season (4.2min) - Dust beans with paprika	{"log_ts":"2025-06-26T13:51:45.662Z"}
+2025-06-26T13:51:45.663Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1800	📝 Recipe step: Step 8: flip (4.6min) - Flip salmon again briefly to finish	{"log_ts":"2025-06-26T13:51:45.662Z"}
+2025-06-26T13:51:45.663Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1800	📝 Recipe step: Step 9: remove pan (5.8min) - Remove pan from heat	{"log_ts":"2025-06-26T13:51:45.663Z"}
+2025-06-26T13:51:45.663Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1805	Recipe steps for burner burner-0-dev (elapsed: 30.4 min):
+Recipe Steps (9 total) - Elapsed Time: 30.4 minutes:
+Step 1: add pan (0.0min) - Place pan on burner
+Step 2: season (0.4min) - Add oil and heat until shimmering
+Step 3: add food (1.2min) - Lay salmon fillet skin-side down
+Step 4: season (1.8min) - Season salmon with salt and pepper
+Step 5: flip (3.2min) - Flip salmon gently
+Step 6: add food (3.8min) - Toss green beans into pan beside salmon
+Step 7: season (4.2min) - Dust beans with paprika
+Step 8: flip (4.6min) - Flip salmon again briefly to finish
+Step 9: remove pan (5.8min) - Remove pan from heat	{"log_ts":"2025-06-26T13:51:45.663Z"}
+2025-06-26T13:51:45.663Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1456	
+🧠 ===== PROMPT CONTEXT ===== 🧠	{"log_ts":"2025-06-26T13:51:45.663Z"}
+2025-06-26T13:51:45.663Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1459	👁️  Object Detection Context: ENABLED	{"log_ts":"2025-06-26T13:51:45.663Z"}
+2025-06-26T13:51:45.663Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1460	   Previous: Pan=true Hand=false Utensil=false Lid=false Food=true	{"log_ts":"2025-06-26T13:51:45.663Z"}
+2025-06-26T13:51:45.663Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1462	   Current:  Pan=true Hand=false Utensil=false Lid=false Food=false	{"log_ts":"2025-06-26T13:51:45.663Z"}
+2025-06-26T13:51:45.663Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1485	📖 Recipe Context: FULL RECIPE MODE	{"log_ts":"2025-06-26T13:51:45.663Z"}
+2025-06-26T13:51:45.663Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1487	   Mode: Advisory full recipe context (10 actions)	{"log_ts":"2025-06-26T13:51:45.663Z"}
+2025-06-26T13:51:45.663Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1494	🧠 ========================== 🧠
+	{"log_ts":"2025-06-26T13:51:45.663Z"}
+2025-06-26T13:51:46.342Z	INFO	rdk.resource_manager	impl/resource_manager.go:718	Now configuring resource	{"resource":"rdk:service:generic/chef-temp-target-dev"}
+2025-06-26T13:51:41.361Z	ERROR	rdk.resource_manager.rdk:service:generic/chef-temp-target-dev	resource/graph_node.go:297	Message logged 13 times in past 1m0s: resource build error: resource has unresolved dependencies: [burner-1-dev]	{"resource":"rdk:service:generic/chef-temp-target-dev","model":"gambit-robotics:chef:temp-target-dev"}
+2025-06-26T13:51:46.361Z	ERROR	rdk.resource_manager.rdk:service:generic/chef-temp-target-dev	resource/graph_node.go:297	resource build error: resource has unresolved dependencies: [burner-1-dev]	{"resource":"rdk:service:generic/chef-temp-target-dev","model":"gambit-robotics:chef:temp-target-dev"}
+2025-06-26T13:51:46.361Z	INFO	rdk.resource_manager	impl/resource_manager.go:718	Now configuring resource	{"resource":"rdk:service:generic/chef-timer-dev"}
+2025-06-26T13:51:46.378Z	INFO	rdk.resource_manager	impl/resource_manager.go:718	Now configuring resource	{"resource":"rdk:service:generic/chef-analysis-dev"}
+2025-06-26T13:51:51.363Z	ERROR	rdk.resource_manager.rdk:service:generic/chef-temp-target-dev	resource/graph_node.go:297	resource build error: resource has unresolved dependencies: [burner-1-dev]	{"resource":"rdk:service:generic/chef-temp-target-dev","model":"gambit-robotics:chef:temp-target-dev"}
+2025-06-26T13:51:46.394Z	ERROR	rdk.resource_manager.rdk:service:generic/chef-analysis-dev	resource/graph_node.go:297	Message logged 12 times in past 1m0s: resource build error: resource has unresolved dependencies: [burner-1-dev]	{"resource":"rdk:service:generic/chef-analysis-dev","model":"gambit-robotics:chef:analysis-dev"}
+2025-06-26T13:51:51.363Z	WARN	rdk.resource_manager.rdk:service:generic/chef-analysis-dev	resource/graph_node.go:551	Message logged 12 times in past 1m0s: unexpected resource state transition	{"from":"Unhealthy","to":"Configuring"}
+2025-06-26T13:51:51.396Z	ERROR	rdk.resource_manager.rdk:service:generic/chef-analysis-dev	resource/graph_node.go:297	resource build error: resource has unresolved dependencies: [burner-1-dev]	{"resource":"rdk:service:generic/chef-analysis-dev","model":"gambit-robotics:chef:analysis-dev"}
+2025-06-26T13:51:54.330Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1512	🧠 Using CACHED prompt system	{"log_ts":"2025-06-26T13:51:54.330Z"}
+2025-06-26T13:51:54.330Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1528	
+📋 ===== CLAUDE RESPONSE ===== 📋	{"log_ts":"2025-06-26T13:51:54.330Z"}
+2025-06-26T13:51:54.330Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1530	🎭 Detected Action: Remove food	{"log_ts":"2025-06-26T13:51:54.330Z"}
+2025-06-26T13:51:54.330Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1531	🎯 Confidence: 85.0%	{"log_ts":"2025-06-26T13:51:54.330Z"}
+2025-06-26T13:51:54.331Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1536	⏱️  Analysis Duration: 8.7s	{"log_ts":"2025-06-26T13:51:54.331Z"}
+2025-06-26T13:51:54.331Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1537	📋 =========================== 📋
+2025-06-26T13:51:54.331Z	INFO	local-module-1.rdk:component:camera/burner-0-dev	chef/burner.go:1573	✅ Action ACCEPTED: Remove food (85.0% ≥ 75.0% required)	{"log_ts":"2025-06-26T13:51:54.331Z"}
+
+------------------------------------------------------------
+
+
+================================================================================
+# ANALYSIS SUMMARY
+================================================================================
+
+# Detection Counts by Action:
+# Flip: 1 total (✅1 accepted, ❌0 rejected)
+# Remove food: 1 total (✅1 accepted, ❌0 rejected)
+
+# Performance Statistics:
+# Total detections: 2
+# Acceptance rate: 2/2 (100.0%)
+# Average confidence: 81.5%
+# Confidence range: 78.0% - 85.0%
+# Average similarity: 84.9%
+# Similarity range: 83.0% - 86.8%
+# Average analysis time: 8.8s
+# Analysis time range: 8.7s - 9.0s
+
+# Timeline Summary:
+# First detection: 09:29:41 - Flip
+# Last detection: 09:51:45 - Remove food
